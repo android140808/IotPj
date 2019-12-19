@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/main_bottom_ll_home"
+        style="@style/main_bottom_ll_style">
+
+        <ImageView
+            android:id="@+id/main_bottom_iv_home"
+            style="@style/main_bottom_iv_style"
+            android:background="@mipmap/main_bottom_home_select" />
+
+        <TextView
+            android:id="@+id/main_bottom_tv_home"
+            style="@style/main_bottom_tv_style"
+            android:text="@string/main_tv_home"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/dimen_size_15" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/main_bottom_ll_control"
+        style="@style/main_bottom_ll_style">
+
+        <ImageView
+            android:id="@+id/main_bottom_iv_control"
+            style="@style/main_bottom_iv_style"
+            android:background="@mipmap/main_bottom_contro_un_select" />
+
+        <TextView
+            android:id="@+id/main_bottom_tv_control"
+            style="@style/main_bottom_tv_style"
+            android:text="@string/main_tv_control"
+            android:textColor="@color/main_tv_un_select" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/main_bottom_ll_running"
+        style="@style/main_bottom_ll_style">
+
+        <ImageView
+            android:id="@+id/main_bottom_iv_running"
+            style="@style/main_bottom_iv_style"
+            android:background="@mipmap/main_bottom_running_un_select" />
+
+        <TextView
+            android:id="@+id/main_bottom_tv_running"
+            style="@style/main_bottom_tv_style"
+            android:text="@string/main_tv_running"
+            android:textColor="@color/main_tv_un_select" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/main_bottom_ll_setting"
+        style="@style/main_bottom_ll_style">
+
+        <ImageView
+            android:id="@+id/main_bottom_iv_setting"
+            style="@style/main_bottom_iv_style"
+            android:background="@mipmap/main_bottom_setting_un_select" />
+
+        <TextView
+            android:id="@+id/main_bottom_tv_setting"
+            style="@style/main_bottom_tv_style"
+            android:text="@string/main_tv_setting"
+            android:textColor="@color/main_tv_un_select" />
+
+    </LinearLayout>
+
+</LinearLayout>

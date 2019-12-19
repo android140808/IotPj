@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_bg"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_size_50"
+        android:gravity="center"
+        android:text="@string/main_tv_setting"
+        android:textColor="@color/color_black"
+        android:textSize="@dimen/dimen_size_20" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dimen_size_15">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_size_70"
+            android:orientation="vertical">
+            <!--个人信息-->
+            <RelativeLayout
+                android:id="@+id/setting_rl_person"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_size_70"
+                android:background="@drawable/home_scenes">
+
+                <ImageView
+                    android:id="@+id/setting_iv_personal"
+                    android:layout_width="@dimen/dimen_size_30"
+                    android:layout_height="@dimen/dimen_size_30"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="@dimen/dimen_size_20"
+                    android:background="@mipmap/setting_ic_persional" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="@dimen/dimen_size_20"
+                    android:layout_toRightOf="@id/setting_iv_personal"
+                    android:text="@string/setting_personal"
+                    android:textSize="@dimen/dimen_size_15" />
+
+
+                <ImageView
+                    android:layout_width="@dimen/dimen_size_20"
+                    android:layout_height="@dimen/dimen_size_20"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:background="@mipmap/setting_more" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_size_20"
+                android:background="@drawable/home_scenes"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/setting_rl_sense"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_size_70"
+                    android:layout_marginTop="@dimen/dimen_size_20">
+
+                    <ImageView
+                        android:id="@+id/setting_iv_sense"
+
+                        android:layout_width="@dimen/dimen_size_30"
+                        android:layout_height="@dimen/dimen_size_30"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="@dimen/dimen_size_20"
+                        android:background="@mipmap/setting_iv_sense" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="@dimen/dimen_size_20"
+                        android:layout_toRightOf="@id/setting_iv_sense"
+                        android:text="@string/setting_sense"
+                        android:textSize="@dimen/dimen_size_15" />
+
+
+                    <ImageView
+                        android:layout_width="@dimen/dimen_size_20"
+                        android:layout_height="@dimen/dimen_size_20"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:background="@mipmap/setting_more" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/setting_rl_manager"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_size_70">
+
+                    <ImageView
+                        android:id="@+id/setting_iv_manager"
+                        android:layout_width="@dimen/dimen_size_30"
+                        android:layout_height="@dimen/dimen_size_30"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="@dimen/dimen_size_20"
+                        android:background="@mipmap/main_bottom_setting1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="@dimen/dimen_size_20"
+                        android:layout_toRightOf="@id/setting_iv_manager"
+                        android:text="@string/setting_manager"
+                        android:textSize="@dimen/dimen_size_15" />
+
+
+                    <ImageView
+                        android:layout_width="@dimen/dimen_size_20"
+                        android:layout_height="@dimen/dimen_size_20"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:background="@mipmap/setting_more" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/setting_rl_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_size_70">
+
+                    <ImageView
+                        android:id="@+id/setting_iv_pass"
+                        android:layout_width="@dimen/dimen_size_30"
+                        android:layout_height="@dimen/dimen_size_30"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="@dimen/dimen_size_20"
+                        android:background="@mipmap/setting_iv_pass" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="@dimen/dimen_size_20"
+                        android:layout_toRightOf="@id/setting_iv_pass"
+                        android:text="@string/setting_password"
+                        android:textSize="@dimen/dimen_size_15" />
+
+
+                    <ImageView
+                        android:layout_width="@dimen/dimen_size_20"
+                        android:layout_height="@dimen/dimen_size_20"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:background="@mipmap/setting_more" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/setting_rl_connect"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_size_70">
+
+                    <ImageView
+                        android:id="@+id/setting_iv_connect"
+                        android:layout_width="@dimen/dimen_size_30"
+                        android:layout_height="@dimen/dimen_size_30"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="@dimen/dimen_size_20"
+                        android:background="@mipmap/setting_iv_connect" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="@dimen/dimen_size_20"
+                        android:layout_toRightOf="@id/setting_iv_connect"
+                        android:text="@string/setting_connect"
+                        android:textSize="@dimen/dimen_size_15" />
+
+
+                    <ImageView
+                        android:layout_width="@dimen/dimen_size_20"
+                        android:layout_height="@dimen/dimen_size_20"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:background="@mipmap/setting_more" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_size_20"
+                android:background="@drawable/home_scenes"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/setting_rl_refresh"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_size_70"
+                    android:background="@drawable/home_scenes">
+
+                    <ImageView
+                        android:id="@+id/setting_iv_server"
+                        android:layout_width="@dimen/dimen_size_30"
+                        android:layout_height="@dimen/dimen_size_30"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="@dimen/dimen_size_20"
+                        android:background="@mipmap/setting_ic_persional" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="@dimen/dimen_size_20"
+                        android:layout_toRightOf="@id/setting_iv_server"
+                        android:text="@string/setting_refresh"
+                        android:textSize="@dimen/dimen_size_15" />
+
+
+                    <ImageView
+                        android:layout_width="@dimen/dimen_size_20"
+                        android:layout_height="@dimen/dimen_size_20"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:background="@mipmap/setting_more" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/setting_rl_recover"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_size_70"
+                    android:background="@drawable/home_scenes">
+
+                    <ImageView
+                        android:id="@+id/setting_iv_recover"
+                        android:layout_width="@dimen/dimen_size_30"
+                        android:layout_height="@dimen/dimen_size_30"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="@dimen/dimen_size_20"
+                        android:background="@mipmap/setting_iv_refresh" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="@dimen/dimen_size_20"
+                        android:layout_toRightOf="@id/setting_iv_recover"
+                        android:text="@string/setting_recover"
+                        android:textSize="@dimen/dimen_size_15" />
+
+
+                    <ImageView
+                        android:layout_width="@dimen/dimen_size_20"
+                        android:layout_height="@dimen/dimen_size_20"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:background="@mipmap/setting_more" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_size_120"
+                android:layout_marginTop="@dimen/dimen_size_20"
+                android:background="@mipmap/ic_launcher_round"
+                android:scaleType="fitXY" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

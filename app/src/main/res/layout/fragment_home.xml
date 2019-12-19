@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/home_bg">
+
+    <RelativeLayout
+        android:id="@+id/tittle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_size_50"
+        android:layout_marginTop="@dimen/dimen_size_50">
+
+        <TextView
+            android:id="@+id/main_tv_tittle_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/dimen_size_20"
+            android:text="张三的家"
+            android:textColor="@color/main_tv_select"
+            android:textSize="@dimen/dimen_size_20" />
+
+
+        <ImageView
+            android:id="@+id/main_tittle_iv_message"
+            style="@style/main_bottom_iv_style"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="@dimen/dimen_size_20"
+            android:background="@mipmap/home_ic_message" />
+
+        <ImageView
+            android:id="@+id/main_tittle_iv_global"
+            style="@style/main_bottom_iv_style"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="@dimen/dimen_size_20"
+            android:layout_toLeftOf="@id/main_tittle_iv_message"
+            android:background="@mipmap/home_ic_network" />
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/main_home_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/dimen_size_20"
+        android:layout_marginRight="@dimen/dimen_size_20"
+        android:layout_marginBottom="@dimen/dimen_size_30" />
+
+    <Button
+        android:id="@+id/main_home_scenes"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/main_home_recycler_view"
+        android:layout_marginLeft="@dimen/dimen_size_20"
+        android:layout_marginBottom="@dimen/dimen_size_20"
+        android:background="@drawable/home_scenes"
+        android:text="@string/main_common_scenes" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/main_home_scenes"
+        android:layout_marginLeft="@dimen/dimen_size_20"
+        android:layout_marginRight="@dimen/dimen_size_20"
+        android:layout_marginBottom="@dimen/dimen_size_30"
+        android:background="@drawable/home_tittle"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/main_home_ll_watch_speak"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_size_10"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <cn.zhian.avater.iotproject.widget.HomeBgIcon
+                android:layout_width="@dimen/dimen_size_50"
+                android:layout_height="@dimen/dimen_size_50"
+                app:icon_bg="@mipmap/item_watch"
+                app:type="WATCH_SPEAK" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_size_8"
+                android:text="@string/main_watch_speak"
+                android:textColor="@color/main_tv_select"
+                android:textSize="@dimen/dimen_size_15" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/main_home_ll_environment_monitor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_size_10"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <cn.zhian.avater.iotproject.widget.HomeBgIcon
+                android:layout_width="@dimen/dimen_size_50"
+                android:layout_height="@dimen/dimen_size_50"
+                app:icon_bg="@mipmap/item_envir"
+                app:type="ENVIRONMENT" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_size_8"
+                android:text="@string/main_environment_monitor"
+                android:textColor="@color/main_tv_select"
+                android:textSize="@dimen/dimen_size_15" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/main_home_ll_video_monitor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_size_10"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <cn.zhian.avater.iotproject.widget.HomeBgIcon
+                android:layout_width="@dimen/dimen_size_50"
+                android:layout_height="@dimen/dimen_size_50"
+                app:icon_bg="@mipmap/item_videp"
+                app:type="VIDEO_WATCH" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_size_8"
+                android:text="@string/main_video_monitor"
+                android:textColor="@color/main_tv_select"
+                android:textSize="@dimen/dimen_size_15" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>

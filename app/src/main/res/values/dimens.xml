@@ -1,0 +1,169 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!--修改NavigationView 默认的item属性值,名称属于系统命名,不能修改!!!!!-->
+    <dimen name="design_navigation_icon_padding" tools:override="true">20dp</dimen>
+    <dimen name="design_navigation_icon_size" tools:override="true">30dp</dimen>
+    <!--<dimen name="android.support.design.widget.NavigationView" tools:override="true">260dp</dimen>-->
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="dimen_size_0">0dp</dimen>
+    <dimen name="dimen_size_1">1dp</dimen>
+    <dimen name="dimen_size_2">2dp</dimen>
+    <dimen name="dimen_size_4">4dp</dimen>
+    <dimen name="dimen_size_5">5dp</dimen>
+    <dimen name="dimen_size_8">8dp</dimen>
+    <dimen name="dimen_size_10">10dp</dimen>
+    <dimen name="dimen_size_11">11dp</dimen>
+    <dimen name="dimen_size_12">12dp</dimen>
+    <dimen name="dimen_size_13">13dp</dimen>
+    <dimen name="dimen_size_15">15dp</dimen>
+    <dimen name="dimen_size_16">16dp</dimen>
+    <dimen name="dimen_size_18">18dp</dimen>
+    <dimen name="dimen_size_20">20dp</dimen>
+    <dimen name="dimen_size_25">25dp</dimen>
+    <dimen name="dimen_size_30">30dp</dimen>
+    <dimen name="dimen_size_35">35dp</dimen>
+    <dimen name="dimen_size_40">40dp</dimen>
+    <dimen name="dimen_size_45">45dp</dimen>
+    <dimen name="dimen_size_50">50dp</dimen>
+    <dimen name="dimen_size_55">50dp</dimen>
+    <dimen name="dimen_size_60">60dp</dimen>
+    <dimen name="dimen_size_65">65dp</dimen>
+    <dimen name="dimen_size_70">70dp</dimen>
+    <dimen name="dimen_size_75">75dp</dimen>
+    <dimen name="dimen_size_80">80dp</dimen>
+    <dimen name="dimen_size_90">90dp</dimen>
+    <dimen name="dimen_size_100">100dp</dimen>
+    <dimen name="dimen_size_105">100dp</dimen>
+    <dimen name="dimen_size_110">110dp</dimen>
+    <dimen name="dimen_size_120">120dp</dimen>
+    <dimen name="dimen_size_130">130dp</dimen>
+    <dimen name="dimen_size_140">140dp</dimen>
+    <dimen name="dimen_size_150">150dp</dimen>
+    <dimen name="dimen_size_160">160dp</dimen>
+    <dimen name="dimen_size_170">170dp</dimen>
+    <dimen name="dimen_size_200">200dp</dimen>
+    <dimen name="dimen_size_250">250dp</dimen>
+    <dimen name="dimen_size_300">300dp</dimen>
+    <dimen name="dimen_size_330">330dp</dimen>
+    <dimen name="dimen_size_350">350dp</dimen>
+    <dimen name="dimen_size_500">500dp</dimen>
+
+    <!--左侧navigationView 的字体大小设置-->
+    <dimen name="dimen_nav_logout_text_size">19dp</dimen>
+
+    <!--标题中间字体的大小-->
+    <dimen name="dimen_title_center_text_size">18dp</dimen>
+    <!--标题右边字体的大小-->
+    <dimen name="dimen_title_right_text_size">14dp</dimen>
+    <!---标题右边Imageview的padding-->
+    <dimen name="dimen_title_right_image_padding">8dp</dimen>
+
+    <!--底部字体的大小-->
+    <dimen name="dimen_bottom_text_size">13dp</dimen>
+    <dimen name="dimen_bottom_text_size_e">12dp</dimen>
+    <dimen name="dimen_bottom_line_bg_width">5dp</dimen>
+
+    <!--常用分割线的宽度-->
+    <dimen name="dimen_divider_line_width_px">1px</dimen>
+    <dimen name="dimen_divider_line_width_dp">1dp</dimen>
+
+    <!---登录界面-->
+    <dimen name="dimen_login_big_text_size">15dp</dimen>
+    <dimen name="dimen_login_small_text_size">12dp</dimen>
+
+    <!--Profile界面-->
+    <dimen name="dimen_my_profile_name_small_text_size">13dp</dimen>
+    <dimen name="dimen_my_profile_name_icon_width">130dp</dimen>
+    <dimen name="dimen_my_profile_gender_icon_width">130dp</dimen>
+    <dimen name="dimen_my_profile_country_wheel_text_size">15dp</dimen>
+    <dimen name="dimen_my_profile_country_wheel_indicator_size">6dp</dimen>
+    <dimen name="dimen_my_profile_country_indicator_pad">2dp</dimen>
+
+    <!--ProfileWheelView默认的字体大小-->
+    <dimen name="dimen_profile_wheel_default_text_size">27dp</dimen>
+    <dimen name="dimen_indicator_size">2dp</dimen><!-- 滚轮指针大小-->
+    <dimen name="dimen_wheel_word_padding">2dp</dimen><!-- 字母偏移距離-->
+    <dimen name="dimen_wheel_text_size">8dp</dimen><!-- 字母大小-->
+
+    <!--WheelView相关的样式-->
+    <dimen name="dimen_wheel_text_size_normal">15dp</dimen>
+    <dimen name="dimen_wheel_text_size_select">20dp</dimen>
+    <dimen name="dimen_wheel_height_small">40dp</dimen>
+
+    <!---WheelDialog相关样式-->
+    <dimen name="dimen_wheel_dialog_text_size">18dp</dimen>
+    <dimen name="dimen_wheel_dialog_zh_text_size">16dp</dimen>
+
+    <!---Reminder页面-->
+    <dimen name="dimen_reminder_grid_width">100dp</dimen>
+    <dimen name="dimen_reminder_recycler_item_big_text">18dp</dimen>
+    <dimen name="dimen_reminder_recycler_item_small_text">13dp</dimen>
+    <dimen name="dimen_reminder_add_caption_text_size">28dp</dimen>
+    <dimen name="dimen_reminder_add_repeat_text_size">13dp</dimen>
+    <dimen name="dimen_reminder_add_time_text_size">20dp</dimen>
+    <dimen name="dimen_reminder_add_apm_text_size">10dp</dimen>
+    <dimen name="dimen_reminder_fab_margin">20dp</dimen>
+
+    <!--Setting页面-->
+    <dimen name="dimen_setting_text_size">14dp</dimen>
+    <dimen name="dimen_setting_item_key_text_size">12dp</dimen>
+    <!--Setting-Feedback-->
+    <dimen name="dimen_setting_feedback_add_image_width">58dp</dimen>
+
+    <!--Activity界面-->
+    <dimen name="dimen_activity_text_size">25dp</dimen>
+    <dimen name="dimen_activity_item_ring_radius">220dp</dimen>
+    <dimen name="dimen_activity_recycler_padding">60dp</dimen>
+    <dimen name="dimen_activity_item_bottom_padding">30dp</dimen>
+
+    <!--ActivityDetail-->
+    <dimen name="dimen_activity_detail_big_text_size">30dp</dimen>
+
+    <!--CustomDialog字体大小-->
+    <dimen name="dimen_custom_dialog_title_text">15dp</dimen>
+    <dimen name="dimen_custom_dialog_content_text">14dp</dimen>
+    <dimen name="dimen_custom_dialog_select_text">16dp</dimen>
+    <dimen name="dimen_custom_dialog_subtitle_text">11dp</dimen>
+    <!--bindUnbind-->
+    <dimen name="dimen_bind_text">14dp</dimen>
+
+    <!--About us-->
+    <dimen name="dimen_about_us_text_title">16dp</dimen>
+    <dimen name="dimen_about_us_text_content">12dp</dimen>
+
+    <!--Date dialog details-->
+    <dimen name="watch_face_show_text">14dp</dimen>
+
+    <!--Permission UI-->
+    <dimen name="permission_top">24dp</dimen>
+
+    <!--Payment UI-->
+    <dimen name="payment_text_big">14dp</dimen>
+    <dimen name="payment_text_small">12dp</dimen>
+    <dimen name="payment_text_small2">11dp</dimen>
+    <dimen name="payment_text_small3">13dp</dimen>
+    <dimen name="payment_width">310dp</dimen>
+    <dimen name="payment_width2">300dp</dimen>
+    <dimen name="payment_height">110dp</dimen>
+    <dimen name="payment_height3">120dp</dimen>
+    <dimen name="payment_height2">140dp</dimen>
+
+    <dimen name="payment_add_width">160dp</dimen>
+    <dimen name="payment_add_height">60dp</dimen>
+    <dimen name="payment_item_margin_start">120dp</dimen>
+
+    <!--家乡时区-->
+    <dimen name="time_zone_chinese">13dp</dimen>
+    <dimen name="time_zone_default">16dp</dimen>
+    <dimen name="time_zone_text_top">13dp</dimen>
+    <dimen name="time_zone_text_bottom">18dp</dimen>
+
+    <dimen name="watch_face_widget_width">55dp</dimen>
+    <dimen name="dimen_leader_text_size">17dp</dimen>
+    <dimen name="toast_original_size">14sp</dimen>
+    <dimen name="small_size">12dp</dimen>
+    <dimen name="normal_size">15dp</dimen>
+    <dimen name="big_size">20dp</dimen>
+    <dimen name="huge_size">25dp</dimen>
+
+
+</resources>

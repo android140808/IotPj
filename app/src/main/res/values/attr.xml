@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="HomeBgIcon">
+        <attr name="icon_bg" format="integer" />
+        <attr name="type" format="enum">
+            <enum name="WATCH_SPEAK" value="0" />
+            <enum name="ENVIRONMENT" value="1" />
+            <enum name="VIDEO_WATCH" value="2" />
+        </attr>
+    </declare-styleable>
+</resources>

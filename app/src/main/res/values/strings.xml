@@ -1,3 +1,42 @@
 <resources>
     <string name="app_name">IOTProject</string>
+
+    <string name="main_tv_home">智家</string>
+    <string name="main_tv_control">控制</string>
+    <string name="main_tv_running">运行中</string>
+    <string name="main_tv_running_devices">运行中的设备</string>
+    <string name="main_tv_setting">设置</string>
+
+    <string name="login">登录</string>
+    <string name="login_input_phone">请输入手机号</string>
+    <string name="login_get_phone_check">获取验证码</string>
+    <string name="login_agree">我已阅读并同意《智安物联用户隐私协议》</string>
+    <string name="login_thirty">第三方登录</string>
+
+    <string name="main_watch_speak">可视对讲</string>
+    <string name="main_environment_monitor">环境监控</string>
+    <string name="main_video_monitor">视频监控</string>
+
+    <string name="main_common_scenes">常用场景</string>
+    <string name="main_scenes_leave_home">离家模式</string>
+    <string name="main_scenes_go_home">回家模式</string>
+    <string name="main_scenes_safe">安全模式</string>
+    <string name="main_scenes_sleep">睡眠模式</string>
+
+    <string name="control"></string>
+    <string name="control_bed_room">卧室设备：</string>
+    <string name="control_living_room">客厅设备：</string>
+    <string name="control_balcony">阳台设备：</string>
+    <string name="control_security_sense">安防传感器</string>
+    <string name="control_linght_sense">灯光开关</string>
+    <string name="control_encironment_sense">环境传感器</string>
+
+    <string name="setting_personal">个人信息</string>
+    <string name="setting_sense">情景模式设置</string>
+    <string name="setting_manager">配置管理</string>
+    <string name="setting_password">密码管理</string>
+    <string name="setting_connect">连接模式</string>
+    <string name="setting_refresh">刷新服务器</string>
+    <string name="setting_recover">恢复出厂设置</string>
+
 </resources>
