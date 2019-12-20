@@ -1,5 +1,6 @@
 package cn.zhian.avater.iotproject.base;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import androidx.fragment.app.Fragment;
 
 import butterknife.ButterKnife;
 import cn.zhian.avater.iotproject.Applications;
+import cn.zhian.avater.iotproject.R;
 
 /**
  * @Author: wangweida
@@ -64,6 +66,14 @@ public abstract class BaseFragment extends Fragment {
                 }
             });
         }
+    }
+
+    protected void changUI(Class clas, Bundle... bundles) {
+        Intent intent = new Intent(getActivity(), clas);
+        if (bundles != null && bundles.length > 0) {
+            intent.putExtras(bundles[0]);
+        }
+        getActivity().startActivity(intent);
     }
 
 }

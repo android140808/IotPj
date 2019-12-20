@@ -3,10 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="cn.zhian.avater.iotproject">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 网络状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 数据存储 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 相机 -->
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- 蓝牙外设 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" /> <!-- 6.0蓝牙部分手机需要定位权限 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:name=".Applications"
@@ -17,9 +21,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.activity.LoginUI"></activity>
+        <activity android:name=".ui.activity.PasswordUI"></activity>
+        <activity android:name=".ui.activity.ManagerUI" />
+        <activity android:name=".ui.activity.SenseUI" />
+        <activity android:name=".ui.activity.PersonUI" />
+        <activity android:name=".ui.activity.LoginUI" />
         <activity
             android:name=".ui.activity.FlashUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.MainUI"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,9 +38,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.activity.MainUI"
-            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

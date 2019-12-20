@@ -38,5 +38,27 @@
     <string name="setting_connect">连接模式</string>
     <string name="setting_refresh">刷新服务器</string>
     <string name="setting_recover">恢复出厂设置</string>
+    <string name="setting_logout">退出登录</string>
+
+    <string name="persion_nick_name">昵称</string>
+    <string name="persion_nick_name_ed">请输入您的昵称</string>
+    <string name="persion_phone_number">手机</string>
+
+    <string name="sense_add">添加情景</string>
+
+    <string name="manager_upload">上传配置</string>
+    <string name="manager_download">下载配置</string>
+    <string name="manager_tips">是否确认上传配置</string>
+
+    <string name="pass_word_change">修改密码</string>
+    <string name="pass_word_manager_limit">临时密码管理</string>
+    <string name="pass_word_original">初始密码</string>
+    <string name="pass_word_original_hint">请输入初始密码</string>
+    <string name="pass_word_new">新密码</string>
+    <string name="pass_word_new_hint">请输入新密码</string>
+    <string name="pass_word_again">重复新密码</string>
+    <string name="pass_word_again_hint">请再次输入密码</string>
+    <string name="pass_word_random">随机密码</string>
+
 
 </resources>

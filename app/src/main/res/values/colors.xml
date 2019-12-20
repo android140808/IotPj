@@ -10,6 +10,7 @@
     <color name="main_tv_select">#111111</color>
     <color name="main_tv_un_select">#999999</color>
     <color name="home_icon_bg">#028EFF</color>
+    <color name="color_logout">#FF4201</color>
 
 
 </resources>

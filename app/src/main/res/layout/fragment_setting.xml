@@ -20,14 +20,15 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_size_70"
+            android:layout_height="@dimen/dimen_size_60"
             android:orientation="vertical">
             <!--个人信息-->
             <RelativeLayout
                 android:id="@+id/setting_rl_person"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_size_70"
-                android:background="@drawable/home_scenes">
+                android:layout_height="@dimen/dimen_size_60"
+                android:background="@drawable/home_scenes"
+                android:gravity="center">
 
                 <ImageView
                     android:id="@+id/setting_iv_personal"
@@ -62,12 +63,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dimen_size_20"
                 android:background="@drawable/home_scenes"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <RelativeLayout
                     android:id="@+id/setting_rl_sense"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_size_70"
+                    android:layout_height="@dimen/dimen_size_60"
                     android:layout_marginTop="@dimen/dimen_size_20">
 
                     <ImageView
@@ -102,7 +104,7 @@
                 <RelativeLayout
                     android:id="@+id/setting_rl_manager"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_size_70">
+                    android:layout_height="@dimen/dimen_size_60">
 
                     <ImageView
                         android:id="@+id/setting_iv_manager"
@@ -135,7 +137,7 @@
                 <RelativeLayout
                     android:id="@+id/setting_rl_password"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_size_70">
+                    android:layout_height="@dimen/dimen_size_60">
 
                     <ImageView
                         android:id="@+id/setting_iv_pass"
@@ -168,7 +170,7 @@
                 <RelativeLayout
                     android:id="@+id/setting_rl_connect"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_size_70">
+                    android:layout_height="@dimen/dimen_size_60">
 
                     <ImageView
                         android:id="@+id/setting_iv_connect"
@@ -210,7 +212,7 @@
                 <RelativeLayout
                     android:id="@+id/setting_rl_refresh"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_size_70"
+                    android:layout_height="@dimen/dimen_size_60"
                     android:background="@drawable/home_scenes">
 
                     <ImageView
@@ -244,7 +246,7 @@
                 <RelativeLayout
                     android:id="@+id/setting_rl_recover"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_size_70"
+                    android:layout_height="@dimen/dimen_size_60"
                     android:background="@drawable/home_scenes">
 
                     <ImageView
@@ -276,13 +278,23 @@
                 </RelativeLayout>
             </LinearLayout>
 
-
-            <ImageView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_size_120"
+                android:layout_height="@dimen/dimen_size_70"
                 android:layout_marginTop="@dimen/dimen_size_20"
-                android:background="@mipmap/ic_launcher_round"
-                android:scaleType="fitXY" />
+                android:background="@drawable/home_scenes"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_size_60"
+                    android:gravity="center"
+                    android:text="@string/setting_logout"
+                    android:textColor="@color/color_logout"
+                    android:textSize="@dimen/dimen_size_15" />
+
+
+            </LinearLayout>
 
         </LinearLayout>
 

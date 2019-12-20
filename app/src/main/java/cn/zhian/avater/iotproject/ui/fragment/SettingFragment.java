@@ -8,6 +8,10 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.base.BaseFragment;
+import cn.zhian.avater.iotproject.ui.activity.ManagerUI;
+import cn.zhian.avater.iotproject.ui.activity.PasswordUI;
+import cn.zhian.avater.iotproject.ui.activity.PersonUI;
+import cn.zhian.avater.iotproject.ui.activity.SenseUI;
 
 /**
  * @Author: wangweida
@@ -59,12 +63,16 @@ public class SettingFragment extends BaseFragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.setting_rl_person:
+                changUI(PersonUI.class);
                 break;
             case R.id.setting_rl_sense:
+                changUI(SenseUI.class);
                 break;
             case R.id.setting_rl_manager:
+                changUI(ManagerUI.class);
                 break;
             case R.id.setting_rl_password:
+                changUI(PasswordUI.class);
                 break;
             case R.id.setting_rl_connect:
                 break;

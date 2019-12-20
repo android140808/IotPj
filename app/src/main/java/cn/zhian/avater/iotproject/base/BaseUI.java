@@ -38,9 +38,9 @@ public abstract class BaseUI extends AppCompatActivity {
     private void hideActionBar() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             // 透明状态栏
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            // 透明导航栏
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+//            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+//            // 透明导航栏
+//            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         }
     }
 
@@ -94,6 +94,9 @@ public abstract class BaseUI extends AppCompatActivity {
             intent.putExtras(bundles[0]);
         }
         startActivity(intent);
+    }
+
+    protected void closeUI() {
         finish();
     }
 }

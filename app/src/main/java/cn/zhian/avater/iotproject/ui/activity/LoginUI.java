@@ -12,6 +12,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.base.BaseUI;
+import cn.zhian.avater.iotproject.utils.PermissionUtils;
 
 public class LoginUI extends BaseUI {
 
@@ -40,7 +41,7 @@ public class LoginUI extends BaseUI {
 
     @Override
     public void initData() {
-
+        PermissionUtils.getInstance().applyAllPermissions(this);
     }
 
 

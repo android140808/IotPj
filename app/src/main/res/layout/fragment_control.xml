@@ -41,6 +41,7 @@
 
     </RelativeLayout>
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/control_recyler_view"
         android:layout_width="match_parent"

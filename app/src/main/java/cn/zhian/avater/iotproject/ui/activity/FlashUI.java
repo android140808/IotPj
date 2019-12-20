@@ -28,6 +28,7 @@ public class FlashUI extends BaseUI {
             @Override
             public void accept(Long aLong) throws Exception {
                 changeUI(mContext, LoginUI.class);
+                closeUI();
             }
         });
     }

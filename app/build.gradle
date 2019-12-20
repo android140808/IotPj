@@ -2,18 +2,40 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.butterknife'
 android {
     compileSdkVersion 29
+    //基本信息
     defaultConfig {
         applicationId "cn.zhian.avater.iotproject"
         minSdkVersion 18
         targetSdkVersion 29
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    //指定签名配置
+    signingConfigs {
+        config {
+            storeFile file("../appkey.jks")
+            storePassword "zt645321"
+            keyAlias "Coder"
+            keyPassword "zt135751"
+        }
+
+    }
+    //编译类型
     buildTypes {
         release {
+            //混淆
             minifyEnabled false
+            //调试
+            debuggable false
+            //签名
+            signingConfig signingConfigs.config
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable true
+            signingConfig signingConfigs.config
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -22,10 +44,29 @@ android {
         exclude 'META-INF/rxjava.properties'
     }
 
-    compileOptions {
+    compileOptions {//lambda
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    //修改打包后的Apk名称
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def outputFile = output.outputFile
+            def fileName
+            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                if (variant.buildType.name.equals('release')) {
+                    fileName = "正式_${getTime()}.apk"
+                } else if (variant.buildType.name.equals('debug')) {
+                    fileName = "测试_${getTime()}.apk"
+                }
+                outputFileName = fileName
+            }
+        }
+    }
+}
+
+def getTime() {
+    return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
 }
 
 dependencies {
@@ -50,4 +91,6 @@ dependencies {
     //butter_knife
     implementation 'com.jakewharton:butterknife:10.2.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
+    //>=6.0运行时权限
+    implementation 'com.yanzhenjie:permission:2.0.3'
 }
