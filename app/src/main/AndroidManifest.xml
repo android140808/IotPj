@@ -21,7 +21,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.activity.PasswordUI"></activity>
+        <activity android:name=".ui.activity.ConnectTypeUI"></activity>
+        <activity android:name=".ui.activity.PasswordUI" />
         <activity android:name=".ui.activity.ManagerUI" />
         <activity android:name=".ui.activity.SenseUI" />
         <activity android:name=".ui.activity.PersonUI" />

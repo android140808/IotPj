@@ -1,9 +1,13 @@
 package cn.zhian.avater.iotproject.utils;
 
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.bean.ControlBean;
@@ -15,6 +19,16 @@ import cn.zhian.avater.iotproject.bean.HomeRecylerViewBean;
  * @Description:
  */
 public class DataHelper {
+
+    public static boolean networkState(Context context) {
+        ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo info = manager.getActiveNetworkInfo();
+        if (info != null) {
+            return info.isAvailable();
+        }
+        return false;
+    }
+
     public static List<HomeRecylerViewBean> getHomeBeans(Context context) {
         List<HomeRecylerViewBean> data = new ArrayList<>();
         HomeRecylerViewBean b1 = new HomeRecylerViewBean(0, context.getResources().getString(R.string.main_scenes_leave_home), R.mipmap.item_leave_home);
@@ -37,5 +51,12 @@ public class DataHelper {
         list.add(c2);
         list.add(c3);
         return list;
+    }
+
+    public static boolean isChinaPhone(String str) {
+        String regExp = "^((13[0-9])|(15[^4])|(18[0-9])|(17[0-8])|(147,145))\\d{8}$";
+        Pattern p = Pattern.compile(regExp);
+        Matcher m = p.matcher(str);
+        return m.matches();
     }
 }

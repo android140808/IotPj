@@ -17,6 +17,12 @@ android {
     buildTypes {
         release {
             minifyEnabled false
+            buildConfigField('String', "HOST_NAME", "")
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            buildConfigField('String', "HOST_NAME", "")
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -30,4 +36,15 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    // RetroFit
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    // RetroFit使用GSON的适配器
+    implementation 'com.squareup.retrofit2:converter-gson:2.2.0'
+    // RetroFit使用RxJava的适配器
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.2.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.6.0'
+    // RxAndroid
+    implementation 'io.reactivex:rxandroid:1.2.1'
 }

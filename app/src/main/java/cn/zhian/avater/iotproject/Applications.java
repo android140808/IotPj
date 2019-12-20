@@ -1,10 +1,11 @@
 package cn.zhian.avater.iotproject;
 
-import android.app.Application;
 import android.content.Context;
 
 import androidx.multidex.MultiDex;
 import androidx.multidex.MultiDexApplication;
+
+import cn.zhian.avater.netmodule.ServerContext;
 
 /**
  * @Author: wangweida
@@ -23,6 +24,7 @@ public class Applications extends MultiDexApplication {
 
     private void init() {
         mContext = this;
+        ServerContext.INSTANCE.init(this);
     }
 
     @Override
