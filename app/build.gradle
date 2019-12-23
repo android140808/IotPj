@@ -93,4 +93,5 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
     //>=6.0运行时权限
     implementation 'com.yanzhenjie:permission:2.0.3'
+    implementation project(path: ':databasemodule')
 }

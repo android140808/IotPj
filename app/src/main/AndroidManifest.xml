@@ -21,12 +21,24 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.activity.ConnectTypeUI"></activity>
-        <activity android:name=".ui.activity.PasswordUI" />
-        <activity android:name=".ui.activity.ManagerUI" />
-        <activity android:name=".ui.activity.SenseUI" />
-        <activity android:name=".ui.activity.PersonUI" />
-        <activity android:name=".ui.activity.LoginUI" />
+        <activity
+            android:name=".ui.activity.ConnectTypeUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.PasswordUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.ManagerUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.SenseUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.PersonUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.LoginUI"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.FlashUI"
             android:screenOrientation="portrait" />

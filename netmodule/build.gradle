@@ -17,12 +17,12 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            buildConfigField('String', "HOST_NAME", "")
+            buildConfigField('String', "HOST_NAME", "\"http://www.baidu.com/\"")
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
             minifyEnabled false
-            buildConfigField('String', "HOST_NAME", "")
+            buildConfigField('String', "HOST_NAME", "\"http://www.baidu.com/\"")
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }

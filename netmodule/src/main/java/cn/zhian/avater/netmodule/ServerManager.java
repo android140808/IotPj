@@ -93,4 +93,8 @@ public class ServerManager {
             return response.newBuilder().header("Cache-Control", cacheControl).removeHeader("Pragma").build();
         }
     };
+
+    public Urls getUrls() {
+        return urls;
+    }
 }
