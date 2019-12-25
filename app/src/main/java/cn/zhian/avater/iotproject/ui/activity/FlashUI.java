@@ -5,6 +5,7 @@ import android.view.KeyEvent;
 import java.util.concurrent.TimeUnit;
 
 import cn.zhian.avater.iotproject.R;
+import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.base.BaseUI;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -12,6 +13,11 @@ import io.reactivex.functions.Consumer;
 
 public class FlashUI extends BaseUI {
 
+
+    @Override
+    public BasePresenter createPresenter() {
+        return null;
+    }
 
     @Override
     public int getViewLayout() {

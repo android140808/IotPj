@@ -7,6 +7,8 @@ import android.widget.TextView;
 
 import androidx.viewpager.widget.ViewPager;
 
+import com.tencent.bugly.crashreport.BuglyLog;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +17,7 @@ import butterknife.OnClick;
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.adapter.MainUIAdapter;
 import cn.zhian.avater.iotproject.base.BaseFragment;
+import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.base.BaseUI;
 import cn.zhian.avater.iotproject.ui.fragment.ControlFragment;
 import cn.zhian.avater.iotproject.ui.fragment.HomeFragment;
@@ -56,6 +59,11 @@ public class MainUI extends BaseUI {
     private SettingFragment settingFragment;
     private MainUIAdapter adapter;
     private List<BaseFragment> fragmentList = new ArrayList<>();
+
+    @Override
+    public BasePresenter createPresenter() {
+        return null;
+    }
 
     @Override
     public int getViewLayout() {

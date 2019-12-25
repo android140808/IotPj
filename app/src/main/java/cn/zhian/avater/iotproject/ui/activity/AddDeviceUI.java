@@ -1,6 +1,7 @@
 package cn.zhian.avater.iotproject.ui.activity;
 
 import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,13 +13,17 @@ import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.base.BaseUI;
 
-public class SenseUI extends BaseUI {
+public class AddDeviceUI extends BaseUI {
 
 
     @BindView(R.id.comm_tittle_iv_left)
     ImageView commTittleIvLeft;
-    @BindView(R.id.sense_recyler_view)
-    RecyclerView senseRecylerView;
+    @BindView(R.id.add_device_ed_name)
+    EditText addDeviceEdName;
+    @BindView(R.id.add_device_recycler_view_left)
+    RecyclerView addDeviceRecyclerViewLeft;
+    @BindView(R.id.add_device_recycler_view_right)
+    RecyclerView addDeviceRecyclerViewRight;
 
     @Override
     public BasePresenter createPresenter() {
@@ -27,7 +32,7 @@ public class SenseUI extends BaseUI {
 
     @Override
     public int getViewLayout() {
-        return R.layout.sense_ui;
+        return R.layout.add_device_ui;
     }
 
     @Override
@@ -43,6 +48,5 @@ public class SenseUI extends BaseUI {
 
     @OnClick(R.id.comm_tittle_iv_left)
     public void onViewClicked() {
-        closeUI();
     }
 }

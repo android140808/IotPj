@@ -26,8 +26,8 @@
     </style>
 
     <style name="main_bottom_iv_style">
-        <item name="android:layout_width">@dimen/dimen_size_40</item>
-        <item name="android:layout_height">@dimen/dimen_size_40</item>
+        <item name="android:layout_width">@dimen/dimen_size_30</item>
+        <item name="android:layout_height">@dimen/dimen_size_30</item>
         <item name="android:scaleType">fitXY</item>
     </style>
 

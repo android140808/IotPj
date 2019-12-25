@@ -1,26 +1,28 @@
 package cn.zhian.avater.iotproject.ui.activity;
 
-import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.base.BaseUI;
 
-public class PasswordUI extends BaseUI {
-
+public class DeviceManagerUI extends BaseUI {
 
     @BindView(R.id.comm_tittle_iv_left)
     ImageView commTittleIvLeft;
-    @BindView(R.id.pass_word_rl_change)
-    RelativeLayout passWordRlChange;
-    @BindView(R.id.pass_word_rl_limit_manager)
-    RelativeLayout passWordRlLimitManager;
+    @BindView(R.id.comm_tittle_tv_right)
+    TextView commTittleTvRight;
+    @BindView(R.id.recyler_view)
+    RecyclerView recylerView;
+    @BindView(R.id.device_rl_add)
+    RelativeLayout deviceRlAdd;
 
     @Override
     public BasePresenter createPresenter() {
@@ -29,7 +31,7 @@ public class PasswordUI extends BaseUI {
 
     @Override
     public int getViewLayout() {
-        return R.layout.password_ui;
+        return R.layout.device_manager_ui;
     }
 
     @Override
@@ -43,15 +45,16 @@ public class PasswordUI extends BaseUI {
     }
 
 
-    @OnClick({R.id.comm_tittle_iv_left, R.id.pass_word_rl_change, R.id.pass_word_rl_limit_manager})
+    @OnClick({R.id.comm_tittle_iv_left, R.id.comm_tittle_tv_right, R.id.device_rl_add})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.comm_tittle_iv_left:
                 closeUI();
                 break;
-            case R.id.pass_word_rl_change:
+            case R.id.comm_tittle_tv_right:
                 break;
-            case R.id.pass_word_rl_limit_manager:
+            case R.id.device_rl_add:
+                changeUI(this, AddDeviceUI.class);
                 break;
         }
     }

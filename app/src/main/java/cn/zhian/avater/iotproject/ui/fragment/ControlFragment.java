@@ -14,6 +14,7 @@ import cn.zhian.avater.iotproject.Applications;
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.adapter.ControlAdapter;
 import cn.zhian.avater.iotproject.base.BaseFragment;
+import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.bean.ControlBean;
 import cn.zhian.avater.iotproject.utils.DataHelper;
 
@@ -24,8 +25,6 @@ import cn.zhian.avater.iotproject.utils.DataHelper;
  */
 public class ControlFragment extends BaseFragment {
 
-    @BindView(R.id.control_iv)
-    ImageView controlIv;
     @BindView(R.id.control_tv_tittle)
     TextView controlTvTittle;
     @BindView(R.id.control_iv_add)
@@ -34,6 +33,11 @@ public class ControlFragment extends BaseFragment {
     RecyclerView controlRecylerView;
     private ControlAdapter adapter;
     private List<ControlBean> list;
+
+    @Override
+    public BasePresenter createPresenter() {
+        return null;
+    }
 
     @Override
     public int getLayout() {

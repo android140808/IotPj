@@ -10,6 +10,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.base.BaseFragment;
+import cn.zhian.avater.iotproject.base.BasePresenter;
 
 /**
  * @Author: wangweida
@@ -18,6 +19,10 @@ import cn.zhian.avater.iotproject.base.BaseFragment;
  */
 public class RunningFragment extends BaseFragment {
 
+    @Override
+    public BasePresenter createPresenter() {
+        return null;
+    }
 
     @Override
     public int getLayout() {

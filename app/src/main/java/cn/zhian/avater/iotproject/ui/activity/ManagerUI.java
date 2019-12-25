@@ -9,6 +9,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.zhian.avater.iotproject.R;
+import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.base.BaseUI;
 
 public class ManagerUI extends BaseUI {
@@ -19,6 +20,11 @@ public class ManagerUI extends BaseUI {
     RelativeLayout managerRlUpLoad;
     @BindView(R.id.manager_down_load)
     RelativeLayout managerDownLoad;
+
+    @Override
+    public BasePresenter createPresenter() {
+        return null;
+    }
 
     @Override
     public int getViewLayout() {

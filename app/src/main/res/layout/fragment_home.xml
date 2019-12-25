@@ -37,7 +37,16 @@
             android:layout_centerInParent="true"
             android:layout_marginRight="@dimen/dimen_size_20"
             android:layout_toLeftOf="@id/main_tittle_iv_message"
-            android:background="@mipmap/home_ic_network" />
+            android:background="@mipmap/device_add" />
+
+        <ImageView
+            android:id="@+id/main_tittle_iv_message_dot"
+            android:layout_width="@dimen/dimen_size_5"
+            android:layout_height="@dimen/dimen_size_5"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/dimen_size_10"
+            android:layout_marginRight="@dimen/dimen_size_20"
+            android:background="@drawable/message_dot" />
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView

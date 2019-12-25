@@ -8,6 +8,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.base.BaseFragment;
+import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.ui.activity.ConnectTypeUI;
 import cn.zhian.avater.iotproject.ui.activity.LoginUI;
 import cn.zhian.avater.iotproject.ui.activity.ManagerUI;
@@ -51,6 +52,11 @@ public class SettingFragment extends BaseFragment implements ResetView.doSomeTin
     ImageView settingIvRecover;
     @BindView(R.id.setting_rl_recover)
     RelativeLayout settingRlRecover;
+
+    @Override
+    public BasePresenter createPresenter() {
+        return null;
+    }
 
     @Override
     public int getLayout() {

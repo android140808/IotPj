@@ -8,11 +8,17 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.tencent.bugly.crashreport.BuglyLog;
+import com.tencent.bugly.crashreport.CrashReport;
+
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 import cn.zhian.avater.iotproject.Applications;
+import cn.zhian.avater.iotproject.base.BasePresenter;
+import cn.zhian.avater.iotproject.ui.activity.DeviceManagerUI;
+import cn.zhian.avater.iotproject.ui.activity.MessageUI;
 import cn.zhian.avater.iotproject.utils.DataHelper;
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.adapter.HomeAdapterItemSpace;
@@ -42,6 +48,8 @@ public class HomeFragment extends BaseFragment {
     LinearLayout mainHomeLlEnvironmentMonitor;
     @BindView(R.id.main_home_ll_video_monitor)
     LinearLayout mainHomeLlVideoMonitor;
+    @BindView(R.id.main_tittle_iv_message_dot)
+    ImageView mainTittleIvMessageDot;
 
     private HomeRecylerViewAdapter adapter;
     private List<HomeRecylerViewBean> datas;
@@ -52,7 +60,13 @@ public class HomeFragment extends BaseFragment {
     }
 
     @Override
+    public BasePresenter createPresenter() {
+        return null;
+    }
+
+    @Override
     public void initData() {
+        mainTvTittleHome = null;
         datas = DataHelper.getHomeBeans(Applications.getPowerContext());
         adapter = new HomeRecylerViewAdapter(datas, getActivity());
         LinearLayoutManager manager = new LinearLayoutManager(getActivity());
@@ -68,16 +82,12 @@ public class HomeFragment extends BaseFragment {
         public void onClick(int position) {
             switch (position) {
                 case 0:
-                    showToast("1");
                     break;
                 case 1:
-                    showToast("2");
                     break;
                 case 2:
-                    showToast("3");
                     break;
                 case 3:
-                    showToast("4");
                     break;
             }
 
@@ -89,8 +99,10 @@ public class HomeFragment extends BaseFragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.main_tittle_iv_message:
+                changUI(MessageUI.class);
                 break;
             case R.id.main_tittle_iv_global:
+                changUI(DeviceManagerUI.class);
                 break;
         }
     }

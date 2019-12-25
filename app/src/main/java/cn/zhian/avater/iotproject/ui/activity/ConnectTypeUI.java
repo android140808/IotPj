@@ -9,6 +9,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.zhian.avater.iotproject.R;
+import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.base.BaseUI;
 
 public class ConnectTypeUI extends BaseUI {
@@ -28,6 +29,11 @@ public class ConnectTypeUI extends BaseUI {
     ImageView connectTypeIvAutoSelect;
     @BindView(R.id.connect_type_rl_auto)
     RelativeLayout connectTypeRlAuto;
+
+    @Override
+    public BasePresenter createPresenter() {
+        return null;
+    }
 
     @Override
     public int getViewLayout() {

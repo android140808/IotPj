@@ -6,5 +6,4 @@ package cn.zhian.avater.iotproject.base;
  * @Description:
  */
 public interface BaseView {
-    void networkError();
 }

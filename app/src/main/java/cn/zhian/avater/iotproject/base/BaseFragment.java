@@ -20,14 +20,21 @@ import cn.zhian.avater.iotproject.R;
  * @CreateDate: 2019-12-16 15:23
  * @Description:
  */
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment<V extends BaseView, T extends BasePresenter<V>> extends Fragment implements BaseView {
 
+    protected final String TAG = this.getClass().getSimpleName();
+
+    protected T mPresenter;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(getLayout(), container, false);
         ButterKnife.bind(this, view);
+        createPresenter();
+        if (mPresenter != null) {
+            mPresenter.attachView((V) this);
+        }
         return view;
     }
 
@@ -37,6 +44,8 @@ public abstract class BaseFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
     }
+
+    public abstract T createPresenter();
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -76,4 +85,16 @@ public abstract class BaseFragment extends Fragment {
         getActivity().startActivity(intent);
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (mPresenter != null) {
+            mPresenter.onDestroy();
+        }
+    }
 }

@@ -11,6 +11,10 @@
     <string name="login_input_phone">请输入手机号</string>
     <string name="login_get_phone_check">获取验证码</string>
     <string name="login_agree">我已阅读并同意《智安物联用户隐私协议》</string>
+    <string name="login_tips_tittle">智安物联用户隐私协议</string>
+    <string name="login_tips_content">以下隐私协议是本游戏对用户隐私保护的许诺，请您务必仔细阅读本协议，
+        以了解我们关于管理您个人信息的情况。本隐私协议的全部条款属于本软件用户服务协议的重要部份之一。</string>
+    <string name="login_agree_alert">请勾选我已阅读并同意\n《智安物联用户隐私协议》</string>
     <string name="login_thirty">第三方登录</string>
     <string name="login_network_error">网络不可用</string>
     <string name="login_phone_error">请输入正确的手机号码</string>
@@ -74,6 +78,34 @@
     <string name="reset_cancel">考虑一下</string>
     <string name="reset_password">请输入密码</string>
     <string name="reset_ok">恢复出厂</string>
+
+    <string name="message_total">消息概览</string>
+    <string name="message_security">安防信息</string>
+    <string name="message_environment">环境指数</string>
+    <string name="message_environment_level">环境质量指数</string>
+    <string name="message_pull">推送消息</string>
+
+    <string name="message_content_tittle">消息列表</string>
+
+    <string name="device_manager_tittle">主机管理</string>
+    <string name="device_manager">管理</string>
+    <string name="device_connect_failed">连接不成功</string>
+    <string name="device_connect_success">连接成功</string>
+    <string name="device_connect_ing">正在连接中...</string>
+    <string name="done">完成</string>
+    <string name="device_add">添加主机</string>
+    <string name="device_delete">删除主机将不能连接设备\n是否继续</string>
+
+    <string name="add_device_tlttle">添加新设备</string>
+    <string name="device_name">设备名称</string>
+    <string name="device_hint_input">请输入设备名称</string>
+    <string name="device_lock">智能门锁</string>
+    <string name="device_switch">智能开关</string>
+    <string name="device_control">智能遥控</string>
+    <string name="device_manager_os">智能主机</string>
+    <string name="device_environment">环境传感器</string>
+    <string name="device_security">智能安防</string>
+    <string name="device_window">智能窗帘</string>
 
 
 </resources>

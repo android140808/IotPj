@@ -6,6 +6,7 @@
 
     <color name="color_bg">#fff8f8f8</color>
     <color name="color_while">#FFFFFF</color>
+    <color name="color_red">#FF0000</color>
     <color name="color_black">#000000</color>
     <color name="main_tv_select">#111111</color>
     <color name="main_tv_un_select">#999999</color>

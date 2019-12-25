@@ -21,6 +21,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".ui.activity.AddDeviceUI"></activity>
+        <activity android:name=".ui.activity.DeviceManagerUI" />
+        <activity android:name=".ui.activity.MessageContentUI" />
+        <activity
+            android:name=".ui.activity.MessageUI"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.ConnectTypeUI"
             android:screenOrientation="portrait" />
@@ -44,6 +50,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.MainUI"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

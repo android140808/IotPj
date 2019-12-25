@@ -10,15 +10,6 @@
         android:layout_height="@dimen/dimen_size_50"
         android:layout_marginTop="@dimen/dimen_size_20">
 
-        <ImageView
-            android:id="@+id/control_iv"
-            android:layout_width="@dimen/dimen_size_30"
-            android:layout_height="@dimen/dimen_size_30"
-            android:layout_alignParentLeft="true"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="@dimen/dimen_size_10"
-            android:background="@mipmap/back" />
-
         <TextView
             android:id="@+id/control_tv_tittle"
             android:layout_width="wrap_content"
