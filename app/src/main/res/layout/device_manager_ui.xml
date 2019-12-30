@@ -55,6 +55,62 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <!--item-->
+            <cn.zhian.avater.iotproject.widget.SwipeMenu
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/login_bg">
+
+                    <ImageView
+                        android:id="@+id/iv1"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="@dimen/dimen_size_20"
+                        android:background="@mipmap/device_main_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/dimen_size_20"
+                        android:layout_toRightOf="@id/iv1"
+                        android:gravity="center"
+                        android:text="Zn-主机1"
+                        android:textColor="@color/color_black"
+                        android:textSize="@dimen/dimen_size_15" />
+
+                    <TextView
+                        android:id="@+id/main_device_connect"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="@dimen/dimen_size_20"
+                        android:layout_marginRight="@dimen/dimen_size_20"
+                        android:gravity="center"
+                        android:text="正在连接中..."
+                        android:textColor="@color/color_black"
+                        android:textSize="@dimen/dimen_size_15" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="@dimen/dimen_size_100"
+                    android:layout_height="match_parent"
+                    android:background="@color/color_red"
+                    android:gravity="center"
+                    android:text="删除"
+                    android:textColor="@color/color_while"
+                    android:textSize="@dimen/dimen_size_15" />
+
+
+            </cn.zhian.avater.iotproject.widget.SwipeMenu>
+
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyler_view"
                 android:layout_width="match_parent"

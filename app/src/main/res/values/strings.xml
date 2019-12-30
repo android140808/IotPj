@@ -100,6 +100,8 @@
     <string name="device_name">设备名称</string>
     <string name="device_hint_input">请输入设备名称</string>
     <string name="device_lock">智能门锁</string>
+    <string name="lock_t1">T1</string>
+    <string name="lock_y1">Y1</string>
     <string name="device_switch">智能开关</string>
     <string name="device_control">智能遥控</string>
     <string name="device_manager_os">智能主机</string>
@@ -107,5 +109,45 @@
     <string name="device_security">智能安防</string>
     <string name="device_window">智能窗帘</string>
 
+    <string name="switch_kx">KX系列面板</string>
+    <string name="switch_ks">KS系列面板</string>
+    <string name="switch_1">一开</string>
+    <string name="switch_2">二开</string>
+    <string name="switch_3">三开</string>
+    <string name="switch_sense">情景开关</string>
+
+    <string name="control_hp1">HP1红外遥控</string>
+
+    <string name="environment_zg1">ZG1环境监测器</string>
+    <string name="environment_gas">燃气传感器</string>
+    <string name="environment_smoke">烟雾传感器</string>
+
+    <string name="security_s1">S1全景摄像机</string>
+    <string name="security_human">人体探测器</string>
+    <string name="security_door_window">门窗磁探测器</string>
+
+    <string name="curtain_c1">C1电动窗帘</string>
+
+    <string name="add_new_room">添加新房间</string>
+    <string name="room_often">自定义</string>
+    <string name="room_bedroom">主卧</string>
+    <string name="room_second_room">次卧</string>
+    <string name="room_living_room">客厅</string>
+    <!--<string name="room_hallway">玄关</string>-->
+    <!--<string name="room_wine_cabinet">酒柜</string>-->
+    <string name="room_balcony">阳台</string>
+    <string name="room_dining">餐厅</string>
+    <string name="room_garden">花园</string>
+    <string name="room_toilet">卫生间</string>
+    <string name="room_input">请输入房间名称</string>
+    <string name="room_name">房间名称</string>
+    <string name="room_icon">房间图标</string>
+
+    <string name="save">保存</string>
+
+    <string name="add_host">添加主机</string>
+    <string name="add_host_by_qr_code">二维码添加</string>
+    <string name="add_host_by_hand">手动输入</string>
+    <string name="add_host_by_inner_net">内网添加</string>
 
 </resources>

@@ -97,4 +97,7 @@ dependencies {
     implementation 'com.yanzhenjie:permission:2.0.3'
     implementation project(path: ':databasemodule')
     implementation 'com.tencent.bugly:crashreport:3.1.0'
+    //图片处理
+    implementation 'com.github.bumptech.glide:glide:4.4.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.4.0'
 }

@@ -1,28 +1,28 @@
 package cn.zhian.avater.iotproject.ui.activity;
 
+import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-
-import androidx.recyclerview.widget.RecyclerView;
+import android.widget.LinearLayout;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.base.BaseUI;
 
-public class DeviceManagerUI extends BaseUI {
+public class AddHostUI extends BaseUI {
+
 
     @BindView(R.id.comm_tittle_iv_left)
     ImageView commTittleIvLeft;
-    @BindView(R.id.comm_tittle_tv_right)
-    TextView commTittleTvRight;
-    @BindView(R.id.recyler_view)
-    RecyclerView recylerView;
-    @BindView(R.id.device_rl_add)
-    RelativeLayout deviceRlAdd;
+    @BindView(R.id.ll_qr_code)
+    LinearLayout llQrCode;
+    @BindView(R.id.ll_by_hand)
+    LinearLayout llByHand;
+    @BindView(R.id.ll_by_net)
+    LinearLayout llByNet;
 
     @Override
     public BasePresenter createPresenter() {
@@ -31,7 +31,7 @@ public class DeviceManagerUI extends BaseUI {
 
     @Override
     public int getViewLayout() {
-        return R.layout.device_manager_ui;
+        return R.layout.add_host_ui;
     }
 
     @Override
@@ -44,19 +44,17 @@ public class DeviceManagerUI extends BaseUI {
 
     }
 
-
-    @OnClick({R.id.comm_tittle_iv_left, R.id.comm_tittle_tv_right, R.id.device_rl_add})
+    @OnClick({R.id.comm_tittle_iv_left, R.id.ll_qr_code, R.id.ll_by_hand, R.id.ll_by_net})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.comm_tittle_iv_left:
                 closeUI();
                 break;
-            case R.id.comm_tittle_tv_right:
+            case R.id.ll_qr_code:
                 break;
-            case R.id.device_rl_add:
-//                changeUI(this, AddDeviceUI.class);
-                changeUI(this, AddHostUI.class);
-
+            case R.id.ll_by_hand:
+                break;
+            case R.id.ll_by_net:
                 break;
         }
     }

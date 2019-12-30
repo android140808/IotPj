@@ -21,9 +21,24 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.activity.AddDeviceUI"></activity>
-        <activity android:name=".ui.activity.DeviceManagerUI" />
-        <activity android:name=".ui.activity.MessageContentUI" />
+        <activity android:name=".ui.activity.AddHostUI"></activity>
+        <activity
+            android:name=".ui.activity.CustomerRoomUI"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
+        <activity
+            android:name=".ui.activity.AddNewRoomUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.AddDeviceUI"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
+        <activity
+            android:name=".ui.activity.DeviceManagerUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.MessageContentUI"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.MessageUI"
             android:screenOrientation="portrait" />

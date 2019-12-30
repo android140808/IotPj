@@ -16,6 +16,7 @@ import cn.zhian.avater.iotproject.adapter.ControlAdapter;
 import cn.zhian.avater.iotproject.base.BaseFragment;
 import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.bean.ControlBean;
+import cn.zhian.avater.iotproject.ui.activity.AddNewRoomUI;
 import cn.zhian.avater.iotproject.utils.DataHelper;
 
 /**
@@ -56,5 +57,6 @@ public class ControlFragment extends BaseFragment {
 
     @OnClick(R.id.control_iv_add)
     public void onViewClicked() {
+        changUI(AddNewRoomUI.class);
     }
 }

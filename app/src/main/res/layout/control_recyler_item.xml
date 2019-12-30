@@ -56,8 +56,8 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="@dimen/dimen_size_40"
-                    android:layout_height="@dimen/dimen_size_40"
+                    android:layout_width="@dimen/dimen_size_30"
+                    android:layout_height="@dimen/dimen_size_30"
                     android:background="@mipmap/item_security" />
 
                 <TextView
@@ -76,8 +76,8 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="@dimen/dimen_size_40"
-                    android:layout_height="@dimen/dimen_size_40"
+                    android:layout_width="@dimen/dimen_size_30"
+                    android:layout_height="@dimen/dimen_size_30"
                     android:background="@mipmap/item_light" />
 
                 <TextView
@@ -96,8 +96,8 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="@dimen/dimen_size_40"
-                    android:layout_height="@dimen/dimen_size_40"
+                    android:layout_width="@dimen/dimen_size_30"
+                    android:layout_height="@dimen/dimen_size_30"
                     android:background="@mipmap/item_security" />
 
                 <TextView
