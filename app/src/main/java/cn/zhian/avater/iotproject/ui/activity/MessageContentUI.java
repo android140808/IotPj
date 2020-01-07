@@ -2,6 +2,7 @@ package cn.zhian.avater.iotproject.ui.activity;
 
 import android.graphics.Color;
 import android.os.Bundle;
+
 import androidx.viewpager.widget.ViewPager;
 
 import android.view.View;
@@ -9,15 +10,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-//import androidx.viewpager.widget.ViewPager;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.base.BaseUI;
+import cn.zhian.avater.iotproject.ui.TittleManager;
 
-public class MessageContentUI extends BaseUI {
+public class MessageContentUI extends BaseUI implements TittleManager.OnLeftClickListener {
 
 
     @BindView(R.id.comm_tittle_iv_left)
@@ -57,7 +58,14 @@ public class MessageContentUI extends BaseUI {
 
     @Override
     public void findViewById() {
-
+        tittleManager = new TittleManager.Builder()
+                .setView(findViewById(R.id.tittle_content))
+                .setShowLeft(true)
+                .setLeftIcon(R.mipmap.back)
+                .setLeftListener(this)
+                .setShowMiddle(true)
+                .setMiddleRes(R.string.message_content_tittle)
+                .build();
     }
 
     @Override
@@ -73,9 +81,6 @@ public class MessageContentUI extends BaseUI {
     @OnClick({R.id.comm_tittle_iv_left, R.id.ll_security, R.id.ll_environment, R.id.ll_pull})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.comm_tittle_iv_left:
-                closeUI();
-                break;
             case R.id.ll_security:
                 selectType(0);
                 break;
@@ -113,5 +118,10 @@ public class MessageContentUI extends BaseUI {
         viewEnvironment.setBackgroundColor(getResources().getColor(R.color.color_while));
         tvPull.setTextColor(Color.BLACK);
         viewPull.setBackgroundColor(getResources().getColor(R.color.color_while));
+    }
+
+    @Override
+    public void onLeftClick() {
+        closeUI();
     }
 }

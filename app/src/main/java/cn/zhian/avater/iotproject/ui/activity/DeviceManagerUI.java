@@ -1,6 +1,7 @@
 package cn.zhian.avater.iotproject.ui.activity;
 
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -13,13 +14,10 @@ import butterknife.OnClick;
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.base.BaseUI;
+import cn.zhian.avater.iotproject.ui.TittleManager;
 
-public class DeviceManagerUI extends BaseUI {
+public class DeviceManagerUI extends BaseUI implements TittleManager.OnLeftClickListener{
 
-    @BindView(R.id.comm_tittle_iv_left)
-    ImageView commTittleIvLeft;
-    @BindView(R.id.comm_tittle_tv_right)
-    TextView commTittleTvRight;
     @BindView(R.id.recyler_view)
     RecyclerView recylerView;
     @BindView(R.id.device_rl_add)
@@ -37,7 +35,14 @@ public class DeviceManagerUI extends BaseUI {
 
     @Override
     public void findViewById() {
-
+        tittleManager = new TittleManager.Builder()
+                .setView(findViewById(R.id.tittle_content))
+                .setShowLeft(true)
+                .setLeftIcon(R.mipmap.back)
+                .setLeftListener(this)
+                .setShowMiddle(true)
+                .setMiddleRes(R.string.setting_connect)
+                .build();
     }
 
     @Override
@@ -45,20 +50,18 @@ public class DeviceManagerUI extends BaseUI {
 
     }
 
-
-    @OnClick({R.id.comm_tittle_iv_left, R.id.comm_tittle_tv_right, R.id.device_rl_add})
+    @OnClick({R.id.device_rl_add})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.comm_tittle_iv_left:
-                closeUI();
-                break;
-            case R.id.comm_tittle_tv_right:
-                break;
             case R.id.device_rl_add:
 //                changeUI(this, AddDeviceUI.class);
                 changeUI(this, AddHostUI.class);
-
                 break;
         }
+    }
+
+    @Override
+    public void onLeftClick() {
+        closeUI();
     }
 }

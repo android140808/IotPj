@@ -2,6 +2,7 @@ package cn.zhian.avater.iotproject.ui.fragment;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.widget.ImageView;
 
 //import androidx.recyclerview.widget.LinearLayoutManager;
@@ -27,10 +28,6 @@ import cn.zhian.avater.iotproject.utils.DataHelper;
  */
 public class ControlFragment extends BaseFragment implements TittleManager.OnRightIvClickListener {
 
-    /*@BindView(R.id.control_tv_tittle)
-    TextView controlTvTittle;
-    @BindView(R.id.control_iv_add)*/
-    ImageView controlIvAdd;
     @BindView(R.id.control_recyler_view)
     RecyclerView controlRecylerView;
     private ControlAdapter adapter;
@@ -48,7 +45,7 @@ public class ControlFragment extends BaseFragment implements TittleManager.OnRig
 
     @Override
     public void initData() {
-        new TittleManager.Builder()
+        tittleManager = new TittleManager.Builder()
                 .setView(view.findViewById(R.id.tittle_content))
                 .setShowMiddle(true)
                 .setMiddleRes(R.string.main_tv_control)
@@ -65,7 +62,7 @@ public class ControlFragment extends BaseFragment implements TittleManager.OnRig
     }
 
     @Override
-    public void onClick() {
+    public void onRightIvClick() {
         changUI(AddNewRoomUI.class);
     }
 

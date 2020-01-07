@@ -16,7 +16,6 @@ import cn.zhian.avater.iotproject.utils.BuglyHelp;
  */
 public class TittleManager implements View.OnClickListener {
 
-    //    private static TittleManager instance;
     private View view;
     private ImageView comm_tittle_iv_left;
     private ImageView comm_tittle_iv_right_img;
@@ -57,17 +56,17 @@ public class TittleManager implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.comm_tittle_iv_left:
                 if (leftIvListener != null) {
-                    leftIvListener.onClick();
+                    leftIvListener.onLeftClick();
                 }
                 break;
             case R.id.comm_tittle_iv_right_img:
                 if (rightIvListener != null) {
-                    rightIvListener.onClick();
+                    rightIvListener.onRightIvClick();
                 }
                 break;
             case R.id.comm_tittle_tv_right:
                 if (rightTvListener != null) {
-                    rightTvListener.onClick();
+                    rightTvListener.onRightTvClick();
                 }
                 break;
         }
@@ -117,15 +116,15 @@ public class TittleManager implements View.OnClickListener {
     }
 
     public interface OnLeftClickListener {
-        void onClick();
+        void onLeftClick();
     }
 
     public interface OnRightTvClickListener {
-        void onClick();
+        void onRightTvClick();
     }
 
     public interface OnRightIvClickListener {
-        void onClick();
+        void onRightIvClick();
     }
 
     public static class Builder {

@@ -11,11 +11,10 @@ import butterknife.OnClick;
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.base.BaseUI;
+import cn.zhian.avater.iotproject.ui.TittleManager;
 
-public class ManagerUI extends BaseUI {
+public class ManagerUI extends BaseUI implements TittleManager.OnLeftClickListener {
 
-    @BindView(R.id.comm_tittle_iv_left)
-    ImageView commTittleIvLeft;
     @BindView(R.id.manager_rl_up_load)
     RelativeLayout managerRlUpLoad;
     @BindView(R.id.manager_down_load)
@@ -33,7 +32,14 @@ public class ManagerUI extends BaseUI {
 
     @Override
     public void findViewById() {
-
+        tittleManager = new TittleManager.Builder()
+                .setView(findViewById(R.id.tittle_content))
+                .setShowLeft(true)
+                .setLeftIcon(R.mipmap.back)
+                .setLeftListener(this)
+                .setShowMiddle(true)
+                .setMiddleRes(R.string.setting_manager)
+                .build();
     }
 
     @Override
@@ -41,16 +47,18 @@ public class ManagerUI extends BaseUI {
 
     }
 
-    @OnClick({R.id.comm_tittle_iv_left, R.id.manager_rl_up_load, R.id.manager_down_load})
+    @OnClick({R.id.manager_rl_up_load, R.id.manager_down_load})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.comm_tittle_iv_left:
-                closeUI();
-                break;
             case R.id.manager_rl_up_load:
                 break;
             case R.id.manager_down_load:
                 break;
         }
+    }
+
+    @Override
+    public void onLeftClick() {
+        closeUI();
     }
 }

@@ -1,19 +1,18 @@
 package cn.zhian.avater.iotproject.ui.activity;
 
-import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.base.BaseUI;
+import cn.zhian.avater.iotproject.ui.TittleManager;
 import cn.zhian.avater.iotproject.zxing.android.CaptureActivity;
 
-public class AddHostUI extends BaseUI {
+public class AddHostUI extends BaseUI implements TittleManager.OnLeftClickListener {
 
 
     @BindView(R.id.comm_tittle_iv_left)
@@ -37,7 +36,14 @@ public class AddHostUI extends BaseUI {
 
     @Override
     public void findViewById() {
-
+        tittleManager = new TittleManager.Builder()
+                .setView(findViewById(R.id.tittle_content))
+                .setShowLeft(true)
+                .setLeftIcon(R.mipmap.back)
+                .setLeftListener(this)
+                .setShowMiddle(true)
+                .setMiddleRes(R.string.add_host)
+                .build();
     }
 
     @Override
@@ -45,12 +51,9 @@ public class AddHostUI extends BaseUI {
 
     }
 
-    @OnClick({R.id.comm_tittle_iv_left, R.id.ll_qr_code, R.id.ll_by_hand, R.id.ll_by_net})
+    @OnClick({R.id.ll_qr_code, R.id.ll_by_hand, R.id.ll_by_net})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.comm_tittle_iv_left:
-                closeUI();
-                break;
             case R.id.ll_qr_code:
                 changeUI(this, CaptureActivity.class);
                 break;
@@ -59,5 +62,10 @@ public class AddHostUI extends BaseUI {
             case R.id.ll_by_net:
                 break;
         }
+    }
+
+    @Override
+    public void onLeftClick() {
+        closeUI();
     }
 }

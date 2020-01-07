@@ -5,33 +5,7 @@
     android:background="@color/color_bg"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dimen_size_50"
-        android:layout_marginTop="@dimen/dimen_size_20">
-
-
-        <TextView
-            android:id="@+id/running_tv_tittle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="@string/main_tv_running_devices"
-            android:textColor="@color/color_black"
-            android:textSize="@dimen/dimen_size_20" />
-
-
-        <ImageView
-            android:id="@+id/running_iv_add"
-            android:layout_width="@dimen/dimen_size_30"
-            android:layout_height="@dimen/dimen_size_30"
-            android:layout_alignParentRight="true"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="@dimen/dimen_size_10"
-            android:layout_marginRight="@dimen/dimen_size_10"
-            android:background="@mipmap/stop" />
-
-    </RelativeLayout>
+    <include layout="@layout/comm_tittle" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/running_recyler_view"

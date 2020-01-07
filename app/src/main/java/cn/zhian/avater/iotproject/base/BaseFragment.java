@@ -2,15 +2,18 @@ package cn.zhian.avater.iotproject.base;
 
 import android.content.Intent;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
 import butterknife.ButterKnife;
+import cn.zhian.avater.iotproject.ui.TittleManager;
 
 /**
  * @Author: wangweida
@@ -22,6 +25,7 @@ public abstract class BaseFragment<V extends BaseView, T extends BasePresenter<V
     protected final String TAG = this.getClass().getSimpleName();
     protected View view;
     protected T mPresenter;
+    public TittleManager tittleManager;
 
     @Nullable
     @Override
@@ -92,6 +96,9 @@ public abstract class BaseFragment<V extends BaseView, T extends BasePresenter<V
         super.onDestroy();
         if (mPresenter != null) {
             mPresenter.onDestroy();
+        }
+        if (tittleManager != null) {
+            tittleManager = null;
         }
     }
 }

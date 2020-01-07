@@ -2,6 +2,7 @@ package cn.zhian.avater.iotproject.ui.activity;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.widget.ImageView;
 
 //import androidx.recyclerview.widget.GridLayoutManager;
@@ -16,9 +17,10 @@ import cn.zhian.avater.iotproject.adapter.AddRoomAdapter;
 import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.base.BaseUI;
 import cn.zhian.avater.iotproject.bean.AddHomeBean;
+import cn.zhian.avater.iotproject.ui.TittleManager;
 import cn.zhian.avater.iotproject.utils.DataHelper;
 
-public class AddNewRoomUI extends BaseUI {
+public class AddNewRoomUI extends BaseUI implements TittleManager.OnLeftClickListener {
 
 
     @BindView(R.id.comm_tittle_iv_left)
@@ -40,7 +42,14 @@ public class AddNewRoomUI extends BaseUI {
 
     @Override
     public void findViewById() {
-
+        tittleManager = new TittleManager.Builder()
+                .setView(findViewById(R.id.tittle_content))
+                .setShowLeft(true)
+                .setLeftIcon(R.mipmap.back)
+                .setLeftListener(this)
+                .setShowMiddle(true)
+                .setMiddleRes(R.string.add_new_room)
+                .build();
     }
 
     @Override
@@ -57,8 +66,9 @@ public class AddNewRoomUI extends BaseUI {
         changeUI(AddNewRoomUI.this, CustomerRoomUI.class);
     };
 
-    @OnClick(R.id.comm_tittle_iv_left)
-    public void onViewClicked() {
+
+    @Override
+    public void onLeftClick() {
         closeUI();
     }
 }

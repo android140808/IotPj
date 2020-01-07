@@ -3,14 +3,15 @@ package cn.zhian.avater.iotproject.base;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 
-
-
 import butterknife.ButterKnife;
+import cn.zhian.avater.iotproject.ui.TittleManager;
 import cn.zhian.avater.iotproject.utils.UIManagerUtils;
 
 /**
@@ -23,6 +24,7 @@ public abstract class BaseUI<V extends BaseView, T extends BasePresenter<V>> ext
     protected final String TAG = this.getClass().getSimpleName();
     protected Context mContext;
     protected T mPresenter;
+    public TittleManager tittleManager;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -76,6 +78,9 @@ public abstract class BaseUI<V extends BaseView, T extends BasePresenter<V>> ext
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        if (tittleManager != null) {
+            tittleManager = null;
+        }
         onDestoryData();
         UIManagerUtils.getInstance().removeActivity(this);
     }

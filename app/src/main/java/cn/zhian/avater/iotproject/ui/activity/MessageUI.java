@@ -12,13 +12,12 @@ import butterknife.OnClick;
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.base.BaseUI;
+import cn.zhian.avater.iotproject.ui.TittleManager;
 import cn.zhian.avater.iotproject.widget.MessageDotView;
 
-public class MessageUI extends BaseUI {
+public class MessageUI extends BaseUI implements TittleManager.OnLeftClickListener {
 
 
-    @BindView(R.id.comm_tittle_iv_left)
-    ImageView commTittleIvLeft;
     @BindView(R.id.security_destination)
     TextView securityDestination;
     @BindView(R.id.security_count)
@@ -50,7 +49,14 @@ public class MessageUI extends BaseUI {
 
     @Override
     public void findViewById() {
-
+        tittleManager = new TittleManager.Builder()
+                .setView(findViewById(R.id.tittle_content))
+                .setShowLeft(true)
+                .setLeftIcon(R.mipmap.back)
+                .setLeftListener(this)
+                .setShowMiddle(true)
+                .setMiddleRes(R.string.message_total)
+                .build();
     }
 
     @Override
@@ -61,12 +67,10 @@ public class MessageUI extends BaseUI {
     }
 
 
-    @OnClick({R.id.comm_tittle_iv_left, R.id.message_rl_security, R.id.message_rl_environment, R.id.message_rl_pull})
+    @OnClick({R.id.message_rl_security, R.id.message_rl_environment, R.id.message_rl_pull})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.comm_tittle_iv_left:
-                closeUI();
-                break;
+
             case R.id.message_rl_security:
                 Bundle bundle = new Bundle();
                 bundle.putInt("TAG", 0);
@@ -83,5 +87,10 @@ public class MessageUI extends BaseUI {
                 changeUI(MessageUI.this, MessageContentUI.class, bundle2);
                 break;
         }
+    }
+
+    @Override
+    public void onLeftClick() {
+        closeUI();
     }
 }

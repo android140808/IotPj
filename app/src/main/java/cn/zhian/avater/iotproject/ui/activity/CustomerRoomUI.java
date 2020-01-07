@@ -2,6 +2,7 @@ package cn.zhian.avater.iotproject.ui.activity;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -19,9 +20,10 @@ import cn.zhian.avater.iotproject.adapter.CustomerAdapter;
 import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.base.BaseUI;
 import cn.zhian.avater.iotproject.bean.AddHomeBean;
+import cn.zhian.avater.iotproject.ui.TittleManager;
 import cn.zhian.avater.iotproject.utils.DataHelper;
 
-public class CustomerRoomUI extends BaseUI {
+public class CustomerRoomUI extends BaseUI implements TittleManager.OnLeftClickListener, TittleManager.OnRightTvClickListener {
 
 
     @BindView(R.id.comm_tittle_iv_left)
@@ -47,7 +49,17 @@ public class CustomerRoomUI extends BaseUI {
 
     @Override
     public void findViewById() {
-
+        tittleManager = new TittleManager.Builder()
+                .setView(findViewById(R.id.tittle_content))
+                .setShowLeft(true)
+                .setLeftIcon(R.mipmap.back)
+                .setLeftListener(this)
+                .setShowMiddle(true)
+                .setMiddleRes(R.string.room_often)
+                .setShowRightTv(true)
+                .setRightRes(R.string.save)
+                .setRightTvListener(this)
+                .build();
     }
 
     @Override
@@ -79,4 +91,13 @@ public class CustomerRoomUI extends BaseUI {
         }
     }
 
+    @Override
+    public void onLeftClick() {
+        closeUI();
+    }
+
+    @Override
+    public void onRightTvClick() {
+        showToast("保存成功");
+    }
 }

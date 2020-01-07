@@ -1,23 +1,16 @@
 package cn.zhian.avater.iotproject.ui.fragment;
 
-import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
-
-//import androidx.recyclerview.widget.RecyclerView;
-
-import butterknife.BindView;
-import butterknife.OnClick;
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.base.BaseFragment;
 import cn.zhian.avater.iotproject.base.BasePresenter;
+import cn.zhian.avater.iotproject.ui.TittleManager;
 
 /**
  * @Author: wangweida
  * @CreateDate: 2019-12-16 15:38
  * @Description:
  */
-public class RunningFragment extends BaseFragment {
+public class RunningFragment extends BaseFragment implements TittleManager.OnRightIvClickListener {
 
     @Override
     public BasePresenter createPresenter() {
@@ -31,6 +24,18 @@ public class RunningFragment extends BaseFragment {
 
     @Override
     public void initData() {
+        tittleManager = new TittleManager.Builder()
+                .setView(view.findViewById(R.id.tittle_content))
+                .setShowMiddle(true)
+                .setMiddleRes(R.string.main_tv_running_devices)
+                .setShowRightIv(true)
+                .setRightIvListener(this)
+                .setRightIcon(R.mipmap.stop)
+                .build();
+    }
 
+    @Override
+    public void onRightIvClick() {
+        showToast("关闭所有设备");
     }
 }

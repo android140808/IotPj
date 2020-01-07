@@ -3,6 +3,7 @@ package cn.zhian.avater.iotproject.ui.activity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -24,9 +25,10 @@ import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.base.BaseUI;
 import cn.zhian.avater.iotproject.bean.LeftBean;
 import cn.zhian.avater.iotproject.bean.RightBean;
+import cn.zhian.avater.iotproject.ui.TittleManager;
 import cn.zhian.avater.iotproject.utils.DataHelper;
 
-public class AddDeviceUI extends BaseUI {
+public class AddDeviceUI extends BaseUI implements TittleManager.OnLeftClickListener {
 
 
     @BindView(R.id.comm_tittle_iv_left)
@@ -64,7 +66,11 @@ public class AddDeviceUI extends BaseUI {
 
     @Override
     public void findViewById() {
-
+        tittleManager = new TittleManager.Builder()
+                .setView(findViewById(R.id.tittle_content))
+                .setShowMiddle(true)
+                .setMiddleRes(R.string.device_manager_tittle)
+                .build();
     }
 
     @Override
@@ -122,16 +128,14 @@ public class AddDeviceUI extends BaseUI {
         }
         mLeftData.get(position).setSelect(true);
         leftAdapter.notifyDataSetChanged();
-
         if (position == 1) {
             setRightTwoRecyclerView(true, position);
         } else
             setRightTwoRecyclerView(false, position);
     };
 
-
-    @OnClick(R.id.comm_tittle_iv_left)
-    public void onViewClicked() {
+    @Override
+    public void onLeftClick() {
         closeUI();
     }
 }

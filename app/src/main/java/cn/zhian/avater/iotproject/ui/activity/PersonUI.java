@@ -1,28 +1,12 @@
 package cn.zhian.avater.iotproject.ui.activity;
 
-import android.os.Bundle;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.base.BaseUI;
 import cn.zhian.avater.iotproject.ui.TittleManager;
 
-public class PersonUI extends BaseUI {
+public class PersonUI extends BaseUI implements TittleManager.OnLeftClickListener, TittleManager.OnRightIvClickListener {
 
-
-    @BindView(R.id.tittle_content)
-    RelativeLayout tittleContent;
-    @BindView(R.id.comm_tittle_iv_left)
-    ImageView commTittleIvLeft;
-    @BindView(R.id.comm_tittle_tv_middle_tittle)
-    TextView commTittleTvMiddleTittle;
-    @BindView(R.id.comm_tittle_iv_right_img)
-    ImageView commTittleIvRightImg;
 
     @Override
     public BasePresenter createPresenter() {
@@ -36,11 +20,17 @@ public class PersonUI extends BaseUI {
 
     @Override
     public void findViewById() {
-        commTittleIvLeft.setOnClickListener(v -> {
-            closeUI();
-        });
-        commTittleIvRightImg.setOnClickListener(v -> {
-        });
+        tittleManager = new TittleManager.Builder()
+                .setView(findViewById(R.id.tittle_content))
+                .setShowLeft(true)
+                .setLeftIcon(R.mipmap.back)
+                .setLeftListener(this)
+                .setShowMiddle(true)
+                .setMiddleRes(R.string.setting_personal)
+                .setShowRightIv(true)
+                .setRightIcon(R.mipmap.tittle_gou)
+                .setRightIvListener(this)
+                .build();
     }
 
     @Override
@@ -48,4 +38,13 @@ public class PersonUI extends BaseUI {
 
     }
 
+    @Override
+    public void onLeftClick() {
+        closeUI();
+    }
+
+    @Override
+    public void onRightIvClick() {
+        showToast("ok!!");
+    }
 }

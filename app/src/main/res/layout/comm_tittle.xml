@@ -23,21 +23,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="@string/main_tv_setting"
         android:textColor="@color/color_black"
-        android:textSize="@dimen/dimen_size_20" />
+        android:textSize="@dimen/dimen_size_20"
+        tools:text="@string/main_tv_setting" />
 
 
     <!--右边图标-->
     <ImageView
         android:id="@+id/comm_tittle_iv_right_img"
-        android:layout_width="@dimen/dimen_size_30"
-        android:layout_height="@dimen/dimen_size_30"
+        android:layout_width="@dimen/dimen_size_25"
+        android:layout_height="@dimen/dimen_size_25"
         android:layout_alignParentRight="true"
         android:layout_centerInParent="true"
         android:layout_marginLeft="@dimen/dimen_size_20"
         android:layout_marginRight="@dimen/dimen_size_20"
-        android:background="@mipmap/setting_iv_refresh"
         android:visibility="gone" />
 
     <!--右边文字-->
@@ -48,8 +47,8 @@
         android:layout_alignParentRight="true"
         android:layout_centerInParent="true"
         android:layout_marginRight="@dimen/dimen_size_20"
-        android:textColor="@color/color_black"
-        android:textSize="@dimen/dimen_size_20"
+        android:textColor="@color/home_icon_bg"
+        android:textSize="@dimen/dimen_size_18"
         android:visibility="gone"
         tools:text="保存" />
 

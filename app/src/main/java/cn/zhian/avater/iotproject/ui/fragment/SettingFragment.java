@@ -9,6 +9,7 @@ import butterknife.OnClick;
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.base.BaseFragment;
 import cn.zhian.avater.iotproject.base.BasePresenter;
+import cn.zhian.avater.iotproject.ui.TittleManager;
 import cn.zhian.avater.iotproject.ui.activity.ConnectTypeUI;
 import cn.zhian.avater.iotproject.ui.activity.LoginUI;
 import cn.zhian.avater.iotproject.ui.activity.ManagerUI;
@@ -65,7 +66,11 @@ public class SettingFragment extends BaseFragment implements ResetView.doSomeTin
 
     @Override
     public void initData() {
-
+        tittleManager = new TittleManager.Builder()
+                .setView(view.findViewById(R.id.tittle_content))
+                .setShowMiddle(true)
+                .setMiddleRes(R.string.main_tv_setting)
+                .build();
     }
 
     @OnClick({R.id.setting_tv_logout, R.id.setting_rl_person, R.id.setting_rl_sense, R.id.setting_rl_manager, R.id.setting_rl_password, R.id.setting_rl_connect, R.id.setting_rl_refresh, R.id.setting_rl_recover})

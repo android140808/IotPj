@@ -11,12 +11,11 @@ import butterknife.OnClick;
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.base.BaseUI;
+import cn.zhian.avater.iotproject.ui.TittleManager;
 
-public class PasswordUI extends BaseUI {
+public class PasswordUI extends BaseUI implements TittleManager.OnLeftClickListener {
 
 
-    @BindView(R.id.comm_tittle_iv_left)
-    ImageView commTittleIvLeft;
     @BindView(R.id.pass_word_rl_change)
     RelativeLayout passWordRlChange;
     @BindView(R.id.pass_word_rl_limit_manager)
@@ -34,7 +33,14 @@ public class PasswordUI extends BaseUI {
 
     @Override
     public void findViewById() {
-
+        tittleManager = new TittleManager.Builder()
+                .setView(findViewById(R.id.tittle_content))
+                .setShowLeft(true)
+                .setLeftIcon(R.mipmap.back)
+                .setLeftListener(this)
+                .setShowMiddle(true)
+                .setMiddleRes(R.string.setting_password)
+                .build();
     }
 
     @Override
@@ -43,16 +49,18 @@ public class PasswordUI extends BaseUI {
     }
 
 
-    @OnClick({R.id.comm_tittle_iv_left, R.id.pass_word_rl_change, R.id.pass_word_rl_limit_manager})
+    @OnClick({R.id.pass_word_rl_change, R.id.pass_word_rl_limit_manager})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.comm_tittle_iv_left:
-                closeUI();
-                break;
             case R.id.pass_word_rl_change:
                 break;
             case R.id.pass_word_rl_limit_manager:
                 break;
         }
+    }
+
+    @Override
+    public void onLeftClick() {
+        closeUI();
     }
 }

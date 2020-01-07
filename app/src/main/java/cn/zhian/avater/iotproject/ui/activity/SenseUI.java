@@ -1,6 +1,7 @@
 package cn.zhian.avater.iotproject.ui.activity;
 
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.widget.ImageView;
 
 //import androidx.recyclerview.widget.RecyclerView;
@@ -10,8 +11,9 @@ import butterknife.OnClick;
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.base.BaseUI;
+import cn.zhian.avater.iotproject.ui.TittleManager;
 
-public class SenseUI extends BaseUI {
+public class SenseUI extends BaseUI implements TittleManager.OnLeftClickListener {
 
 
     @BindView(R.id.comm_tittle_iv_left)
@@ -31,7 +33,14 @@ public class SenseUI extends BaseUI {
 
     @Override
     public void findViewById() {
-
+        tittleManager = new TittleManager.Builder()
+                .setView(findViewById(R.id.tittle_content))
+                .setShowLeft(true)
+                .setLeftIcon(R.mipmap.back)
+                .setLeftListener(this)
+                .setShowMiddle(true)
+                .setMiddleRes(R.string.setting_sense)
+                .build();
     }
 
     @Override
@@ -40,8 +49,8 @@ public class SenseUI extends BaseUI {
     }
 
 
-    @OnClick(R.id.comm_tittle_iv_left)
-    public void onViewClicked() {
+    @Override
+    public void onLeftClick() {
         closeUI();
     }
 }

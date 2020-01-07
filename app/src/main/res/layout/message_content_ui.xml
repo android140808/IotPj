@@ -5,32 +5,34 @@
     android:background="@color/color_bg"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dimen_size_50"
-        android:background="@color/color_while">
+    <include layout="@layout/comm_tittle" />
 
-        <!--左边返回键-->
-        <ImageView
-            android:id="@+id/comm_tittle_iv_left"
-            android:layout_width="@dimen/dimen_size_30"
-            android:layout_height="@dimen/dimen_size_30"
-            android:layout_alignParentLeft="true"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="@dimen/dimen_size_20"
-            android:background="@mipmap/back" />
+    <!--  <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="@dimen/dimen_size_50"
+          android:background="@color/color_while">
 
-        <!--中间标题-->
-        <TextView
-            android:id="@+id/comm_tittle_tv_middle_tittle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="@string/message_content_tittle"
-            android:textColor="@color/color_black"
-            android:textSize="@dimen/dimen_size_20" />
+          &lt;!&ndash;左边返回键&ndash;&gt;
+          <ImageView
+              android:id="@+id/comm_tittle_iv_left"
+              android:layout_width="@dimen/dimen_size_30"
+              android:layout_height="@dimen/dimen_size_30"
+              android:layout_alignParentLeft="true"
+              android:layout_centerInParent="true"
+              android:layout_marginLeft="@dimen/dimen_size_20"
+              android:background="@mipmap/back" />
 
-    </RelativeLayout>
+          &lt;!&ndash;中间标题&ndash;&gt;
+          <TextView
+              android:id="@+id/comm_tittle_tv_middle_tittle"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_centerInParent="true"
+              android:text="@string/message_content_tittle"
+              android:textColor="@color/color_black"
+              android:textSize="@dimen/dimen_size_20" />
+
+      </RelativeLayout>-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -113,7 +115,7 @@
 
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
