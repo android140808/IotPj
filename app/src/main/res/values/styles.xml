@@ -3,9 +3,10 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/main_tv_un_select</item>
+        <!--<item name="colorPrimary">@color/main_tv_un_select</item>
         <item name="colorPrimaryDark">@color/main_tv_un_select</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorAccent</item>-->
+        <item name="android:typeface">monospace</item>
     </style>
 
     <style name="main_bottom_tv_style">

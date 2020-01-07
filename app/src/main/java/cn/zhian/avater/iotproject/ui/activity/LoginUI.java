@@ -1,6 +1,7 @@
 package cn.zhian.avater.iotproject.ui.activity;
 
 import android.content.DialogInterface;
+import androidx.appcompat.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -10,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AlertDialog;
+//import androidx.appcompat.app.AlertDialog;
 
 import butterknife.BindView;
 import butterknife.OnClick;

@@ -1,12 +1,11 @@
 package cn.zhian.avater.iotproject.ui.activity;
 
-import android.os.Bundle;
+import androidx.recyclerview.widget.RecyclerView;
 import android.widget.ImageView;
 
-import androidx.recyclerview.widget.RecyclerView;
+//import androidx.recyclerview.widget.RecyclerView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.base.BasePresenter;

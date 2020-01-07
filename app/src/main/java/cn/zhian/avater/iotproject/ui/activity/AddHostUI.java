@@ -11,6 +11,7 @@ import butterknife.OnClick;
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.base.BaseUI;
+import cn.zhian.avater.iotproject.zxing.android.CaptureActivity;
 
 public class AddHostUI extends BaseUI {
 
@@ -51,6 +52,7 @@ public class AddHostUI extends BaseUI {
                 closeUI();
                 break;
             case R.id.ll_qr_code:
+                changeUI(this, CaptureActivity.class);
                 break;
             case R.id.ll_by_hand:
                 break;

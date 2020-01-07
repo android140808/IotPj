@@ -5,7 +5,9 @@
     android:background="@color/color_bg"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <include layout="@layout/comm_tittle" />
+
+    <!--<RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_size_50"
         android:layout_marginTop="@dimen/dimen_size_20">
@@ -30,7 +32,7 @@
             android:layout_marginRight="@dimen/dimen_size_10"
             android:background="@mipmap/add" />
 
-    </RelativeLayout>
+    </RelativeLayout>-->
 
 
     <androidx.recyclerview.widget.RecyclerView

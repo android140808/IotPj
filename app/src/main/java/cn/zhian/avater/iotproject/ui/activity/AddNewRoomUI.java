@@ -1,15 +1,15 @@
 package cn.zhian.avater.iotproject.ui.activity;
 
-import android.os.Bundle;
-import android.widget.ImageView;
-
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import android.widget.ImageView;
+
+//import androidx.recyclerview.widget.GridLayoutManager;
+//import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.adapter.AddRoomAdapter;

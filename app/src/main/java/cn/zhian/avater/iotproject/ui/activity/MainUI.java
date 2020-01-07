@@ -1,13 +1,12 @@
 package cn.zhian.avater.iotproject.ui.activity;
 
+import androidx.viewpager.widget.ViewPager;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.viewpager.widget.ViewPager;
-
-import com.tencent.bugly.crashreport.BuglyLog;
+//import androidx.viewpager.widget.ViewPager;
 
 import java.util.ArrayList;
 import java.util.List;

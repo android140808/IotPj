@@ -1,17 +1,15 @@
 package cn.zhian.avater.iotproject.widget;
 
 import android.content.Context;
+import androidx.appcompat.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AlertDialog;
+//import androidx.appcompat.app.AlertDialog;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import cn.zhian.avater.iotproject.Applications;
 import cn.zhian.avater.iotproject.R;
 

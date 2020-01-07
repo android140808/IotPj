@@ -1,18 +1,18 @@
 package cn.zhian.avater.iotproject.ui.activity;
 
-import android.os.Bundle;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+//import androidx.recyclerview.widget.GridLayoutManager;
+//import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.adapter.CustomerAdapter;
@@ -20,7 +20,6 @@ import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.base.BaseUI;
 import cn.zhian.avater.iotproject.bean.AddHomeBean;
 import cn.zhian.avater.iotproject.utils.DataHelper;
-import cn.zhian.avater.iotproject.widget.HomeBgIcon;
 
 public class CustomerRoomUI extends BaseUI {
 

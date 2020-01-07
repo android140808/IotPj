@@ -2,9 +2,12 @@ package cn.zhian.avater.iotproject.adapter;
 
 import android.graphics.Canvas;
 import android.graphics.Rect;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import android.view.View;
 
-import androidx.recyclerview.widget.LinearLayoutManager;
+//import androidx.recyclerview.widget.LinearLayoutManager;
+//import androidx.recyclerview.widget.RecyclerView;
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 /**

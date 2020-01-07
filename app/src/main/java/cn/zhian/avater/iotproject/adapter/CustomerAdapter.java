@@ -5,10 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RadioButton;
-import android.widget.TextView;
 
+//import androidx.annotation.NonNull;
+//import androidx.recyclerview.widget.RecyclerView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,7 +16,6 @@ import java.util.List;
 
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.bean.AddHomeBean;
-import cn.zhian.avater.iotproject.bean.LeftBean;
 
 /**
  * @Author: wangweida

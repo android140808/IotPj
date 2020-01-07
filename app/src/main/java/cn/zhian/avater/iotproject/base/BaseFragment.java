@@ -2,18 +2,15 @@ package cn.zhian.avater.iotproject.base;
 
 import android.content.Intent;
 import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import butterknife.ButterKnife;
-import cn.zhian.avater.iotproject.Applications;
-import cn.zhian.avater.iotproject.R;
 
 /**
  * @Author: wangweida
@@ -23,13 +20,13 @@ import cn.zhian.avater.iotproject.R;
 public abstract class BaseFragment<V extends BaseView, T extends BasePresenter<V>> extends Fragment implements BaseView {
 
     protected final String TAG = this.getClass().getSimpleName();
-
+    protected View view;
     protected T mPresenter;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(getLayout(), container, false);
+        view = inflater.inflate(getLayout(), container, false);
         ButterKnife.bind(this, view);
         createPresenter();
         if (mPresenter != null) {

@@ -1,6 +1,5 @@
 package cn.zhian.avater.iotproject.adapter;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+//import androidx.annotation.NonNull;
+//import androidx.recyclerview.widget.RecyclerView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,7 +20,6 @@ import com.bumptech.glide.request.target.Target;
 import java.util.List;
 
 import cn.zhian.avater.iotproject.R;
-import cn.zhian.avater.iotproject.bean.LeftBean;
 import cn.zhian.avater.iotproject.bean.RightBean;
 
 /**
