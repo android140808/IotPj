@@ -6,6 +6,7 @@ package cn.zhian.avater.iotproject.base;
  * @Description:
  */
 public interface BasePresenter<V extends BaseView> {
+
     void onDestroy();
 
     void attachView(V view);

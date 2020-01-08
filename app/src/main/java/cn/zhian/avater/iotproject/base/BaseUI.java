@@ -81,11 +81,11 @@ public abstract class BaseUI<V extends BaseView, T extends BasePresenter<V>> ext
         if (tittleManager != null) {
             tittleManager = null;
         }
-        onDestoryData();
+        onDestroyPresenter();
         UIManagerUtils.getInstance().removeActivity(this);
     }
 
-    public void onDestoryData() {
+    public void onDestroyPresenter() {
         if (mPresenter != null) {
             mPresenter.onDestroy();
         }

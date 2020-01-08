@@ -24,6 +24,7 @@ import cn.zhian.avater.iotproject.ui.fragment.ControlFragment;
 import cn.zhian.avater.iotproject.ui.fragment.HomeFragment;
 import cn.zhian.avater.iotproject.ui.fragment.RunningFragment;
 import cn.zhian.avater.iotproject.ui.fragment.SettingFragment;
+import cn.zhian.avater.iotproject.utils.GeneralMethods;
 
 public class MainUI extends BaseUI {
 
@@ -166,11 +167,9 @@ public class MainUI extends BaseUI {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            if ((System.currentTimeMillis() - mExistTimes) > 2000) {
+            if (!GeneralMethods.existApps(mExistTimes)) {
                 showToast(R.string.exist);
                 mExistTimes = System.currentTimeMillis();
-            } else {
-                System.exit(0);
             }
             return true;
         }

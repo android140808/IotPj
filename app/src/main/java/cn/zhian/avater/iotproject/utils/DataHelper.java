@@ -24,14 +24,6 @@ import cn.zhian.avater.iotproject.bean.RightBean;
  */
 public class DataHelper {
 
-    public static boolean networkState(Context context) {
-        ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo info = manager.getActiveNetworkInfo();
-        if (info != null) {
-            return info.isAvailable();
-        }
-        return false;
-    }
 
     public static List<HomeRecylerViewBean> getHomeBeans(Context context) {
         List<HomeRecylerViewBean> data = new ArrayList<>();

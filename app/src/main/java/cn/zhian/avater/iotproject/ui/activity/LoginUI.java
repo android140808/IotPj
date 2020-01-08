@@ -1,8 +1,11 @@
 package cn.zhian.avater.iotproject.ui.activity;
 
 import android.content.DialogInterface;
+
 import androidx.appcompat.app.AlertDialog;
+
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -11,14 +14,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-//import androidx.appcompat.app.AlertDialog;
-
 import butterknife.BindView;
 import butterknife.OnClick;
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.base.BaseUI;
 import cn.zhian.avater.iotproject.ui.presenter.LoginPresenter;
 import cn.zhian.avater.iotproject.ui.view.LoginView;
+import cn.zhian.avater.iotproject.utils.GeneralMethods;
 import cn.zhian.avater.iotproject.utils.PermissionUtils;
 
 public class LoginUI extends BaseUI<LoginView, LoginPresenter<LoginView>> implements LoginView {
@@ -37,6 +39,7 @@ public class LoginUI extends BaseUI<LoginView, LoginPresenter<LoginView>> implem
     @BindView(R.id.login_cb_agree)
     CheckBox loginCbAgree;
     private AlertDialog alertDialog;
+    private long mExistTimes;
 
 
     @Override
@@ -144,8 +147,21 @@ public class LoginUI extends BaseUI<LoginView, LoginPresenter<LoginView>> implem
 
 
     @Override
-    public void onDestoryData() {
-        super.onDestoryData();
+    public void onDestroyPresenter() {
+        super.onDestroyPresenter();
         alertDialog = null;
     }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (!GeneralMethods.existApps(mExistTimes)) {
+                showToast(R.string.exist);
+                mExistTimes = System.currentTimeMillis();
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
 }

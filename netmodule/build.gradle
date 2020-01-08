@@ -1,25 +1,31 @@
 apply plugin: 'com.android.library'
-
 android {
     compileSdkVersion rootProject.csv
     defaultConfig {
         minSdkVersion rootProject.msv
         targetSdkVersion rootProject.tsv
+        versionCode rootProject.vc
+        versionName rootProject.vns
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
     }
 
     buildTypes {
         release {
             minifyEnabled false
-            buildConfigField('String', "HOST_NAME", "\"http://www.baidu.com/\"")
+            buildConfigField('String', "HOST_NAME", "$rootProject.HOST_PRODUCT")
+            buildConfigField('String', "LANS", "$rootProject.HOST_LANS")
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
             minifyEnabled false
-            buildConfigField('String', "HOST_NAME", "\"http://www.baidu.com/\"")
+            buildConfigField('String', "HOST_NAME", "$rootProject.HOST_TEXT")
+            buildConfigField('String', "LANS", "$rootProject.HOST_LANS")
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+    compileOptions {//lambda
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
 }

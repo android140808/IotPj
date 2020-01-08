@@ -29,9 +29,13 @@ ext {
     csv = 29
     msv = 21
     tsv = csv
-    //版本号-
+    //app版本号
     vc = 1
-    vns = "0.0.0"        // 正式包
+    vns = "0.0.1"        // 正式包
+
+    HOST_PRODUCT = "\"http://www.baidu.com/\"" //手机网络 正式服务器
+    HOST_TEXT = "\"http://www.baidu.com/\"" //手机网络 测试服务器
+    HOST_LANS = "\"192.168.1.0/:8080\"" //局域网
 
     butterKnifeVersion = '10.2.0'
     junitVersion = '4.12'
