@@ -1,6 +1,8 @@
 package cn.zhian.avater.iotproject.ui.activity;
 
 import androidx.viewpager.widget.ViewPager;
+
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -58,6 +60,7 @@ public class MainUI extends BaseUI {
     private SettingFragment settingFragment;
     private MainUIAdapter adapter;
     private List<BaseFragment> fragmentList = new ArrayList<>();
+    private long mExistTimes;
 
     @Override
     public BasePresenter createPresenter() {
@@ -158,5 +161,19 @@ public class MainUI extends BaseUI {
                 mainBottomIvSetting.setBackgroundResource(R.mipmap.main_bottom_setting_select);
                 break;
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if ((System.currentTimeMillis() - mExistTimes) > 2000) {
+                showToast(R.string.exist);
+                mExistTimes = System.currentTimeMillis();
+            } else {
+                System.exit(0);
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }
