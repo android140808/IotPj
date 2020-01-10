@@ -59,6 +59,8 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "androidx.appcompat:appcompat:$rootProject.androidx_appcompat"
     implementation files('libs/core-3.0.0.jar')
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     testImplementation "junit:junit:$rootProject.junitVersion"
     //1.android X 系列
     implementation "androidx.appcompat:appcompat:$rootProject.androidx_alpha"

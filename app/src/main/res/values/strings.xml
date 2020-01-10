@@ -21,8 +21,13 @@
     <string name="login_phone_error">请输入正确的手机号码</string>
     <string name="login_code_error">验证码错误</string>
 
-    <string name="main_watch_speak">可视对讲</string>
+    <string name="video_watch">可视对讲</string>
+    <string name="video_disconnect">还未连接设备</string>
+    <string name="video_un_add">还未添加设备</string>
+    <string name="video_add">添加设备</string>
+
     <string name="main_environment_monitor">环境监控</string>
+
     <string name="main_video_monitor">视频监控</string>
 
     <string name="main_common_scenes">常用场景</string>
@@ -158,6 +163,7 @@
     <string name="qr_code_tips_2">即可自动扫描</string>
     <string name="qr_code_miss">启动出现异常，请重新打开</string>
     <string name="button_ok">确定</string>
+
 
     <string name="exist">再按一次退出程序</string>
 </resources>

@@ -2,6 +2,7 @@ package cn.zhian.avater.iotproject.ui.fragment;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -17,7 +18,9 @@ import butterknife.OnClick;
 import cn.zhian.avater.iotproject.Applications;
 import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.ui.activity.DeviceManagerUI;
+import cn.zhian.avater.iotproject.ui.activity.EnvirmentUI;
 import cn.zhian.avater.iotproject.ui.activity.MessageUI;
+import cn.zhian.avater.iotproject.ui.activity.VideoWatchUI;
 import cn.zhian.avater.iotproject.utils.DataHelper;
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.adapter.HomeAdapterItemSpace;
@@ -76,25 +79,22 @@ public class HomeFragment extends BaseFragment {
         adapter.setListener(listener);
     }
 
-    private HomeRecylerViewAdapter.OnItemClickListener listener = new HomeRecylerViewAdapter.OnItemClickListener() {
-        @Override
-        public void onClick(int position) {
-            switch (position) {
-                case 0:
-                    break;
-                case 1:
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-            }
-
+    private HomeRecylerViewAdapter.OnItemClickListener listener = position -> {
+        switch (position) {
+            case 0:
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
         }
+
     };
 
 
-    @OnClick({R.id.main_tittle_iv_message, R.id.main_tittle_iv_global})
+    @OnClick({R.id.main_tittle_iv_message, R.id.main_tittle_iv_global, R.id.main_home_ll_watch_speak, R.id.main_home_ll_environment_monitor, R.id.main_home_ll_video_monitor})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.main_tittle_iv_message:
@@ -102,6 +102,15 @@ public class HomeFragment extends BaseFragment {
                 break;
             case R.id.main_tittle_iv_global:
                 changUI(DeviceManagerUI.class);
+                break;
+            case R.id.main_home_ll_watch_speak:
+                changUI(VideoWatchUI.class);
+                break;
+            case R.id.main_home_ll_environment_monitor:
+                changUI(EnvirmentUI.class);
+                break;
+            case R.id.main_home_ll_video_monitor:
+                changUI(VideoWatchUI.class);
                 break;
         }
     }

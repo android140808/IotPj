@@ -21,7 +21,7 @@ public class FlashUI extends BaseUI {
 
     @Override
     public int getViewLayout() {
-        return R.layout.activity_flash_ui;
+        return R.layout.flash_ui;
     }
 
     @Override

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/comm_tittle" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@color/color_black">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/tv"
+            android:layout_centerInParent="true"
+            android:background="@mipmap/video_disconnect" />
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/video_un_add"
+            android:textColor="@color/color_while"
+            android:textSize="@dimen/dimen_size_18" />
+
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_size_50"
+        android:layout_margin="@dimen/dimen_size_20"
+        android:background="@drawable/btn_selector"
+        android:text="@string/video_add"
+        android:textColor="@color/color_while"
+        android:textSize="@dimen/dimen_size_18" />
+
+
+</LinearLayout>
