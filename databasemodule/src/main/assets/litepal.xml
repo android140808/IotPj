@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <litepal>
     <!--数据库名称-->
-    <dbname value="zhian.db" />
+    <dbname value="zhian" />
     <!--数据库版本-->
     <version value="1" />
     <!--表映射-->
     <list>
-        <map class="cn.zhian.avater.databasemodule.tables.PhoneDB" />
-        <map class="cn.zhian.avater.databasemodule.tables.UserInfoDB" />
+        <mapping class="cn.zhian.avater.databasemodule.tables.AccountDB" />
+        <mapping class="cn.zhian.avater.databasemodule.tables.MessageDB" />
+        <mapping class="cn.zhian.avater.databasemodule.tables.ProductDB" />
     </list>
 </litepal>

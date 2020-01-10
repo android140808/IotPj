@@ -30,7 +30,10 @@ public abstract class BaseFragment<V extends BaseView, T extends BasePresenter<V
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(getLayout(), container, false);
+        try {
+            view = inflater.inflate(getLayout(), container, false);
+        } catch (Exception e) {
+        }
         ButterKnife.bind(this, view);
         createPresenter();
         if (mPresenter != null) {

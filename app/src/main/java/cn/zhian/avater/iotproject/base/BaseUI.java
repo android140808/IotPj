@@ -29,7 +29,10 @@ public abstract class BaseUI<V extends BaseView, T extends BasePresenter<V>> ext
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(getViewLayout());
+        try {
+            setContentView(getViewLayout());
+        } catch (Exception e) {
+        }
         ButterKnife.bind(this);
         mContext = this;
         UIManagerUtils.getInstance().addActivity(this);

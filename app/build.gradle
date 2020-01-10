@@ -84,4 +84,6 @@ dependencies {
     //图片处理 Glide>4.8.0 版本已经兼容了androidx
     implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
     annotationProcessor "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
+
+    implementation "org.litepal.android:java:$rootProject.litepalversion"
 }

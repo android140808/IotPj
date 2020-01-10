@@ -15,6 +15,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import cn.zhian.avater.databasemodule.MDB;
+import cn.zhian.avater.databasemodule.tables.AccountDB;
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.adapter.MainUIAdapter;
 import cn.zhian.avater.iotproject.base.BaseFragment;
@@ -131,6 +133,9 @@ public class MainUI extends BaseUI {
             case R.id.main_bottom_ll_setting:
                 mainViewPager.setCurrentItem(3);
                 setBottomViewState(3);
+
+                AccountDB accountDB = new AccountDB("12345678911", "", "", "");
+                MDB.INSTANCE.saveAccount(accountDB);
                 break;
         }
     }

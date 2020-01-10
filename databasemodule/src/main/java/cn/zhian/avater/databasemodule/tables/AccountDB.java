@@ -1,25 +1,38 @@
 package cn.zhian.avater.databasemodule.tables;
 
+import org.litepal.annotation.Column;
 import org.litepal.crud.LitePalSupport;
 
 /**
  * @Author: wangweida
  * @CreateDate: 2019-12-21 9:30
- * @Description:
+ * @Description: 用户数据表
  */
-public class UserInfoDB extends LitePalSupport {
+public class AccountDB extends LitePalSupport {
     private int id;
+    //唯一约束
+    @Column(unique = true)
     private String phoneNumber;
     private String niceName;
     private String iconPath;
+    private String token;
 
-    public UserInfoDB() {
+    public AccountDB() {
     }
 
-    public UserInfoDB(String phoneNumber, String niceName, String iconPath) {
+    public AccountDB(String phoneNumber, String niceName, String iconPath, String token) {
         this.phoneNumber = phoneNumber;
         this.niceName = niceName;
         this.iconPath = iconPath;
+        this.token = token;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 
     public int getId() {
@@ -56,11 +69,12 @@ public class UserInfoDB extends LitePalSupport {
 
     @Override
     public String toString() {
-        return "UserInfoDB{" +
+        return "AccountDB{" +
                 "id=" + id +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", niceName='" + niceName + '\'' +
                 ", iconPath='" + iconPath + '\'' +
+                ", token='" + token + '\'' +
                 '}';
     }
 }
