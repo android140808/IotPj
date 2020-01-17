@@ -1,13 +1,19 @@
 package cn.zhian.avater.netmodule;
 
+import android.content.Context;
+import android.text.TextUtils;
 import android.util.Log;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.concurrent.TimeUnit;
 
 import cn.zhian.avater.netmodule.interfaces.Urls;
+import cn.zhian.avater.netmodule.mode.PhoneInfo;
+import cn.zhian.avater.netmodule.utils.LogUtil;
 import cn.zhian.avater.netmodule.utils.ServerUtil;
+import cn.zhian.avater.netmodule.utils.SystemInfoUtil;
 import okhttp3.Cache;
 import okhttp3.CacheControl;
 import okhttp3.Interceptor;
@@ -57,7 +63,7 @@ public class ServerManager {
                 .client(mOkHttpClient)
                 .addConverterFactory(GsonConverterFactory.create())                                 // 支持Gson
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())                           // 支持RxJava
-                .baseUrl(Urls.HOST)                                                                 // 设置Host
+                .baseUrl("http://" + Urls.HOST)                                                                 // 设置Host
                 .build();
         urlServices = retrofit.create(UrlServices.class);
     }
@@ -66,14 +72,10 @@ public class ServerManager {
     private void initOkHttpClient() {
         if (mOkHttpClient == null) {
             synchronized (ServerManager.class) {
-//                Cache cache = new Cache(new File(ServerContext.INSTANCE.getContext().getCacheDir(), "HttpCache"), CACHE_SIZE);
                 mOkHttpClient = new OkHttpClient.Builder()
-//                        .cache(cache)                                                               // 设置缓存路径，缓存大小为10M
                         .retryOnConnectionFailure(true)                                             // 错误重连
-//                        .addInterceptor(mNetworkCacheInterceptor2)                                  // 设置缓存策略
-//                        .addNetworkInterceptor(mNetworkCacheInterceptor2)
                         .addInterceptor(httpLoggingInterceptor())                                   // 打印日志
-//                        .addInterceptor(tokenAndSeqInterceptor())                                   // 设置应用拦截器，可用于设置公共参数，头信息，日志拦截等
+                        .addInterceptor(tokenAndSeqInterceptor())                                   // 设置应用拦截器，可用于设置公共参数，头信息，日志拦截等
                         .connectTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS)                          // 设置连接超时为60秒
                         .readTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS)                             // 设置读超时60秒
 //                        .socketFactory(getSSLSocketFactory())
@@ -83,14 +85,28 @@ public class ServerManager {
         }
     }
 
-    // 缓存策略2(无网读缓存 有网读网络)
-    private Interceptor mNetworkCacheInterceptor2 = chain -> {
-        Request request = chain.request();
-        request = !ServerUtil.checkNetWork() ? request.newBuilder().cacheControl(CacheControl.FORCE_CACHE).build() : request;
-        Response response = chain.proceed(request);
-        String cacheControl = ServerUtil.checkNetWork() ? request.cacheControl().toString() : "public, only-if-cached, max-stale=" + CACHE_TIME;
-        return response.newBuilder().header("Cache-Control", cacheControl).removeHeader("Pragma").build();
-    };
+    // accessToken和accessSeq的设置(因为所有的请求都要带上这个)
+    private Interceptor tokenAndSeqInterceptor() {
+        ServerVal.accessToken = TextUtils.isEmpty(ServerVal.accessToken) ? "" : ServerVal.accessToken;
+        LogUtil.i(TAG, "当前请求的token ： " + ServerVal.accessToken);
+        return chain -> {
+            Request.Builder builder = chain.request().newBuilder()
+                    .addHeader("token", ServerVal.accessToken)
+                    .addHeader("timestamp", System.currentTimeMillis() + "");
+            Context context = ServerContext.INSTANCE.getContext();
+            if (context != null) {
+                PhoneInfo phoneInfo = SystemInfoUtil.getPhoneInfo(context);
+                builder
+                        .addHeader("phoneBrand", getEncodeHeader(phoneInfo.getPhoneBrand()))//厂商手机型号
+                        .addHeader("systemType", "android")//手机操作系统
+                        .addHeader("systemVersion", getEncodeHeader(phoneInfo.getSystemVersion()))//系统版本
+                        .addHeader("appVersion", getEncodeHeader(phoneInfo.getAppVersion()))//app版本
+                        .addHeader("country", getEncodeHeader(phoneInfo.getCountry()));//国家代码
+            }
+            Request request = builder.build();
+            return chain.proceed(request);
+        };
+    }
 
     private HttpLoggingInterceptor httpLoggingInterceptor() {
         return new HttpLoggingInterceptor(message -> Log.d(TAG, message)).setLevel(HttpLoggingInterceptor.Level.BODY);
@@ -98,5 +114,21 @@ public class ServerManager {
 
     public UrlServices getUrlServices() {
         return urlServices;
+    }
+
+    private String getEncodeHeader(String value) {
+        if (value == null) return "null";
+        String newValue = value.replace("\n", "");
+        for (int i = 0, length = newValue.length(); i < length; i++) {
+            char c = newValue.charAt(i);
+            if (c <= '\u001f' || c >= '\u007f') {
+                try {
+                    return URLEncoder.encode(newValue, "UTF-8");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return "Unknow";
     }
 }

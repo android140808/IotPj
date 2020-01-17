@@ -1,9 +1,12 @@
 package cn.zhian.avater.iotproject.ui.activity;
 
+import android.text.TextUtils;
 import android.view.KeyEvent;
+import android.widget.TextView;
 
 import java.util.concurrent.TimeUnit;
 
+import cn.zhian.avater.databasemodule.MDB;
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.base.BaseUI;
@@ -30,10 +33,14 @@ public class FlashUI extends BaseUI {
 
     @Override
     public void initData() {
-        Observable.timer(500, TimeUnit.MILLISECONDS).observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<Long>() {
+        Observable.timer(3000, TimeUnit.MILLISECONDS).observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<Long>() {
             @Override
             public void accept(Long aLong) throws Exception {
-                changeUI(mContext, LoginUI.class);
+                if (!TextUtils.isEmpty(mCurrentPhoneNumber)) {//没有登录的操作
+                    changeUI(mContext, MainUI.class);
+                } else {//已经登录
+                    changeUI(mContext, LoginUI.class);
+                }
                 closeUI();
             }
         });

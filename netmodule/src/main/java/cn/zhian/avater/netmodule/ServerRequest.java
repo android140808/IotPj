@@ -3,6 +3,7 @@ package cn.zhian.avater.netmodule;
 import cn.zhian.avater.netmodule.interfaces.NetResultCallBack;
 import cn.zhian.avater.netmodule.mode.base.BaseRequest;
 import cn.zhian.avater.netmodule.mode.base.BaseResponse;
+import cn.zhian.avater.netmodule.mode.requestBean.AllHostRequest;
 import cn.zhian.avater.netmodule.mode.requestBean.LoginRequest;
 import cn.zhian.avater.netmodule.utils.ServerCode;
 import cn.zhian.avater.netmodule.utils.ServerRequestManager;
@@ -102,6 +103,28 @@ public enum ServerRequest {
                 isSync, callBack
         );
     }
+
+    /**
+     * 获取短信验证码
+     *
+     * @param loginRequest
+     * @param callBack
+     */
+    public void getSmsCode(LoginRequest loginRequest, NetResultCallBack<BaseResponse> callBack) {
+        rxJavaProCallBack(loginRequest.seq,
+                urlServices.getSmsCode(loginRequest.phoneNumber),
+                false,
+                callBack);
+    }
+
+
+    public void getAllHost(AllHostRequest allHostRequest, boolean isSync, NetResultCallBack callBack) {
+
+    }
+
+
+
+
 
     /*--------------------------------------------------------业务逻辑-------------------------------------------------------------*/
 

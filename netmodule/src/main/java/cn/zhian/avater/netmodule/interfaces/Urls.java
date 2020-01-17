@@ -11,6 +11,10 @@ public interface Urls {
     String HOST = BuildConfig.HOST_NAME;
     String HOST_LANS = BuildConfig.LANS;
 
-    String LOGIN = "login/login";
+    String GET_SMS_CODE = "/api/v1/oauth/login/sendSms";
+    String LOGIN_CODE = "api/v1/oauth/login";
+    String LOGIN_WECHAT = "api/v1/oauth/login/weChat";
+    String LOGOUT = "api/v1/oauth/logout";
+
 
 }

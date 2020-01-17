@@ -1,14 +1,18 @@
 package cn.zhian.avater.iotproject;
 
 import android.content.Context;
+
 import androidx.multidex.MultiDex;
 import androidx.multidex.MultiDexApplication;
 
 import com.tencent.bugly.crashreport.CrashReport;
 
 import cn.zhian.avater.databasemodule.DataBaseContext;
+import cn.zhian.avater.databasemodule.MDB;
 import cn.zhian.avater.iotproject.utils.LogUtil;
+import cn.zhian.avater.iotproject.utils.NetStatesUtil;
 import cn.zhian.avater.netmodule.ServerContext;
+import cn.zhian.avater.netmodule.ServerVal;
 
 /**
  * @Author: wangweida
@@ -18,6 +22,8 @@ import cn.zhian.avater.netmodule.ServerContext;
 public class Applications extends MultiDexApplication {
 
     private static Context mContext;
+    public static String WE_CHAT_C_K = "wxa8f51b7a8f458696";
+    public static String WE_CHAT_A_K = "";
 
     @Override
     public void onCreate() {
@@ -27,10 +33,19 @@ public class Applications extends MultiDexApplication {
 
     private void init() {
         mContext = this;
-        ServerContext.INSTANCE.init(this);
+        NetStatesUtil.getNetWordState(this);
         DataBaseContext.init(this);
+        ServerContext.INSTANCE.init(this);
         CrashReport.initCrashReport(this, "f9924dd2fb", false);//false 开启上报，true:开发测试，不上报
-        LogUtil.init(true, true);
+        if (BuildConfig.DEBUG) {//测试环境下打印log
+            ServerContext.INSTANCE.initLogUtil(true);
+            DataBaseContext.initLogUtil(true);
+            LogUtil.init(true, true);
+        }
+    }
+
+    private void initData() {
+        ServerVal.accessToken = MDB.INSTANCE.getAccount("").getToken();
     }
 
     @Override

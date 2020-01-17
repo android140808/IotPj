@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 
 import butterknife.ButterKnife;
+import cn.zhian.avater.databasemodule.MDB;
 import cn.zhian.avater.iotproject.ui.TittleManager;
 import cn.zhian.avater.iotproject.utils.UIManagerUtils;
 
@@ -25,6 +26,7 @@ public abstract class BaseUI<V extends BaseView, T extends BasePresenter<V>> ext
     protected Context mContext;
     protected T mPresenter;
     public TittleManager tittleManager;
+    protected String mCurrentPhoneNumber;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ public abstract class BaseUI<V extends BaseView, T extends BasePresenter<V>> ext
         ButterKnife.bind(this);
         mContext = this;
         UIManagerUtils.getInstance().addActivity(this);
+        mCurrentPhoneNumber = MDB.INSTANCE.getCurrentPhoneNumber();
         mPresenter = createPresenter();
         if (mPresenter != null) {
             mPresenter.attachView((V) this);

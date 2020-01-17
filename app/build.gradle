@@ -35,13 +35,13 @@ android {
             debuggable true
             //签名
             signingConfig signingConfigs.config
-            buildConfigField('Boolean', "IS_DEBUG", "true")
+            buildConfigField('Boolean', "IS_DEBUG", "false")
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
             debuggable true
             signingConfig signingConfigs.config
-            buildConfigField('Boolean', "IS_DEBUG", "false")
+            buildConfigField('Boolean', "IS_DEBUG", "true")
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -86,6 +86,10 @@ dependencies {
     //图片处理 Glide>4.8.0 版本已经兼容了androidx
     implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
     annotationProcessor "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
-
     implementation "org.litepal.android:java:$rootProject.litepalversion"
+    //微信登录
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
+    //Bus
+    implementation "org.greenrobot:eventbus:$rootProject.eventbusVersion"
+    implementation 'com.alibaba:fastjson:1.1.70.android'
 }

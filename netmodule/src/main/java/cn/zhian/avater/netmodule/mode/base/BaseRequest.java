@@ -9,10 +9,9 @@ import cn.zhian.avater.netmodule.BuildConfig;
  */
 public class BaseRequest {
     public String seq;
-    public String versionNo;
-    public int language = 86;
+    public String versionNo;//
     public String clientType = "Android";
-    public String customerCode;
+    public String customerCode;//
 
     public BaseRequest() {
         seq = String.valueOf(System.currentTimeMillis());

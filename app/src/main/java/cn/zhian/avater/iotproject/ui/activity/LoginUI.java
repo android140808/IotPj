@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 
 import androidx.appcompat.app.AlertDialog;
 
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -27,11 +28,12 @@ public class LoginUI extends BaseUI<LoginView, LoginPresenter<LoginView>> implem
 
     @BindView(R.id.login_iv_wechat)
     ImageView loginIvWechat;
-
     @BindView(R.id.bottom)
     LinearLayout bottom;
     @BindView(R.id.login_et_phone)
     EditText loginEtPhone;
+    @BindView(R.id.login_et_code)
+    EditText loginEtCode;
     @BindView(R.id.login_tv_get)
     TextView loginTvGet;
     @BindView(R.id.login_btn_login)
@@ -67,17 +69,31 @@ public class LoginUI extends BaseUI<LoginView, LoginPresenter<LoginView>> implem
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.login_iv_wechat:
+                mPresenter.loginWithWeChat(this);
                 break;
             case R.id.login_tv_get:
-                mPresenter.getCode(LoginUI.this);
+                if (TextUtils.isEmpty(loginEtPhone.getText().toString())) {
+                    showToast(R.string.login_input_phone);
+                    return;
+                }
+                mPresenter.getCode(this, loginEtPhone.getText().toString());
                 break;
             case R.id.login_btn_login:
+                if (TextUtils.isEmpty(loginEtPhone.getText().toString())) {
+                    showToast(R.string.login_input_phone);
+                    return;
+                }
+                if (TextUtils.isEmpty(loginEtCode.getText().toString())) {
+                    showToast(R.string.login_set_phone_check);
+                    return;
+                }
                 if (!loginCbAgree.isChecked()) {
                     showAlert();
                     return;
                 }
-                changeUI(this, MainUI.class);
-                closeUI();
+                mPresenter.login(this, loginEtPhone.getText().toString(), loginEtCode.getText().toString());
+//                changeUI(this, MainUI.class);
+//                closeUI();
                 break;
             case R.id.login_cb_agree:
                 if (!loginCbAgree.isChecked()) {

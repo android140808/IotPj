@@ -2,20 +2,25 @@ package cn.zhian.avater.iotproject.ui.presenter;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 
-import cn.zhian.avater.iotproject.BuildConfig;
+import com.tencent.mm.opensdk.modelmsg.SendAuth;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+
+import cn.zhian.avater.iotproject.Applications;
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.base.BaseView;
+import cn.zhian.avater.iotproject.eventbus.WeChatLoginBus;
+import cn.zhian.avater.iotproject.ui.interfaces.WeChatLoginCallBack;
 import cn.zhian.avater.iotproject.ui.model.LoginModel;
 import cn.zhian.avater.iotproject.ui.view.LoginView;
 import cn.zhian.avater.iotproject.utils.BuglyHelp;
-import cn.zhian.avater.iotproject.utils.DataHelper;
 import cn.zhian.avater.iotproject.utils.GeneralMethods;
-import cn.zhian.avater.netmodule.ServerRequest;
 import cn.zhian.avater.netmodule.interfaces.NetResultCallBack;
-import cn.zhian.avater.netmodule.mode.base.BaseRequest;
 import cn.zhian.avater.netmodule.mode.base.BaseResponse;
 import cn.zhian.avater.netmodule.mode.requestBean.LoginRequest;
 import cn.zhian.avater.netmodule.mode.responseBean.LoginResponse;
@@ -26,7 +31,7 @@ import cn.zhian.avater.netmodule.utils.ServerRequestManager;
  * @CreateDate: 2019-12-20 14:13
  * @Description:
  */
-public class LoginPresenter<V extends BaseView> implements BasePresenter<V> {
+public class LoginPresenter<V extends BaseView> implements BasePresenter<V>, WeChatLoginCallBack {
 
     private LoginView view;
     private LoginModel loginModel;
@@ -34,6 +39,14 @@ public class LoginPresenter<V extends BaseView> implements BasePresenter<V> {
 
     public LoginPresenter() {
         loginModel = new LoginModel();
+        EventBus.getDefault().register(this);
+    }
+
+    @Subscribe
+    public void weChatLoginState(WeChatLoginBus bus) {
+        if (bus != null) {
+
+        }
     }
 
     @Override
@@ -50,7 +63,7 @@ public class LoginPresenter<V extends BaseView> implements BasePresenter<V> {
     }
 
 
-    public void getCode(Context context) {
+    public void getCode(Context context, String phoneNumber) {
         if (null == view) {
             return;
         }
@@ -59,9 +72,13 @@ public class LoginPresenter<V extends BaseView> implements BasePresenter<V> {
             return;
         }
         try {
-            loginModel.getCode(code -> {
+            loginModel.getSmsCode(phoneNumber, code -> {
                 if (view != null) {
-                    view.getCodeFromServer(code + "");
+                    if (code > 0) {
+                        view.loginSuccess();
+                    } else {
+                        view.loginFailed("");
+                    }
                 }
             });
         } catch (Exception e) {
@@ -82,21 +99,30 @@ public class LoginPresenter<V extends BaseView> implements BasePresenter<V> {
         }
         LoginRequest b = new LoginRequest(phoneNumber, code);
         seq = b.seq;
-        ServerRequest.INSTANCE.login(b, true, new NetResultCallBack<LoginResponse>() {
-            @Override
-            public void onSuccess(int responseCode, LoginResponse baseResponse) {
-                //TODO 保存TOKEN相关的数据，并获取相关的数据
-                if (view != null) {
-                    view.loginSuccess();
-                }
-            }
+        loginModel.login(phoneNumber, code);
+    }
 
-            @Override
-            public void onFail(int responseCode) {
-                if (view != null) {
-                    view.loginFailed("" + responseCode);
-                }
-            }
-        });
+    public void loginWithWeChat(Context context) {
+        IWXAPI iwxapi = WXAPIFactory.createWXAPI(context, Applications.WE_CHAT_C_K, true);
+        iwxapi.registerApp(Applications.WE_CHAT_C_K);
+        if (!iwxapi.isWXAppInstalled()) {
+            loginFail();
+        } else {
+            SendAuth.Req req = new SendAuth.Req();
+            req.scope = "snsapi_userinfo";
+//            req.scope = "snsapi_login";//提示 scope参数错误，或者没有scope权限
+            req.state = "wechat_sdk_微信登录";
+            iwxapi.sendReq(req);
+        }
+    }
+
+    @Override
+    public void loginSuccess(int type, String token, String id, String secret) {
+
+    }
+
+    @Override
+    public void loginFail() {
+
     }
 }

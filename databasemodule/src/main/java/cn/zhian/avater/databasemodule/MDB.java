@@ -1,7 +1,10 @@
 package cn.zhian.avater.databasemodule;
 
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -20,6 +23,48 @@ import cn.zhian.avater.databasemodule.tables.MessageDB;
 public enum MDB {
     INSTANCE;
     private final static String TAG = MDB.class.getName();
+
+    public void setCurrentPhoneNumber(String value) {
+        SharedPreferences sp = getSp();
+        if (sp != null) {
+            SharedPreferences.Editor edit = sp.edit();
+            edit.putString("phoneNumber", value);
+            edit.apply();
+        }
+    }
+
+    public String getCurrentPhoneNumber() {
+        SharedPreferences sp = getSp();
+        if (sp != null) {
+            sp.getString("phoneNumber", "");
+        }
+        return null;
+    }
+
+    public void setToken(String value) {
+        SharedPreferences sp = getSp();
+        if (sp != null) {
+            SharedPreferences.Editor edit = sp.edit();
+            edit.putString("tokenValue", value);
+            edit.apply();
+        }
+    }
+
+    public String getToken(String value) {
+        SharedPreferences sp = getSp();
+        if (sp != null) {
+            return sp.getString("tokenValue", "");
+        }
+        return null;
+    }
+
+    private SharedPreferences getSp() {
+        SharedPreferences sp = DataBaseContext.getContent().getSharedPreferences("zhian", Context.MODE_PRIVATE);
+        if (sp != null) {
+            return sp;
+        }
+        return null;
+    }
 
     /**
      * 保存数据

@@ -1,6 +1,5 @@
-package cn.zhian.avater.iotproject.utils;
+package cn.zhian.avater.netmodule.utils;
 
-import android.Manifest;
 import android.os.Environment;
 import android.util.Log;
 
@@ -9,9 +8,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
-
-import cn.zhian.avater.iotproject.Applications;
-import pub.devrel.easypermissions.EasyPermissions;
 
 
 /**
@@ -92,6 +88,7 @@ public class LogUtil {
     }
 
     public static void i(String TAG, String msg) {
+
         printf(TAG, msg, TYPE_INFO);
     }
 

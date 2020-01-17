@@ -34,8 +34,8 @@ ext {
     vns = "0.0.1"        // 正式包
 
     HOST_PRODUCT = "\"http://www.baidu.com/\"" //手机网络 正式服务器
-    HOST_TEXT = "\"http://www.baidu.com/\"" //手机网络 测试服务器
-    HOST_LANS = "\"192.168.1.0/:8080\"" //局域网
+    HOST_TEXT = "\"192.168.10.57:8802/\"" //手机网络 测试服务器
+    HOST_LANS = "\"192.168.10.57:8802/\"" //局域网
 
     butterKnifeVersion = '10.2.0'
     junitVersion = '4.12'

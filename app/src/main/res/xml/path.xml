@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <external-path
+        name="external_files"
+        path="." />
+
+    <external-path
+        name="file_photo"
+        path="." />
+
+    <files-path
+        name="share_track_app"
+        path="track_photo"/>
+
+    <external-path
+        name="share_track_external"
+        path="track_photo" />
+</paths>
