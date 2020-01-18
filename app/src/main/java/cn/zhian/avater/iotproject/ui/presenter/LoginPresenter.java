@@ -63,19 +63,29 @@ public class LoginPresenter<V extends BaseView> implements BasePresenter<V>, WeC
     }
 
 
-    public void getCode(Context context, String phoneNumber) {
+    public void getSmsCode(Context context, String phoneNumber) {
         if (null == view) {
+            return;
+        }
+        if (TextUtils.isEmpty(phoneNumber)) {
+            view.loginFailed(context.getResources().getString(R.string.login_input_phone));
+            return;
+        }
+        boolean state = GeneralMethods.judgeChinePhoneNumber(phoneNumber);
+        if (!state) {
+            view.loginFailed(context.getResources().getString(R.string.login_phone_error));
             return;
         }
         if (!GeneralMethods.networkState(context)) {
             view.loginFailed(context.getResources().getString(R.string.login_network_error));
             return;
         }
+        view.showProgress();
         try {
             loginModel.getSmsCode(phoneNumber, code -> {
                 if (view != null) {
-                    if (code > 0) {
-                        view.loginSuccess();
+                    if (code == 0) {
+                        view.getSmsCode();
                     } else {
                         view.loginFailed("");
                     }
@@ -92,6 +102,14 @@ public class LoginPresenter<V extends BaseView> implements BasePresenter<V>, WeC
             view.loginFailed(context.getResources().getString(R.string.login_network_error));
             return;
         }
+        if (TextUtils.isEmpty(phoneNumber)) {
+            view.loginFailed(context.getResources().getString(R.string.login_input_phone));
+            return;
+        }
+        if (TextUtils.isEmpty(code)) {
+            view.loginFailed(context.getResources().getString(R.string.login_set_phone_check));
+            return;
+        }
         boolean state = GeneralMethods.judgeChinePhoneNumber(phoneNumber);
         if (!state) {
             view.loginFailed(context.getResources().getString(R.string.login_phone_error));
@@ -99,7 +117,16 @@ public class LoginPresenter<V extends BaseView> implements BasePresenter<V>, WeC
         }
         LoginRequest b = new LoginRequest(phoneNumber, code);
         seq = b.seq;
-        loginModel.login(phoneNumber, code);
+        view.showProgress();
+        loginModel.login(phoneNumber, code, callback -> {
+            if (view != null) {
+                if (callback == 0) {
+                    view.loginSuccess();
+                } else {
+                    view.loginFailed("");
+                }
+            }
+        });
     }
 
     public void loginWithWeChat(Context context) {

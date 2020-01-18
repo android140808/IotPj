@@ -12,7 +12,8 @@ public interface Urls {
     String HOST_LANS = BuildConfig.LANS;
 
     String GET_SMS_CODE = "/api/v1/oauth/login/sendSms";
-    String LOGIN_CODE = "api/v1/oauth/login";
+    String LOGIN_PASSWORD = "api/v1/oauth/login";
+    String LOGIN_SMS = "api/v1/oauth/login/sms";
     String LOGIN_WECHAT = "api/v1/oauth/login/weChat";
     String LOGOUT = "api/v1/oauth/logout";
 

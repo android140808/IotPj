@@ -9,9 +9,12 @@ import cn.zhian.avater.iotproject.base.BaseView;
  */
 public interface LoginView extends BaseView {
 
-    void getCodeFromServer(String code);
+    void showProgress();
 
     void loginSuccess();
 
     void loginFailed(String msg);
+
+    void getSmsCode();
+
 }

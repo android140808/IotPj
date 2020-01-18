@@ -36,7 +36,7 @@ public enum MDB {
     public String getCurrentPhoneNumber() {
         SharedPreferences sp = getSp();
         if (sp != null) {
-            sp.getString("phoneNumber", "");
+            return sp.getString("phoneNumber", "");
         }
         return null;
     }

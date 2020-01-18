@@ -8,14 +8,14 @@ package cn.zhian.avater.netmodule.mode.base;
 public class BaseResponse {
     public String seq;
     public int code;
-    public String msg;
+    public String message;
 
     @Override
     public String toString() {
         return "BaseResponse{" +
                 "seq='" + seq + '\'' +
                 ", code=" + code +
-                ", msg='" + msg + '\'' +
+                ", message='" + message + '\'' +
                 '}';
     }
 }

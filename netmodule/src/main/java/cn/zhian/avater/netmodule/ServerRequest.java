@@ -112,7 +112,7 @@ public enum ServerRequest {
      */
     public void getSmsCode(LoginRequest loginRequest, NetResultCallBack<BaseResponse> callBack) {
         rxJavaProCallBack(loginRequest.seq,
-                urlServices.getSmsCode(loginRequest.phoneNumber),
+                urlServices.getSmsCode(loginRequest),
                 false,
                 callBack);
     }

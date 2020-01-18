@@ -8,11 +8,11 @@ import cn.zhian.avater.netmodule.mode.base.BaseRequest;
  * @Description:
  */
 public class LoginRequest extends BaseRequest {
-    public String phoneNumber;
-    public String code;
+    public String mobile;
+    public String smsValidCode;
 
-    public LoginRequest(String phoneNumber, String code) {
-        this.phoneNumber = phoneNumber;
-        this.code = code;
+    public LoginRequest(String mobile, String smsValidCode) {
+        this.mobile = mobile;
+        this.smsValidCode = smsValidCode;
     }
 }

@@ -4,8 +4,7 @@ import android.content.DialogInterface;
 
 import androidx.appcompat.app.AlertDialog;
 
-import android.text.TextUtils;
-import android.util.Log;
+import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -72,28 +71,14 @@ public class LoginUI extends BaseUI<LoginView, LoginPresenter<LoginView>> implem
                 mPresenter.loginWithWeChat(this);
                 break;
             case R.id.login_tv_get:
-                if (TextUtils.isEmpty(loginEtPhone.getText().toString())) {
-                    showToast(R.string.login_input_phone);
-                    return;
-                }
-                mPresenter.getCode(this, loginEtPhone.getText().toString());
+                mPresenter.getSmsCode(this, loginEtPhone.getText().toString());
                 break;
             case R.id.login_btn_login:
-                if (TextUtils.isEmpty(loginEtPhone.getText().toString())) {
-                    showToast(R.string.login_input_phone);
-                    return;
-                }
-                if (TextUtils.isEmpty(loginEtCode.getText().toString())) {
-                    showToast(R.string.login_set_phone_check);
-                    return;
-                }
                 if (!loginCbAgree.isChecked()) {
                     showAlert();
                     return;
                 }
                 mPresenter.login(this, loginEtPhone.getText().toString(), loginEtCode.getText().toString());
-//                changeUI(this, MainUI.class);
-//                closeUI();
                 break;
             case R.id.login_cb_agree:
                 if (!loginCbAgree.isChecked()) {
@@ -117,6 +102,7 @@ public class LoginUI extends BaseUI<LoginView, LoginPresenter<LoginView>> implem
     }
 
     private void showAlert() {
+        alertDialog = null;
         if (alertDialog == null) {
             alertDialog = new AlertDialog.Builder(this)
                     .setMessage(R.string.login_agree_alert)
@@ -125,6 +111,16 @@ public class LoginUI extends BaseUI<LoginView, LoginPresenter<LoginView>> implem
             alertDialog.setCanceledOnTouchOutside(false);
             alertDialog.setCancelable(false);
         }
+        alertDialog.show();
+    }
+
+    private void showProgressAlert() {
+        alertDialog = null;
+        alertDialog = new AlertDialog.Builder(this)
+                .setView(View.inflate(this, R.layout.progress_dalog, null))
+                .create();
+        alertDialog.setCanceledOnTouchOutside(false);
+        alertDialog.setCancelable(false);
         alertDialog.show();
     }
 
@@ -147,13 +143,28 @@ public class LoginUI extends BaseUI<LoginView, LoginPresenter<LoginView>> implem
     };
 
     @Override
-    public void getCodeFromServer(String code) {
-        Log.e("getCodeFromServer", "code == " + code);
+    public void getSmsCode() {
+        if (alertDialog != null) {
+            alertDialog.dismiss();
+        }
+        showToast(R.string.login_sms_code_tips);
+        loginEtCode.setText("1234");
+    }
+
+    @Override
+    public void showProgress() {
+        showProgressAlert();
     }
 
     @Override
     public void loginSuccess() {
-
+        new Handler().postDelayed(() -> {
+            if (alertDialog != null) {
+                alertDialog.dismiss();
+            }
+            showToast(R.string.login_success);
+            changeUI(this, MainUI.class);
+        }, 2000);
     }
 
     @Override

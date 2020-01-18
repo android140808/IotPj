@@ -19,13 +19,15 @@ import rx.Observable;
  */
 public interface UrlServices {
 
-    @POST(Urls.LOGIN_CODE)
+    @POST(Urls.LOGIN_SMS)
     Observable<LoginResponse> Login(@Body LoginRequest request);
 
-    @FormUrlEncoded
-    @POST(Urls.GET_SMS_CODE)
-    Observable<LoginResponse> getSmsCode(@Field("mobile") String phoneNumber);
+    @POST(Urls.LOGIN_PASSWORD)
+    Observable<LoginResponse> LoginWithPassword(@Body LoginRequest request);
 
-    @POST(Urls.LOGIN_CODE)
+    @POST(Urls.GET_SMS_CODE)
+    Observable<LoginResponse> getSmsCode(@Body LoginRequest phoneNumber);
+
+    @POST(Urls.GET_SMS_CODE)
     Observable<AllHostResponse> getAllHost(@Body AllHostRequest request);
 }
