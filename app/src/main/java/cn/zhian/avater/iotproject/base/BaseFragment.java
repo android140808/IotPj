@@ -35,7 +35,7 @@ public abstract class BaseFragment<V extends BaseView, T extends BasePresenter<V
         } catch (Exception e) {
         }
         ButterKnife.bind(this, view);
-        createPresenter();
+        mPresenter = createPresenter();
         if (mPresenter != null) {
             mPresenter.attachView((V) this);
         }

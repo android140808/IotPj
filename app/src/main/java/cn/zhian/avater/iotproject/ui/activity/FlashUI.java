@@ -33,17 +33,18 @@ public class FlashUI extends BaseUI {
 
     @Override
     public void initData() {
-        Observable.timer(3000, TimeUnit.MILLISECONDS).observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<Long>() {
-            @Override
-            public void accept(Long aLong) throws Exception {
-                if (!TextUtils.isEmpty(mCurrentPhoneNumber)) {//没有登录的操作
-                    changeUI(mContext, MainUI.class);
-                } else {//已经登录
-                    changeUI(mContext, LoginUI.class);
-                }
-                closeUI();
-            }
-        });
+        Observable.timer(
+                3000,
+                TimeUnit.MILLISECONDS)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(aLong -> {
+                    if (!TextUtils.isEmpty(mCurrentPhoneNumber)) {//没有登录的操作
+                        changeUI(mContext, MainUI.class);
+                    } else {//已经登录
+                        changeUI(mContext, LoginUI.class);
+                    }
+                    closeUI();
+                });
     }
 
     @Override

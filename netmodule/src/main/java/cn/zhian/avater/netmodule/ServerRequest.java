@@ -1,7 +1,6 @@
 package cn.zhian.avater.netmodule;
 
 import cn.zhian.avater.netmodule.interfaces.NetResultCallBack;
-import cn.zhian.avater.netmodule.mode.base.BaseRequest;
 import cn.zhian.avater.netmodule.mode.base.BaseResponse;
 import cn.zhian.avater.netmodule.mode.requestBean.AllHostRequest;
 import cn.zhian.avater.netmodule.mode.requestBean.LoginRequest;
@@ -91,16 +90,39 @@ public enum ServerRequest {
     /*--------------------------------------------------------业务逻辑-------------------------------------------------------------*/
 
     /**
-     * 登录
+     * 短信验证码登录
      *
      * @param loginRequest
      * @param callBack
      */
-    public void login(LoginRequest loginRequest, boolean isSync, NetResultCallBack callBack) {
+    public void loginWithSmsCode(LoginRequest loginRequest, NetResultCallBack callBack) {
         rxJavaProCallBack(
                 loginRequest.seq,
-                urlServices.Login(loginRequest),
-                isSync, callBack
+                urlServices.loginWithSmsCode(loginRequest),
+                callBack
+        );
+    }
+
+    /**
+     * 账号密码登录
+     *
+     * @param loginRequest
+     * @param callBack
+     */
+    public void loginWithPassword(LoginRequest loginRequest, NetResultCallBack callBack) {
+        rxJavaProCallBack(
+                loginRequest.seq,
+                urlServices.loginWithPassword(loginRequest),
+                callBack
+        );
+    }
+
+
+    public void logout(LoginRequest loginRequest, NetResultCallBack callBack) {
+        rxJavaProCallBack(
+                loginRequest.seq,
+                urlServices.loginWithPassword(loginRequest),
+                callBack
         );
     }
 
@@ -118,7 +140,7 @@ public enum ServerRequest {
     }
 
 
-    public void getAllHost(AllHostRequest allHostRequest, boolean isSync, NetResultCallBack callBack) {
+    public void getAllHost(AllHostRequest allHostRequest, NetResultCallBack callBack) {
 
     }
 

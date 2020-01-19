@@ -8,5 +8,12 @@ import cn.zhian.avater.netmodule.mode.base.BaseResponse;
  * @Description:
  */
 public class LoginResponse extends BaseResponse {
-    public String accessToken;
+
+    public DataBean data;
+
+    public static class DataBean {
+        public String token;
+    }
+//    public String accessToken;
+
 }

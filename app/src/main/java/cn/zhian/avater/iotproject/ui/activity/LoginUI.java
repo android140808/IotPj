@@ -22,6 +22,7 @@ import cn.zhian.avater.iotproject.ui.presenter.LoginPresenter;
 import cn.zhian.avater.iotproject.ui.view.LoginView;
 import cn.zhian.avater.iotproject.utils.GeneralMethods;
 import cn.zhian.avater.iotproject.utils.PermissionUtils;
+import rx.Observable;
 
 public class LoginUI extends BaseUI<LoginView, LoginPresenter<LoginView>> implements LoginView {
 
@@ -71,14 +72,14 @@ public class LoginUI extends BaseUI<LoginView, LoginPresenter<LoginView>> implem
                 mPresenter.loginWithWeChat(this);
                 break;
             case R.id.login_tv_get:
-                mPresenter.getSmsCode(this, loginEtPhone.getText().toString());
+                mPresenter.getSmsCode(this, loginEtPhone.getText().toString(), loginTvGet);
                 break;
             case R.id.login_btn_login:
                 if (!loginCbAgree.isChecked()) {
                     showAlert();
                     return;
                 }
-                mPresenter.login(this, loginEtPhone.getText().toString(), loginEtCode.getText().toString());
+                mPresenter.loginWithSmsCode(this, loginEtPhone.getText().toString(), loginEtCode.getText().toString());
                 break;
             case R.id.login_cb_agree:
                 if (!loginCbAgree.isChecked()) {
@@ -97,7 +98,7 @@ public class LoginUI extends BaseUI<LoginView, LoginPresenter<LoginView>> implem
                 .setNegativeButton(android.R.string.cancel, cancelLis)
                 .create();
         alertDialog.setCanceledOnTouchOutside(false);
-        alertDialog.setCancelable(false);
+//        alertDialog.setCancelable(false);
         alertDialog.show();
     }
 
@@ -120,7 +121,7 @@ public class LoginUI extends BaseUI<LoginView, LoginPresenter<LoginView>> implem
                 .setView(View.inflate(this, R.layout.progress_dalog, null))
                 .create();
         alertDialog.setCanceledOnTouchOutside(false);
-        alertDialog.setCancelable(false);
+//        alertDialog.setCancelable(false);
         alertDialog.show();
     }
 
@@ -164,6 +165,7 @@ public class LoginUI extends BaseUI<LoginView, LoginPresenter<LoginView>> implem
             }
             showToast(R.string.login_success);
             changeUI(this, MainUI.class);
+            closeUI();//注意rx内存泄漏问题
         }, 2000);
     }
 

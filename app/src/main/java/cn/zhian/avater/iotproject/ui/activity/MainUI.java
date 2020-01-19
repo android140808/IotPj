@@ -24,6 +24,8 @@ import cn.zhian.avater.iotproject.ui.fragment.ControlFragment;
 import cn.zhian.avater.iotproject.ui.fragment.HomeFragment;
 import cn.zhian.avater.iotproject.ui.fragment.RunningFragment;
 import cn.zhian.avater.iotproject.ui.fragment.SettingFragment;
+import cn.zhian.avater.iotproject.ui.presenter.SettingPresenter;
+import cn.zhian.avater.iotproject.ui.view.SettintView;
 import cn.zhian.avater.iotproject.utils.GeneralMethods;
 
 public class MainUI extends BaseUI {

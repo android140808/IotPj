@@ -8,4 +8,8 @@ import cn.zhian.avater.netmodule.mode.base.BaseResponse;
  * @Description:
  */
 public class AllHostResponse extends BaseResponse {
+    public DataBean data;
+
+    public static class DataBean {
+    }
 }

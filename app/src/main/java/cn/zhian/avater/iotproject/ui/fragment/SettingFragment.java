@@ -16,6 +16,8 @@ import cn.zhian.avater.iotproject.ui.activity.ManagerUI;
 import cn.zhian.avater.iotproject.ui.activity.PasswordUI;
 import cn.zhian.avater.iotproject.ui.activity.PersonUI;
 import cn.zhian.avater.iotproject.ui.activity.SenseUI;
+import cn.zhian.avater.iotproject.ui.presenter.SettingPresenter;
+import cn.zhian.avater.iotproject.ui.view.SettintView;
 import cn.zhian.avater.iotproject.widget.ResetView;
 
 /**
@@ -23,7 +25,7 @@ import cn.zhian.avater.iotproject.widget.ResetView;
  * @CreateDate: 2019-12-16 15:38
  * @Description:
  */
-public class SettingFragment extends BaseFragment implements ResetView.doSomeTing {
+public class SettingFragment extends BaseFragment<SettintView, SettingPresenter<SettintView>> implements SettintView, ResetView.doSomeTing {
 
     @BindView(R.id.setting_iv_personal)
     ImageView settingIvPersonal;
@@ -55,8 +57,8 @@ public class SettingFragment extends BaseFragment implements ResetView.doSomeTin
     RelativeLayout settingRlRecover;
 
     @Override
-    public BasePresenter createPresenter() {
-        return null;
+    public SettingPresenter createPresenter() {
+        return new SettingPresenter();
     }
 
     @Override
@@ -102,6 +104,7 @@ public class SettingFragment extends BaseFragment implements ResetView.doSomeTin
             case R.id.setting_tv_logout:
                 changUI(LoginUI.class);
                 getActivity().finish();
+//                mPresenter.logout();
                 break;
         }
     }
@@ -109,5 +112,10 @@ public class SettingFragment extends BaseFragment implements ResetView.doSomeTin
     @Override
     public void doIt() {
         showToast("开始恢复出厂设置了哟！！");
+    }
+
+    @Override
+    public void logout() {
+
     }
 }

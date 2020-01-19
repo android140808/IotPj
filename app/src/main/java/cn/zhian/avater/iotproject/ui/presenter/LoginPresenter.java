@@ -2,6 +2,7 @@ package cn.zhian.avater.iotproject.ui.presenter;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.widget.TextView;
 
 import com.tencent.mm.opensdk.modelmsg.SendAuth;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
@@ -9,6 +10,8 @@ import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
+
+import java.util.concurrent.TimeUnit;
 
 import cn.zhian.avater.iotproject.Applications;
 import cn.zhian.avater.iotproject.R;
@@ -20,11 +23,11 @@ import cn.zhian.avater.iotproject.ui.model.LoginModel;
 import cn.zhian.avater.iotproject.ui.view.LoginView;
 import cn.zhian.avater.iotproject.utils.BuglyHelp;
 import cn.zhian.avater.iotproject.utils.GeneralMethods;
-import cn.zhian.avater.netmodule.interfaces.NetResultCallBack;
-import cn.zhian.avater.netmodule.mode.base.BaseResponse;
 import cn.zhian.avater.netmodule.mode.requestBean.LoginRequest;
-import cn.zhian.avater.netmodule.mode.responseBean.LoginResponse;
 import cn.zhian.avater.netmodule.utils.ServerRequestManager;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
 
 /**
  * @Author: wangweida
@@ -36,6 +39,8 @@ public class LoginPresenter<V extends BaseView> implements BasePresenter<V>, WeC
     private LoginView view;
     private LoginModel loginModel;
     private String seq;
+    private Disposable disposable;
+
 
     public LoginPresenter() {
         loginModel = new LoginModel();
@@ -51,6 +56,10 @@ public class LoginPresenter<V extends BaseView> implements BasePresenter<V>, WeC
 
     @Override
     public void onDestroy() {
+        if (disposable != null) {
+            disposable.dispose();
+            disposable = null;
+        }
         if (!TextUtils.isEmpty(seq)) {
             ServerRequestManager.INSTANCE.remove(seq);
         }
@@ -63,7 +72,7 @@ public class LoginPresenter<V extends BaseView> implements BasePresenter<V>, WeC
     }
 
 
-    public void getSmsCode(Context context, String phoneNumber) {
+    public void getSmsCode(Context context, String phoneNumber, TextView textView) {
         if (null == view) {
             return;
         }
@@ -80,6 +89,7 @@ public class LoginPresenter<V extends BaseView> implements BasePresenter<V>, WeC
             view.loginFailed(context.getResources().getString(R.string.login_network_error));
             return;
         }
+        startRun(textView);
         view.showProgress();
         try {
             loginModel.getSmsCode(phoneNumber, code -> {
@@ -97,7 +107,48 @@ public class LoginPresenter<V extends BaseView> implements BasePresenter<V>, WeC
         }
     }
 
-    public void login(Context context, String phoneNumber, String code) {
+    /**
+     * 60s 倒数计时
+     */
+    private void startRun(TextView textView) {
+        final long times = 60;
+        Observable.interval(0, 1, TimeUnit.SECONDS)
+                .take((times - 1))
+                .map(aLong -> times - aLong)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new io.reactivex.Observer<Long>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        disposable = d;
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        if (view != null) {
+                            textView.setEnabled(true);
+                            textView.setText("获取验证码");
+                        }
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        if (view != null) {
+                            textView.setEnabled(true);
+                            textView.setText("获取验证码");
+                        }
+                    }
+
+                    @Override
+                    public void onNext(Long aLong) {
+                        if (view != null) {
+                            textView.setText("重新获取" + aLong + "s");
+                        }
+                    }
+                });
+
+    }
+
+    public void loginWithSmsCode(Context context, String phoneNumber, String code) {
         if (!GeneralMethods.networkState(context)) {
             view.loginFailed(context.getResources().getString(R.string.login_network_error));
             return;
@@ -118,7 +169,7 @@ public class LoginPresenter<V extends BaseView> implements BasePresenter<V>, WeC
         LoginRequest b = new LoginRequest(phoneNumber, code);
         seq = b.seq;
         view.showProgress();
-        loginModel.login(phoneNumber, code, callback -> {
+        loginModel.loginWithSmsCode(phoneNumber, code, callback -> {
             if (view != null) {
                 if (callback == 0) {
                     view.loginSuccess();
