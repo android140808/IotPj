@@ -75,6 +75,11 @@ public class SettingFragment extends BaseFragment<SettintView, SettingPresenter<
                 .build();
     }
 
+    @Override
+    public void showLoading() {
+
+    }
+
     @OnClick({R.id.setting_tv_logout, R.id.setting_rl_person, R.id.setting_rl_sense, R.id.setting_rl_manager, R.id.setting_rl_password, R.id.setting_rl_connect, R.id.setting_rl_refresh, R.id.setting_rl_recover})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -102,9 +107,9 @@ public class SettingFragment extends BaseFragment<SettintView, SettingPresenter<
                 resetView.show();
                 break;
             case R.id.setting_tv_logout:
-                changUI(LoginUI.class);
-                getActivity().finish();
-//                mPresenter.logout();
+                /*changUI(LoginUI.class);
+                getActivity().finish();*/
+                mPresenter.logout();
                 break;
         }
     }
@@ -115,7 +120,12 @@ public class SettingFragment extends BaseFragment<SettintView, SettingPresenter<
     }
 
     @Override
-    public void logout() {
-
+    public void logoutState(boolean state) {
+        if (state) {
+            changUI(LoginUI.class);
+            getActivity().finish();
+        } else {
+            showToast("异常");
+        }
     }
 }

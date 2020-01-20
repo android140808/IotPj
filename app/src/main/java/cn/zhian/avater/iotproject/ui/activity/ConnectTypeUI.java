@@ -75,6 +75,11 @@ public class ConnectTypeUI extends BaseUI implements TittleManager.OnLeftClickLi
     }
 
     @Override
+    public void showLoading() {
+
+    }
+
+    @Override
     public void onLeftClick() {
         closeUI();
     }

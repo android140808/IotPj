@@ -44,6 +44,11 @@ public class SenseUI extends BaseUI implements TittleManager.OnLeftClickListener
     }
 
     @Override
+    public void showLoading() {
+
+    }
+
+    @Override
     public void initData() {
 
     }

@@ -75,7 +75,7 @@ public class ServerManager {
                 mOkHttpClient = new OkHttpClient.Builder()
                         .retryOnConnectionFailure(true)                                             // 错误重连
                         .addInterceptor(httpLoggingInterceptor())                                   // 打印日志
-//                        .addInterceptor(tokenAndSeqInterceptor())                                   // 设置应用拦截器，可用于设置公共参数，头信息，日志拦截等
+                        .addInterceptor(tokenAndSeqInterceptor())                                   // 设置应用拦截器，可用于设置公共参数，头信息，日志拦截等
                         .connectTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS)                          // 设置连接超时为60秒
                         .readTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS)                             // 设置读超时60秒
 //                        .socketFactory(getSSLSocketFactory())

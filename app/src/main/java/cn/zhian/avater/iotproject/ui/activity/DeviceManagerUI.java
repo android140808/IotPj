@@ -16,7 +16,7 @@ import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.base.BaseUI;
 import cn.zhian.avater.iotproject.ui.TittleManager;
 
-public class DeviceManagerUI extends BaseUI implements TittleManager.OnLeftClickListener{
+public class DeviceManagerUI extends BaseUI implements TittleManager.OnLeftClickListener {
 
     @BindView(R.id.recyler_view)
     RecyclerView recylerView;
@@ -43,6 +43,11 @@ public class DeviceManagerUI extends BaseUI implements TittleManager.OnLeftClick
                 .setShowMiddle(true)
                 .setMiddleRes(R.string.setting_connect)
                 .build();
+    }
+
+    @Override
+    public void showLoading() {
+
     }
 
     @Override

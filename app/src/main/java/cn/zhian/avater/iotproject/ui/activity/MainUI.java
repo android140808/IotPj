@@ -97,6 +97,11 @@ public class MainUI extends BaseUI {
         mainViewPager.addOnPageChangeListener(listener);
     }
 
+    @Override
+    public void showLoading() {
+
+    }
+
     private ViewPager.OnPageChangeListener listener = new ViewPager.OnPageChangeListener() {
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {

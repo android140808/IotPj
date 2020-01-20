@@ -138,4 +138,9 @@ public class AddDeviceUI extends BaseUI implements TittleManager.OnLeftClickList
     public void onLeftClick() {
         closeUI();
     }
+
+    @Override
+    public void showLoading() {
+
+    }
 }

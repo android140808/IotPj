@@ -43,6 +43,11 @@ public class ManagerUI extends BaseUI implements TittleManager.OnLeftClickListen
     }
 
     @Override
+    public void showLoading() {
+
+    }
+
+    @Override
     public void initData() {
 
     }

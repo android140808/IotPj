@@ -6,4 +6,8 @@ package cn.zhian.avater.iotproject.base;
  * @Description:
  */
 public interface BaseView {
+    /**
+     * 显示加载中..
+     */
+    void showLoading();
 }

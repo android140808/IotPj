@@ -7,6 +7,7 @@ import cn.zhian.avater.databasemodule.MDB;
 import cn.zhian.avater.iotproject.base.BaseModel;
 import cn.zhian.avater.iotproject.utils.LogUtil;
 import cn.zhian.avater.netmodule.ServerRequest;
+import cn.zhian.avater.netmodule.ServerVal;
 import cn.zhian.avater.netmodule.interfaces.NetResultCallBack;
 import cn.zhian.avater.netmodule.mode.base.BaseResponse;
 import cn.zhian.avater.netmodule.mode.requestBean.LoginRequest;
@@ -28,6 +29,7 @@ public class LoginModel implements BaseModel {
                 if (responseCode == ServerCode.RESPONSE_SUCCESS) {
                     MDB.INSTANCE.setCurrentPhoneNumber(phoneNumber);
                     String token = baseResponse.data.token;
+                    ServerVal.accessToken = token;
                     LogUtil.e("LoginModel", "phoneNumber = " + phoneNumber);
                     LogUtil.e("LoginModel", "token = " + token);
                     if (!TextUtils.isEmpty(token)) {

@@ -27,7 +27,7 @@ public interface UrlServices {
     Observable<LoginResponse> loginWithPassword(@Body LoginRequest request);
 
     @POST(Urls.LOGOUT)
-    Observable<LoginResponse> logout(@Body LoginRequest request);
+    Observable<LoginResponse> logout();
 
     @GET(Urls.USERINFO)
     Observable<LoginResponse> getUserInfo();

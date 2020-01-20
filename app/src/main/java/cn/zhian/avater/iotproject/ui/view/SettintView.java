@@ -8,5 +8,5 @@ import cn.zhian.avater.iotproject.base.BaseView;
  * @Description:
  */
 public interface SettintView extends BaseView {
-    void logout();
+    void logoutState(boolean state);
 }

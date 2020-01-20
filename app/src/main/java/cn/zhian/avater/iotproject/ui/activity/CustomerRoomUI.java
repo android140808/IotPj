@@ -48,6 +48,11 @@ public class CustomerRoomUI extends BaseUI implements TittleManager.OnLeftClickL
     }
 
     @Override
+    public void showLoading() {
+
+    }
+
+    @Override
     public void findViewById() {
         tittleManager = new TittleManager.Builder()
                 .setView(findViewById(R.id.tittle_content))

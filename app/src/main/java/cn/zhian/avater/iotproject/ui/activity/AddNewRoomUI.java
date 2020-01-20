@@ -66,6 +66,10 @@ public class AddNewRoomUI extends BaseUI implements TittleManager.OnLeftClickLis
         changeUI(AddNewRoomUI.this, CustomerRoomUI.class);
     };
 
+    @Override
+    public void showLoading() {
+
+    }
 
     @Override
     public void onLeftClick() {

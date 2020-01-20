@@ -42,6 +42,11 @@ public class EnvirmentUI extends BaseUI implements TittleManager.OnLeftClickList
     }
 
     @Override
+    public void showLoading() {
+
+    }
+
+    @Override
     public void initData() {
 
     }

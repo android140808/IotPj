@@ -63,7 +63,10 @@ public class AddHostUI extends BaseUI implements TittleManager.OnLeftClickListen
                 break;
         }
     }
+    @Override
+    public void showLoading() {
 
+    }
     @Override
     public void onLeftClick() {
         closeUI();

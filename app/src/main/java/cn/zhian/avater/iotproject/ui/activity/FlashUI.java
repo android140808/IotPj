@@ -48,6 +48,11 @@ public class FlashUI extends BaseUI {
     }
 
     @Override
+    public void showLoading() {
+
+    }
+
+    @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
             return true;

@@ -39,6 +39,11 @@ public class PersonUI extends BaseUI implements TittleManager.OnLeftClickListene
     }
 
     @Override
+    public void showLoading() {
+
+    }
+
+    @Override
     public void onLeftClick() {
         closeUI();
     }

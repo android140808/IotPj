@@ -48,6 +48,11 @@ public class MessageUI extends BaseUI implements TittleManager.OnLeftClickListen
     }
 
     @Override
+    public void showLoading() {
+
+    }
+
+    @Override
     public void findViewById() {
         tittleManager = new TittleManager.Builder()
                 .setView(findViewById(R.id.tittle_content))

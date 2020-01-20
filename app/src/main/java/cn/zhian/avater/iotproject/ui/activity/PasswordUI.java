@@ -44,6 +44,11 @@ public class PasswordUI extends BaseUI implements TittleManager.OnLeftClickListe
     }
 
     @Override
+    public void showLoading() {
+
+    }
+
+    @Override
     public void initData() {
 
     }

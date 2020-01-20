@@ -35,6 +35,11 @@ public class VideoWatchUI extends BaseUI implements TittleManager.OnLeftClickLis
     }
 
     @Override
+    public void showLoading() {
+
+    }
+
+    @Override
     public void initData() {
 
     }

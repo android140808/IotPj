@@ -52,6 +52,11 @@ public class MessageContentUI extends BaseUI implements TittleManager.OnLeftClic
     }
 
     @Override
+    public void showLoading() {
+
+    }
+
+    @Override
     public int getViewLayout() {
         return R.layout.message_content_ui;
     }

@@ -35,6 +35,11 @@ public class RunningFragment extends BaseFragment implements TittleManager.OnRig
     }
 
     @Override
+    public void showLoading() {
+
+    }
+
+    @Override
     public void onRightIvClick() {
         showToast("关闭所有设备");
     }

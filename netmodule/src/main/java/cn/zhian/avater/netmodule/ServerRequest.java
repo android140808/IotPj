@@ -118,10 +118,10 @@ public enum ServerRequest {
     }
 
 
-    public void logout(LoginRequest loginRequest, NetResultCallBack callBack) {
+    public void logout(NetResultCallBack callBack) {
         rxJavaProCallBack(
-                loginRequest.seq,
-                urlServices.loginWithPassword(loginRequest),
+                "",
+                urlServices.logout(),
                 callBack
         );
     }

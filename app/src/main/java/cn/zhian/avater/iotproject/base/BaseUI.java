@@ -1,11 +1,13 @@
 package cn.zhian.avater.iotproject.base;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.text.TextUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
@@ -14,6 +16,7 @@ import butterknife.ButterKnife;
 import cn.zhian.avater.databasemodule.MDB;
 import cn.zhian.avater.iotproject.ui.TittleManager;
 import cn.zhian.avater.iotproject.utils.UIManagerUtils;
+import cn.zhian.avater.netmodule.ServerVal;
 
 /**
  * @Author: wangweida
@@ -27,6 +30,8 @@ public abstract class BaseUI<V extends BaseView, T extends BasePresenter<V>> ext
     protected T mPresenter;
     public TittleManager tittleManager;
     protected String mCurrentPhoneNumber;
+    protected String accessToken;
+    protected Dialog alertDialog;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,6 +44,10 @@ public abstract class BaseUI<V extends BaseView, T extends BasePresenter<V>> ext
         mContext = this;
         UIManagerUtils.getInstance().addActivity(this);
         mCurrentPhoneNumber = MDB.INSTANCE.getCurrentPhoneNumber();
+        accessToken = MDB.INSTANCE.getToken();
+        if (!TextUtils.isEmpty(accessToken)) {
+            ServerVal.accessToken = accessToken;
+        }
         mPresenter = createPresenter();
         if (mPresenter != null) {
             mPresenter.attachView((V) this);

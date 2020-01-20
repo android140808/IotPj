@@ -140,6 +140,7 @@ public class LoginPresenter<V extends BaseView> implements BasePresenter<V>, WeC
 
                     @Override
                     public void onNext(Long aLong) {
+                        textView.setEnabled(false);
                         if (view != null) {
                             textView.setText("重新获取" + aLong + "s");
                         }

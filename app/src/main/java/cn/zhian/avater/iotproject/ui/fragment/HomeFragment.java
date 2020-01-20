@@ -114,4 +114,9 @@ public class HomeFragment extends BaseFragment {
                 break;
         }
     }
+
+    @Override
+    public void showLoading() {
+
+    }
 }

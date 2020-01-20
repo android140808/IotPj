@@ -66,8 +66,12 @@ public class ControlFragment extends BaseFragment implements TittleManager.OnRig
         changUI(AddNewRoomUI.class);
     }
 
-//    @OnClick(R.id.control_iv_add)
+    //    @OnClick(R.id.control_iv_add)
 //    public void onViewClicked() {
 //        changUI(AddNewRoomUI.class);
 //    }
+    @Override
+    public void showLoading() {
+
+    }
 }

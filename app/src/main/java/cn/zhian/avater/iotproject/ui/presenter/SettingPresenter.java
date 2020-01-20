@@ -4,6 +4,7 @@ import android.util.Log;
 
 import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.base.BaseView;
+import cn.zhian.avater.iotproject.ui.interfaces.CommCallBack;
 import cn.zhian.avater.iotproject.ui.model.SettingModel;
 import cn.zhian.avater.iotproject.ui.view.SettintView;
 
@@ -32,6 +33,14 @@ public class SettingPresenter<V extends BaseView> implements BasePresenter<V> {
     }
 
     public void logout() {
-        model.logout();
+        model.logout(code -> {
+            if (view != null) {
+                if (code >= 0) {
+                    view.logoutState(true);
+                } else {
+                    view.logoutState(false);
+                }
+            }
+        });
     }
 }

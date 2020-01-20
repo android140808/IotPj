@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import org.litepal.LitePal;
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -50,7 +51,7 @@ public enum MDB {
         }
     }
 
-    public String getToken(String value) {
+    public String getToken() {
         SharedPreferences sp = getSp();
         if (sp != null) {
             return sp.getString("tokenValue", "");

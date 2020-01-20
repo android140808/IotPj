@@ -1,11 +1,14 @@
 package cn.zhian.avater.iotproject.ui.activity;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 
 import androidx.appcompat.app.AlertDialog;
 
 import android.os.Handler;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -20,6 +23,7 @@ import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.base.BaseUI;
 import cn.zhian.avater.iotproject.ui.presenter.LoginPresenter;
 import cn.zhian.avater.iotproject.ui.view.LoginView;
+import cn.zhian.avater.iotproject.utils.DialogUtils;
 import cn.zhian.avater.iotproject.utils.GeneralMethods;
 import cn.zhian.avater.iotproject.utils.PermissionUtils;
 import rx.Observable;
@@ -40,7 +44,6 @@ public class LoginUI extends BaseUI<LoginView, LoginPresenter<LoginView>> implem
     Button loginBtnLogin;
     @BindView(R.id.login_cb_agree)
     CheckBox loginCbAgree;
-    private AlertDialog alertDialog;
     private long mExistTimes;
 
 
@@ -90,58 +93,29 @@ public class LoginUI extends BaseUI<LoginView, LoginPresenter<LoginView>> implem
         }
     }
 
+    @Override
+    public void showLoading() {
+
+    }
+
     private void showAlertTips() {
-        alertDialog = null;
-        alertDialog = new AlertDialog.Builder(this)
-                .setMessage(R.string.login_tips_content)
-                .setPositiveButton(android.R.string.ok, okLis)
-                .setNegativeButton(android.R.string.cancel, cancelLis)
-                .create();
-        alertDialog.setCanceledOnTouchOutside(false);
-//        alertDialog.setCancelable(false);
+        alertDialog = DialogUtils.getAgreeTipDialog(this, okLis, cancelLis);
         alertDialog.show();
     }
 
     private void showAlert() {
-        alertDialog = null;
-        if (alertDialog == null) {
-            alertDialog = new AlertDialog.Builder(this)
-                    .setMessage(R.string.login_agree_alert)
-                    .setPositiveButton(android.R.string.ok, unSelectLis)
-                    .create();
-            alertDialog.setCanceledOnTouchOutside(false);
-            alertDialog.setCancelable(false);
-        }
+        alertDialog = DialogUtils.getAgreeDialog(this, unSelectLis);
         alertDialog.show();
     }
 
     private void showProgressAlert() {
-        alertDialog = null;
-        alertDialog = new AlertDialog.Builder(this)
-                .setView(View.inflate(this, R.layout.progress_dalog, null))
-                .create();
-        alertDialog.setCanceledOnTouchOutside(false);
-//        alertDialog.setCancelable(false);
+        alertDialog = DialogUtils.getLoadDialog(this);
         alertDialog.show();
     }
 
-    private DialogInterface.OnClickListener unSelectLis = (dia, i) -> {
-        if (alertDialog != null) {
-            alertDialog.dismiss();
-        }
-    };
-    private DialogInterface.OnClickListener okLis = (dia, i) -> {
-        if (alertDialog != null) {
-            alertDialog.dismiss();
-            alertDialog = null;
-        }
-    };
-    private DialogInterface.OnClickListener cancelLis = (dia, i) -> {
-        if (alertDialog != null) {
-            loginCbAgree.setChecked(!loginCbAgree.isChecked());
-            alertDialog = null;
-        }
-    };
+    private DialogInterface.OnClickListener unSelectLis = (dia, i) -> alertDialog.dismiss();
+    private DialogInterface.OnClickListener okLis = (dia, i) -> alertDialog.dismiss();
+    private DialogInterface.OnClickListener cancelLis = (dia, i) -> loginCbAgree.setChecked(!loginCbAgree.isChecked());
 
     @Override
     public void getSmsCode() {
