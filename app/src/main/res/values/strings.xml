@@ -156,6 +156,7 @@
     <string name="room_icon">房间图标</string>
 
     <string name="save">保存</string>
+    <string name="add">添加</string>
 
     <string name="add_host">添加主机</string>
     <string name="add_host_by_qr_code">二维码添加</string>

@@ -1,8 +1,12 @@
 package cn.zhian.avater.iotproject.ui;
 
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.RequiresApi;
 
 import cn.zhian.avater.iotproject.Applications;
 import cn.zhian.avater.iotproject.R;
@@ -25,6 +29,7 @@ public class TittleManager implements View.OnClickListener {
     private OnRightIvClickListener rightIvListener;
     private OnRightTvClickListener rightTvListener;
 
+
     private TittleManager(Builder builder) {
         this.view = builder.view;
         initView(view);
@@ -34,7 +39,7 @@ public class TittleManager implements View.OnClickListener {
         setTittleState(
                 builder.showLeft, builder.leftIcon,
                 builder.showMiddle, builder.middleRes,
-                builder.showRightTv, builder.rightRes,
+                builder.showRightTv, builder.rightRes, builder.rightTvColor,
                 builder.showRightIv, builder.rightIcon
         );
     }
@@ -73,7 +78,8 @@ public class TittleManager implements View.OnClickListener {
     }
 
 
-    public void setTittleState(boolean left, int icon, boolean middle, int strRes, boolean rightTv, int strTv, boolean rightIv, int iconRight) {
+    @TargetApi(Build.VERSION_CODES.M)
+    public void setTittleState(boolean left, int icon, boolean middle, int strRes, boolean rightTv, int strTv, int rightTvColor, boolean rightIv, int iconRight) {
         try {
             comm_tittle_iv_left.setVisibility(left ? View.VISIBLE : View.GONE);
             if (left) {
@@ -91,6 +97,7 @@ public class TittleManager implements View.OnClickListener {
             } else {
                 String s = Applications.getPowerContext().getResources().getString(strTv);
                 comm_tittle_tv_right.setText(s);
+                comm_tittle_tv_right.setTextColor(Applications.getPowerContext().getColor(rightTvColor));
             }
             comm_tittle_iv_right_img.setVisibility(rightIv ? View.VISIBLE : View.GONE);
             if (rightIv) {

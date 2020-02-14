@@ -58,6 +58,7 @@ public class PasswordUI extends BaseUI implements TittleManager.OnLeftClickListe
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.pass_word_rl_change:
+                changeUI(this, ChangePassUI.class);
                 break;
             case R.id.pass_word_rl_limit_manager:
                 break;
