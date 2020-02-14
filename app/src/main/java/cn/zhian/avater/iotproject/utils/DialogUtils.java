@@ -49,4 +49,14 @@ public class DialogUtils {
         alertDialog.setCanceledOnTouchOutside(false);
         return alertDialog;
     }
+
+    public static AlertDialog getLogoutDialog(Context context, DialogInterface.OnClickListener okLis) {
+        AlertDialog alertDialog = new AlertDialog.Builder(context)
+                .setMessage(R.string.logout)
+                .setPositiveButton(android.R.string.ok, okLis)
+                .setNegativeButton(android.R.string.cancel, null)
+                .create();
+        alertDialog.setCanceledOnTouchOutside(false);
+        return alertDialog;
+    }
 }

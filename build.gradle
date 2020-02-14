@@ -64,4 +64,6 @@ ext {
     okhttp = '3.10.0'
     okhttpInterceptor = '3.6.0'
 
+    gsonVersion = '2.8.5'
+
 }

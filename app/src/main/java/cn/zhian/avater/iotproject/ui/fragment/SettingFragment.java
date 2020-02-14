@@ -8,16 +8,16 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.base.BaseFragment;
-import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.ui.TittleManager;
 import cn.zhian.avater.iotproject.ui.activity.ConnectTypeUI;
 import cn.zhian.avater.iotproject.ui.activity.LoginUI;
 import cn.zhian.avater.iotproject.ui.activity.ManagerUI;
 import cn.zhian.avater.iotproject.ui.activity.PasswordUI;
 import cn.zhian.avater.iotproject.ui.activity.PersonUI;
-import cn.zhian.avater.iotproject.ui.activity.SenseUI;
+import cn.zhian.avater.iotproject.ui.activity.SensesUI;
 import cn.zhian.avater.iotproject.ui.presenter.SettingPresenter;
 import cn.zhian.avater.iotproject.ui.view.SettintView;
+import cn.zhian.avater.iotproject.utils.DialogUtils;
 import cn.zhian.avater.iotproject.widget.ResetView;
 
 /**
@@ -87,7 +87,7 @@ public class SettingFragment extends BaseFragment<SettintView, SettingPresenter<
                 changUI(PersonUI.class);
                 break;
             case R.id.setting_rl_sense:
-                changUI(SenseUI.class);
+                changUI(SensesUI.class);
                 break;
             case R.id.setting_rl_manager:
                 changUI(ManagerUI.class);
@@ -107,9 +107,8 @@ public class SettingFragment extends BaseFragment<SettintView, SettingPresenter<
                 resetView.show();
                 break;
             case R.id.setting_tv_logout:
-                /*changUI(LoginUI.class);
-                getActivity().finish();*/
-                mPresenter.logout();
+                DialogUtils.getLogoutDialog(getActivity(), (dialog, which) -> mPresenter.logout()
+                ).show();
                 break;
         }
     }

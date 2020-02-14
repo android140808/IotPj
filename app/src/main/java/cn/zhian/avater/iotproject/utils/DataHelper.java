@@ -4,7 +4,13 @@ import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.text.TextUtils;
 
+import com.google.gson.Gson;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -12,6 +18,7 @@ import java.util.regex.Pattern;
 
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.bean.AddHomeBean;
+import cn.zhian.avater.iotproject.bean.CityBeans;
 import cn.zhian.avater.iotproject.bean.ControlBean;
 import cn.zhian.avater.iotproject.bean.HomeRecylerViewBean;
 import cn.zhian.avater.iotproject.bean.LeftBean;
@@ -115,12 +122,76 @@ public class DataHelper {
     public static List<AddHomeBean> getIcons() {
         List<AddHomeBean> list = new ArrayList<>();
         list.add(new AddHomeBean(R.mipmap.bed_room, R.string.room_bedroom));
-        list.add(new AddHomeBean(R.mipmap.item_go_home, R.string.room_living_room));
+
         list.add(new AddHomeBean(R.mipmap.bed_room, R.string.room_second_room));
         list.add(new AddHomeBean(R.mipmap.add_home_dining_room, R.string.room_dining));
         list.add(new AddHomeBean(R.mipmap.add_home_balcony, R.string.room_balcony));
         list.add(new AddHomeBean(R.mipmap.add_home_garden, R.string.room_garden));
         list.add(new AddHomeBean(R.mipmap.add_home_toilet, R.string.room_toilet));
+        return list;
+    }
+
+    public static List<AddHomeBean> getSenseIcons() {
+        List<AddHomeBean> list = new ArrayList<>();
+        list.add(new AddHomeBean(R.mipmap.add_home_garden, R.string.room_garden));
+        list.add(new AddHomeBean(R.mipmap.add_home_toilet, R.string.room_toilet));
+        list.add(new AddHomeBean(R.mipmap.bed_room, R.string.room_bedroom));
+        list.add(new AddHomeBean(R.mipmap.add_home_xuan_guan, R.string.room_living_room));
+
+        list.add(new AddHomeBean(R.mipmap.sense_child, R.string.room_second_room));
+        list.add(new AddHomeBean(R.mipmap.sense_wine, R.string.room_dining));
+        list.add(new AddHomeBean(R.mipmap.item_go_home, R.string.room_living_room));
+        list.add(new AddHomeBean(R.mipmap.add_home_dining_room, R.string.room_balcony));
+        return list;
+    }
+
+    public static List<AddHomeBean> getSenseExampleIcons() {
+        List<AddHomeBean> list = new ArrayList<>();
+        list.add(new AddHomeBean(R.mipmap.item_leave_home, R.string.main_scenes_leave_home));
+        list.add(new AddHomeBean(R.mipmap.item_go_home, R.string.main_scenes_go_home));
+        list.add(new AddHomeBean(R.mipmap.item_safe, R.string.main_scenes_safe));
+        list.add(new AddHomeBean(R.mipmap.item_sleep, R.string.main_scenes_sleep));
+        return list;
+    }
+
+    public static ArrayList<String> getHours12() {
+        ArrayList<String> list = new ArrayList<>();
+        for (int i = 1; i <= 12; i++) {
+            if (i < 10)
+                list.add("0" + i + " h");
+            else
+                list.add(i + " h");
+        }
+        return list;
+    }
+
+    public static ArrayList<String> getHours24() {
+        ArrayList<String> list = new ArrayList<>();
+        for (int i = 0; i <= 24; i++) {
+            if (i < 10)
+                list.add("0" + i + " h");
+            else
+                list.add(i + " h");
+        }
+        return list;
+    }
+
+    public static ArrayList<String> getMinutes() {
+        ArrayList<String> list = new ArrayList<>();
+        for (int i = 0; i <= 59; i++) {
+            if (i < 10)
+                list.add(i + " m");
+            else
+                list.add(i + " m");
+        }
+        return list;
+    }
+
+    public static ArrayList<String> getSeconds() {
+        ArrayList<String> list = new ArrayList<>();
+        for (int i = 0; i <= 59; i++) {
+            list.add(i + " s");
+        }
         return list;
     }
 
@@ -141,4 +212,45 @@ public class DataHelper {
         final float scale = context.getResources().getDisplayMetrics().density;
         return (int) (pxValue / scale + 0.5f);
     }
+
+
+    public static CityBeans getCities(Context context) {
+        CityBeans bean = null;
+        String json = null;
+        InputStream inputStream = null;
+        BufferedReader bufferedReader = null;
+        try {
+            inputStream = context.getAssets().open("city_code.json");
+            bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
+            StringBuilder builder = new StringBuilder();
+            String line = null;
+            while ((line = bufferedReader.readLine()) != null) {
+                builder.append(line);
+            }
+            json = builder.toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                inputStream.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                bufferedReader.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        try {
+            if (!TextUtils.isEmpty(json)) {
+                bean = new Gson().fromJson(json, CityBeans.class);
+            }
+            return bean;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }

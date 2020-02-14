@@ -137,6 +137,7 @@ public class TittleManager implements View.OnClickListener {
         private int rightRes;
         private boolean showRightIv;
         private int rightIcon;
+        private int rightTvColor;
 
         private OnLeftClickListener leftIvListener;
         private OnRightIvClickListener rightIvListener;
@@ -144,6 +145,11 @@ public class TittleManager implements View.OnClickListener {
 
         public Builder setView(View view) {
             this.view = view;
+            return this;
+        }
+
+        public Builder setRightTvColor(int color) {
+            this.rightTvColor = color;
             return this;
         }
 

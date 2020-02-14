@@ -92,4 +92,9 @@ dependencies {
     //Bus
     implementation "org.greenrobot:eventbus:$rootProject.eventbusVersion"
     implementation 'com.alibaba:fastjson:1.1.70.android'
+    //gson
+    implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
+}
+repositories {
+    mavenCentral()
 }

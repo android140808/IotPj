@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_bg"
+    android:orientation="vertical"
+    tools:context=".ui.activity.CustomSenseUI">
+
+    <include layout="@layout/comm_tittle" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/dimen_size_20"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/login_bg"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_size_50"
+                    android:layout_marginLeft="@dimen/dimen_size_20"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/bed_room" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_size_10"
+                        android:text="@string/room_bedroom1"
+                        android:textSize="@dimen/dimen_size_15"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_size_30"
+                    android:layout_marginLeft="@dimen/dimen_size_20"
+                    android:background="@drawable/blue_bg_shape"
+                    android:text="@string/switch_type_2"
+                    android:textColor="@color/color_while"
+                    android:textSize="@dimen/dimen_size_13" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_size_50"
+                    android:layout_marginLeft="@dimen/dimen_size_20"
+                    android:layout_marginRight="@dimen/dimen_size_20">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:text="@string/switch_table_line"
+                        android:textSize="@dimen/dimen_size_15"
+                        android:textStyle="bold" />
+
+                    <Switch
+                        android:id="@+id/switch_table_line"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:checked="false" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_size_1"
+                    android:layout_marginLeft="@dimen/dimen_size_20"
+                    android:layout_marginRight="@dimen/dimen_size_20"
+                    android:background="@color/main_tv_un_select" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_size_50"
+                    android:layout_marginLeft="@dimen/dimen_size_20"
+                    android:layout_marginRight="@dimen/dimen_size_20"
+                    android:layout_marginBottom="@dimen/dimen_size_10">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:text="@string/switch_table_line1"
+                        android:textSize="@dimen/dimen_size_15"
+                        android:textStyle="bold" />
+
+                    <Switch
+                        android:id="@+id/switch_table_line1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:checked="false" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_size_10"
+                android:background="@drawable/login_bg"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_size_50"
+                    android:layout_marginLeft="@dimen/dimen_size_20"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/item_light" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_size_10"
+                        android:text="@string/room_book"
+                        android:textSize="@dimen/dimen_size_15"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_size_30"
+                    android:layout_marginLeft="@dimen/dimen_size_20"
+                    android:background="@drawable/blue_bg_shape"
+                    android:text="@string/switch_type_1"
+                    android:textColor="@color/color_while"
+                    android:textSize="@dimen/dimen_size_13" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_size_50"
+                    android:layout_marginLeft="@dimen/dimen_size_20"
+                    android:layout_marginRight="@dimen/dimen_size_20">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:text="@string/switch_room_line"
+                        android:textSize="@dimen/dimen_size_15"
+                        android:textStyle="bold" />
+
+                    <Switch
+                        android:id="@+id/switch_room_line"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:checked="false" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_size_1"
+                    android:layout_marginLeft="@dimen/dimen_size_20"
+                    android:layout_marginRight="@dimen/dimen_size_20"
+                    android:background="@color/main_tv_un_select" />
+
+                <RelativeLayout
+                    android:id="@+id/main_tv_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_size_50"
+                    android:layout_marginLeft="@dimen/dimen_size_20"
+                    android:layout_marginRight="@dimen/dimen_size_20">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:text="@string/switch_air_control"
+                        android:textSize="@dimen/dimen_size_15"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/more"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:background="@mipmap/setting_more" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="@dimen/dimen_size_10"
+                        android:layout_toLeftOf="@id/more"
+                        android:text="@string/main_tv_setting" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_size_50"
+                    android:layout_marginLeft="@dimen/dimen_size_20"
+                    android:layout_marginRight="@dimen/dimen_size_20">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:text="@string/switch_win_control"
+                        android:textSize="@dimen/dimen_size_15"
+                        android:textStyle="bold" />
+
+                    <Switch
+                        android:id="@+id/switch_win_control"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:checked="false" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_size_50"
+                    android:layout_marginLeft="@dimen/dimen_size_20"
+                    android:layout_marginRight="@dimen/dimen_size_20">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:text="@string/switch_red_control"
+                        android:textSize="@dimen/dimen_size_15"
+                        android:textStyle="bold" />
+
+                    <Switch
+                        android:id="@+id/switch_red_control"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:checked="false" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_size_50"
+                    android:layout_marginLeft="@dimen/dimen_size_20"
+                    android:layout_marginRight="@dimen/dimen_size_20"
+                    android:layout_marginBottom="@dimen/dimen_size_10">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:text="@string/switch_camera_control"
+                        android:textSize="@dimen/dimen_size_15"
+                        android:textStyle="bold" />
+
+                    <Switch
+                        android:id="@+id/switch_camera_control"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:checked="false" />
+                </RelativeLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

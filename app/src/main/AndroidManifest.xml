@@ -22,7 +22,12 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="p">
-        <activity android:name=".ui.activity.EnvirmentUI"></activity>
+        <activity android:name=".ui.activity.DownManagerSettingUI"></activity>
+        <activity android:name=".ui.activity.TimeUI" />
+        <activity android:name=".ui.activity.CustomSenseUI" />
+        <activity android:name=".ui.activity.Sense4TypeUI" />
+        <activity android:name=".ui.activity.AddSenseUI" />
+        <activity android:name=".ui.activity.EnvirmentUI" />
         <activity android:name=".ui.activity.VideoWatchUI" />
         <activity
             android:name=".ui.activity.AddHostUI"
@@ -57,7 +62,7 @@
             android:name=".ui.activity.ManagerUI"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.SenseUI"
+            android:name=".ui.activity.SensesUI"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.PersonUI"
@@ -81,7 +86,6 @@
             android:name=".ui.activity.MainUI"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".wxapi.WXEntryActivity"
             android:exported="true"
@@ -89,7 +93,6 @@
             android:launchMode="singleTask"
             android:taskAffinity="net.sourceforge.simcpux"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
 
         <provider
             android:name="androidx.core.content.FileProvider"

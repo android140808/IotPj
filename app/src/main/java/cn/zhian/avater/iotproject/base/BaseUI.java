@@ -75,19 +75,27 @@ public abstract class BaseUI<V extends BaseView, T extends BasePresenter<V>> ext
     }
 
     protected void showToast(final int resId) {
-        runOnUiThread(() -> {
-            if (mContext != null) {
-                Toast.makeText(mContext, getResources().getText(resId), Toast.LENGTH_SHORT).show();
-            }
-        });
+        try {
+            runOnUiThread(() -> {
+                if (mContext != null) {
+                    Toast.makeText(mContext, getResources().getText(resId), Toast.LENGTH_SHORT).show();
+                }
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     protected void showToast(final String msg) {
-        runOnUiThread(() -> {
-            if (mContext != null) {
-                Toast.makeText(mContext, msg, Toast.LENGTH_SHORT).show();
-            }
-        });
+        try {
+            runOnUiThread(() -> {
+                if (mContext != null) {
+                    Toast.makeText(mContext, msg, Toast.LENGTH_SHORT).show();
+                }
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

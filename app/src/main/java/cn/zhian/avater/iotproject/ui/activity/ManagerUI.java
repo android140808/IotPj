@@ -1,9 +1,12 @@
 package cn.zhian.avater.iotproject.ui.activity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+
+import androidx.appcompat.app.AlertDialog;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -56,8 +59,27 @@ public class ManagerUI extends BaseUI implements TittleManager.OnLeftClickListen
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.manager_rl_up_load:
+                AlertDialog dialog = new AlertDialog.Builder(ManagerUI.this)
+                        .setMessage("是否确认上传配置")
+                        .setNegativeButton("取消", null)
+                        .setPositiveButton("确认", (dialog1, which) -> {
+                        })
+                        .create();
+                dialog.setCanceledOnTouchOutside(false);
+                dialog.setCancelable(false);
+                dialog.show();
                 break;
             case R.id.manager_down_load:
+                AlertDialog dialogDown = new AlertDialog.Builder(ManagerUI.this)
+                        .setMessage("是否下载2019-11-12配置")
+                        .setNegativeButton("取消", null)
+                        .setPositiveButton("确认", (dialog1, which) -> {
+                            changeUI(ManagerUI.this, DownManagerSettingUI.class);
+                        })
+                        .create();
+                dialogDown.setCanceledOnTouchOutside(false);
+                dialogDown.setCancelable(false);
+                dialogDown.show();
                 break;
         }
     }

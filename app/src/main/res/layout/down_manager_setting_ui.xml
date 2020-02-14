@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_bg"
+    android:orientation="vertical"
+    tools:context=".ui.activity.DownManagerSettingUI">
+
+    <include layout="@layout/comm_tittle" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dimen_size_20">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="客户名称"
+                android:textSize="@dimen/dimen_size_15" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_size_50"
+                android:layout_marginTop="@dimen/dimen_size_10"
+                android:layout_marginBottom="@dimen/dimen_size_10"
+                android:background="@drawable/login_bg">
+
+                <TextView
+                    android:id="@+id/custom_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="@dimen/dimen_size_20"
+                    android:text="奥园集团"
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/dimen_size_18" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="省份"
+                android:textSize="@dimen/dimen_size_15" />
+
+            <RelativeLayout
+                android:id="@+id/custom_province"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_size_50"
+                android:layout_marginTop="@dimen/dimen_size_10"
+                android:layout_marginBottom="@dimen/dimen_size_10"
+                android:background="@drawable/login_bg">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="@dimen/dimen_size_20"
+                    android:text="广东省"
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/dimen_size_18" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="@dimen/dimen_size_20"
+                    android:background="@mipmap/more_down" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="市"
+                android:textSize="@dimen/dimen_size_15" />
+
+            <RelativeLayout
+                android:id="@+id/custom_city"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_size_50"
+                android:layout_marginTop="@dimen/dimen_size_10"
+                android:layout_marginBottom="@dimen/dimen_size_10"
+                android:background="@drawable/login_bg">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="@dimen/dimen_size_20"
+                    android:text="广州市"
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/dimen_size_18" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="@dimen/dimen_size_20"
+                    android:background="@mipmap/more_down" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="项目名称"
+                android:textSize="@dimen/dimen_size_15" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_size_50"
+                android:layout_marginTop="@dimen/dimen_size_10"
+                android:layout_marginBottom="@dimen/dimen_size_10"
+                android:background="@drawable/login_bg">
+
+                <TextView
+                    android:id="@+id/custom_project_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="@dimen/dimen_size_20"
+                    android:text="莲峰圣境"
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/dimen_size_18" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="配置名称"
+                android:textSize="@dimen/dimen_size_15" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_size_50"
+                android:layout_marginTop="@dimen/dimen_size_10"
+                android:layout_marginBottom="@dimen/dimen_size_10"
+                android:background="@drawable/login_bg">
+
+                <TextView
+                    android:id="@+id/custom_setting_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="@dimen/dimen_size_20"
+                    android:text="别墅1配置"
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/dimen_size_18" />
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btn_down"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_size_50"
+                android:layout_marginTop="@dimen/dimen_size_10"
+                android:background="@drawable/btn_selector"
+                android:text="下载配置"
+                android:textColor="@color/color_while"
+                android:textSize="@dimen/dimen_size_18" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -142,6 +142,7 @@
     <string name="add_new_room">添加新房间</string>
     <string name="room_often">自定义</string>
     <string name="room_bedroom">主卧</string>
+    <string name="room_bedroom1">卧室</string>
     <string name="room_second_room">次卧</string>
     <string name="room_living_room">客厅</string>
     <!--<string name="room_hallway">玄关</string>-->
@@ -169,6 +170,26 @@
     <string name="qr_code_miss">启动出现异常，请重新打开</string>
     <string name="button_ok">确定</string>
 
+    <string name="sense_new">新增情景</string>
+    <string name="add_sense">情景名称</string>
+    <string name="add_sense_name">请输入情景名称</string>
+    <string name="add_sense_icons">自定义图标</string>
+    <string name="add_sense_examples">推荐情景</string>
+    <string name="add_sense_4"></string>
+
+    <string name="switch_type_1">一开开关</string>
+    <string name="switch_type_2">两开开关</string>
+    <string name="switch_table_line">台灯</string>
+    <string name="switch_table_line1">射灯</string>
+    <string name="switch_air_control">空调遥控器</string>
+    <string name="switch_win_control">窗帘遥控器</string>
+    <string name="switch_red_control">人体红外感应器</string>
+    <string name="switch_camera_control">摄像头</string>
+    <string name="room_book">书房</string>
+    <string name="switch_room_line">房灯</string>
+    <string name="set_time">设置执行时间</string>
+
 
     <string name="exist">再按一次退出程序</string>
+    <string name="logout">是否退出登录？</string>
 </resources>

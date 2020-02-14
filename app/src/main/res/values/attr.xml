@@ -8,4 +8,18 @@
             <enum name="VIDEO_WATCH" value="2" />
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="WheelView">
+        <attr name="itemNumber" format="integer" />
+        <attr name="lineColor" format="color" />
+        <attr name="unitHeight" format="dimension" />
+        <attr name="maskHeight" format="dimension" />
+        <attr name="noEmpty" format="boolean" />
+        <attr name="normalTextColor" format="color" />
+        <attr name="normalTextSize" format="dimension" />
+        <attr name="selectedTextSize" format="dimension" />
+        <attr name="selectedTextColor" format="color" />
+        <attr name="lineheight" format="float" />
+        <attr name="isEnable" format="boolean" />
+    </declare-styleable>
 </resources>
