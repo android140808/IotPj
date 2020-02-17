@@ -1,14 +1,10 @@
 package cn.zhian.avater.iotproject.ui.activity;
 
-import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
 
-import androidx.appcompat.app.AlertDialog;
 
 import android.os.Handler;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -26,7 +22,6 @@ import cn.zhian.avater.iotproject.ui.view.LoginView;
 import cn.zhian.avater.iotproject.utils.DialogUtils;
 import cn.zhian.avater.iotproject.utils.GeneralMethods;
 import cn.zhian.avater.iotproject.utils.PermissionUtils;
-import rx.Observable;
 
 public class LoginUI extends BaseUI<LoginView, LoginPresenter<LoginView>> implements LoginView {
 
@@ -78,11 +73,12 @@ public class LoginUI extends BaseUI<LoginView, LoginPresenter<LoginView>> implem
                 mPresenter.getSmsCode(this, loginEtPhone.getText().toString(), loginTvGet);
                 break;
             case R.id.login_btn_login:
-                if (!loginCbAgree.isChecked()) {
-                    showAlert();
-                    return;
-                }
-                mPresenter.loginWithSmsCode(this, loginEtPhone.getText().toString(), loginEtCode.getText().toString());
+//                if (!loginCbAgree.isChecked()) {
+//                    showAlert();
+//                    return;
+//                }
+//                mPresenter.loginWithSmsCode(this, loginEtPhone.getText().toString(), loginEtCode.getText().toString());
+                changeUI(this, MainUI.class);
                 break;
             case R.id.login_cb_agree:
                 if (!loginCbAgree.isChecked()) {
