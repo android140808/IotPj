@@ -26,7 +26,6 @@ public class DialogUtils {
         AlertDialog alertDialog = new AlertDialog.Builder(context)
                 .setView(LayoutInflater.from(context).inflate(R.layout.progress_dalog, null))
                 .create();
-        alertDialog.setCanceledOnTouchOutside(false);
         return alertDialog;
     }
 

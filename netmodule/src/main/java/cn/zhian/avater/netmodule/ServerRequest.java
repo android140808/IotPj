@@ -4,6 +4,7 @@ import cn.zhian.avater.netmodule.interfaces.NetResultCallBack;
 import cn.zhian.avater.netmodule.mode.base.BaseResponse;
 import cn.zhian.avater.netmodule.mode.requestBean.AllHostRequest;
 import cn.zhian.avater.netmodule.mode.requestBean.LoginRequest;
+import cn.zhian.avater.netmodule.mode.responseBean.CommMessageResponse;
 import cn.zhian.avater.netmodule.utils.ServerCode;
 import cn.zhian.avater.netmodule.utils.ServerRequestManager;
 import rx.Observable;
@@ -133,12 +134,74 @@ public enum ServerRequest {
      * @param callBack
      */
     public void getSmsCode(LoginRequest loginRequest, NetResultCallBack<BaseResponse> callBack) {
-        rxJavaProCallBack(loginRequest.seq,
-                urlServices.getSmsCode(loginRequest),
-                false,
-                callBack);
+        rxJavaProCallBack(loginRequest.seq, urlServices.getSmsCode(loginRequest), false, callBack);
     }
 
+    /**
+     * 获取安防消息
+     *
+     * @param currentPage
+     * @param pageSize
+     * @param callBack
+     */
+    public void getMessageSecurity(int currentPage, int pageSize, NetResultCallBack<CommMessageResponse> callBack) {
+        rxJavaProCallBack("", urlServices.getMessageSecurity(currentPage, pageSize), false, callBack);
+    }
+
+    /**
+     * 设置安防消息的状态
+     *
+     * @param id
+     * @param action
+     * @param callBack
+     */
+    public void setMessageSecurityState(int id, String action, NetResultCallBack<BaseResponse> callBack) {
+        rxJavaProCallBack("", urlServices.setMessageSecurityState(id, action), false, callBack);
+    }
+
+    /**
+     * 获取推送消息
+     *
+     * @param currentPage
+     * @param pageSize
+     * @param callBack
+     */
+    public void getMessagePush(int currentPage, int pageSize, NetResultCallBack<CommMessageResponse> callBack) {
+        rxJavaProCallBack("", urlServices.getMessagePush(currentPage, pageSize), false, callBack);
+    }
+
+    /**
+     * 设置推送消息的状态
+     *
+     * @param id
+     * @param action
+     * @param callBack
+     */
+    public void setMessagePushState(int id, String action, NetResultCallBack<BaseResponse> callBack) {
+        rxJavaProCallBack("", urlServices.setMessagePushState(id, action), false, callBack);
+    }
+
+    /**
+     * 获取环境消息
+     *
+     * @param currentPage
+     * @param pageSize
+     * @param callBack
+     */
+    public void getMessageEnvironment(int currentPage, int pageSize, NetResultCallBack<CommMessageResponse> callBack) {
+        rxJavaProCallBack("", urlServices.getMessageEnvironment(currentPage, pageSize), false, callBack);
+    }
+
+    /**
+     * 设置环境消息状态
+     *
+     * @param id
+     * @param action
+     * @param callBack
+     */
+    public void setMessageEnvironmentState(int id, String action, NetResultCallBack<BaseResponse> callBack) {
+        rxJavaProCallBack("", urlServices.setMessageEnvironmentState(id, action), false, callBack);
+    }
 
     public void getAllHost(AllHostRequest allHostRequest, NetResultCallBack callBack) {
 

@@ -24,5 +24,12 @@ public interface Urls {
     String PASSWORD_UPDATE = "api/v1/user/pwd/update";
     String REFRESH_TOKEN = "api/v1/user/token/refresh";
 
+    String MESSAGE_SECURITY = "api/v1/securityMessages";
+    String MESSAGE_SECURITY_STATE = "api/v1/securityMessage";
+    String MESSAGE_PUSH = "api/v1/pushMessages";
+    String MESSAGE_PUSH_STATE = "api/v1/pushMessage";
+    String MESSAGE_ENVIRONMENT = "api/v1/environmentMessages";
+    String MESSAGE_ENVIRONMENT_STATE = "api/v1/environmentMessage";
+
 
 }

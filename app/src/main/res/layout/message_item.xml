@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/message_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_size_10"
+        android:background="@drawable/login_bg">
+
+        <ImageView
+            android:id="@+id/message_iv"
+            android:layout_width="@dimen/dimen_size_40"
+            android:layout_height="@dimen/dimen_size_40"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/dimen_size_20"
+            android:layout_marginTop="@dimen/dimen_size_20"
+            android:layout_marginBottom="@dimen/dimen_size_20"
+            android:background="@mipmap/message_security" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/dimen_size_10"
+            android:layout_toRightOf="@id/message_iv"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/message_tittle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|start"
+                android:text="@string/message_security"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/dimen_size_20" />
+
+            <TextView
+                android:id="@+id/message_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_size_5"
+                android:gravity="center|start"
+                android:singleLine="true"
+                android:text="@string/message_security"
+                android:textColor="@color/main_tv_un_select"
+                android:textSize="@dimen/dimen_size_15" />
+        </LinearLayout>
+
+        <cn.zhian.avater.iotproject.widget.MessageDotView
+            android:id="@+id/message_count"
+            android:layout_width="@dimen/dimen_size_25"
+            android:layout_height="@dimen/dimen_size_25"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="@dimen/dimen_size_20"
+            android:textColor="@color/color_while" />
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -22,6 +22,7 @@ import cn.zhian.avater.iotproject.bean.CityBeans;
 import cn.zhian.avater.iotproject.bean.ControlBean;
 import cn.zhian.avater.iotproject.bean.HomeRecylerViewBean;
 import cn.zhian.avater.iotproject.bean.LeftBean;
+import cn.zhian.avater.iotproject.bean.MessageType;
 import cn.zhian.avater.iotproject.bean.RightBean;
 
 /**
@@ -180,7 +181,7 @@ public class DataHelper {
         ArrayList<String> list = new ArrayList<>();
         for (int i = 0; i <= 59; i++) {
             if (i < 10)
-                list.add(i + " m");
+                list.add("0" + i + " m");
             else
                 list.add(i + " m");
         }
@@ -190,7 +191,10 @@ public class DataHelper {
     public static ArrayList<String> getSeconds() {
         ArrayList<String> list = new ArrayList<>();
         for (int i = 0; i <= 59; i++) {
-            list.add(i + " s");
+            if (i < 10)
+                list.add("0" + i + " s");
+            else
+                list.add(i + "s");
         }
         return list;
     }
@@ -252,5 +256,14 @@ public class DataHelper {
         }
         return null;
     }
+
+    public static List<MessageType> getMessageTypes() {
+        List<MessageType> result = new ArrayList<>();
+        result.add(new MessageType(0, R.mipmap.message_security, R.string.message_security, "1", 0));
+        result.add(new MessageType(1, R.mipmap.message_environment, R.string.message_environment, "2", 0));
+        result.add(new MessageType(2, R.mipmap.message_message, R.string.message_pull, "3", 0));
+        return result;
+    }
+
 
 }

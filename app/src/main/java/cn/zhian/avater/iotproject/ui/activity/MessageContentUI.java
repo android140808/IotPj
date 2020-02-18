@@ -80,6 +80,7 @@ public class MessageContentUI extends BaseUI implements TittleManager.OnLeftClic
             mCurrentTag = extras.getInt("TAG", 0);
         }
         selectType(mCurrentTag);
+
     }
 
 

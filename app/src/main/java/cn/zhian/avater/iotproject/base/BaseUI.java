@@ -15,6 +15,7 @@ import android.widget.Toast;
 import butterknife.ButterKnife;
 import cn.zhian.avater.databasemodule.MDB;
 import cn.zhian.avater.iotproject.ui.TittleManager;
+import cn.zhian.avater.iotproject.utils.DialogUtils;
 import cn.zhian.avater.iotproject.utils.UIManagerUtils;
 import cn.zhian.avater.netmodule.ServerVal;
 
@@ -122,7 +123,23 @@ public abstract class BaseUI<V extends BaseView, T extends BasePresenter<V>> ext
         startActivity(intent);
     }
 
+    @Override
+    public void showLoading() {
+        alertDialog = DialogUtils.getLoadDialog(this);
+        alertDialog.show();
+    }
+
+    protected void closeLoading() {
+        if (alertDialog != null) {
+            alertDialog.dismiss();
+        }
+    }
+
     protected void closeUI() {
+        if (alertDialog != null) {
+            alertDialog.dismiss();
+            alertDialog = null;
+        }
         finish();
     }
 }

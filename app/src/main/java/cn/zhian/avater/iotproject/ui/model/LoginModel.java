@@ -21,7 +21,7 @@ import cn.zhian.avater.netmodule.utils.ServerCode;
  */
 public class LoginModel implements BaseModel {
 
-    public void loginWithSmsCode(String phoneNumber, String code, final CallBack callBack) {
+    public void loginWithSmsCode(String phoneNumber, String code, final CommCallBack callBack) {
         LoginRequest request = new LoginRequest(phoneNumber, code);
         ServerRequest.INSTANCE.loginWithSmsCode(request, new NetResultCallBack<LoginResponse>() {
             @Override
@@ -35,42 +35,35 @@ public class LoginModel implements BaseModel {
                     if (!TextUtils.isEmpty(token)) {
                         MDB.INSTANCE.setToken(token);
                     }
-                    callBack.getCode(0);
+                    callBack.state(0);
                 }
             }
 
             @Override
             public void onFail(int responseCode) {
-                callBack.getCode(-1);
+                callBack.state(-1);
             }
         });
     }
 
-    public void getSmsCode(String phoneNumber, final CallBack callBack) {
+    public void getSmsCode(String phoneNumber, final CommCallBack callBack) {
         LoginRequest loginRequest = new LoginRequest(phoneNumber, "");
         ServerRequest.INSTANCE.getSmsCode(loginRequest, new NetResultCallBack<BaseResponse>() {
             @Override
             public void onSuccess(int responseCode, BaseResponse baseResponse) {
                 LogUtil.i("LoginModel", "responseCode = " + responseCode);
                 if (responseCode == ServerCode.RESPONSE_SUCCESS) {
-                    callBack.getCode(0);
+                    callBack.state(0);
                 }
             }
 
             @Override
             public void onFail(int responseCode) {
                 LogUtil.i("LoginModel", "responseCode = " + responseCode);
-                callBack.getCode(-1);
+                callBack.state(-1);
             }
         });
     }
 
-    public void getAllHost(CallBack callBack) {
-
-    }
-
-    public interface CallBack {
-        void getCode(int code);
-    }
 
 }

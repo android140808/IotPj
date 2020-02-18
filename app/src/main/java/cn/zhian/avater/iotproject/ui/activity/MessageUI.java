@@ -2,54 +2,41 @@ package cn.zhian.avater.iotproject.ui.activity;
 
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import java.util.List;
 
 import butterknife.BindView;
-import butterknife.OnClick;
 import cn.zhian.avater.iotproject.R;
-import cn.zhian.avater.iotproject.base.BasePresenter;
+import cn.zhian.avater.iotproject.adapter.ConnItemListener;
+import cn.zhian.avater.iotproject.adapter.MessageUIAdapter;
 import cn.zhian.avater.iotproject.base.BaseUI;
+import cn.zhian.avater.iotproject.bean.MessageType;
 import cn.zhian.avater.iotproject.ui.TittleManager;
-import cn.zhian.avater.iotproject.widget.MessageDotView;
+import cn.zhian.avater.iotproject.ui.presenter.MessageUIPresenter;
+import cn.zhian.avater.iotproject.ui.view.MessageUiView;
+import cn.zhian.avater.iotproject.utils.DataHelper;
 
-public class MessageUI extends BaseUI implements TittleManager.OnLeftClickListener {
+public class MessageUI extends BaseUI<MessageUiView, MessageUIPresenter<MessageUiView>> implements MessageUiView, TittleManager.OnLeftClickListener, ConnItemListener {
 
-
-    @BindView(R.id.security_destination)
-    TextView securityDestination;
-    @BindView(R.id.security_count)
-    MessageDotView securityCount;
-    @BindView(R.id.environment_destination)
-    TextView environmentDestination;
-    @BindView(R.id.environment_count)
-    MessageDotView environmentCount;
-    @BindView(R.id.pull_destination)
-    TextView pullDestination;
-    @BindView(R.id.pull_count)
-    MessageDotView pullCount;
-    @BindView(R.id.message_rl_security)
-    RelativeLayout messageRlSecurity;
-    @BindView(R.id.message_rl_environment)
-    RelativeLayout messageRlEnvironment;
-    @BindView(R.id.message_rl_pull)
-    RelativeLayout messageRlPull;
+    @BindView(R.id.recycler_view)
+    RecyclerView recyclerView;
+    @BindView(R.id.swipe_refresh)
+    SwipeRefreshLayout refreshLayout;
+    private MessageUIAdapter adapter;
+    private List<MessageType> mDataList;
 
     @Override
-    public BasePresenter createPresenter() {
-        return null;
+    public MessageUIPresenter createPresenter() {
+        return new MessageUIPresenter();
     }
 
     @Override
     public int getViewLayout() {
         return R.layout.message_ui;
-    }
-
-    @Override
-    public void showLoading() {
-
     }
 
     @Override
@@ -66,36 +53,51 @@ public class MessageUI extends BaseUI implements TittleManager.OnLeftClickListen
 
     @Override
     public void initData() {
-        securityCount.setMessageCount(1);
-        environmentCount.setMessageCount(21);
-        pullCount.setMessageCount(11);
-    }
-
-
-    @OnClick({R.id.message_rl_security, R.id.message_rl_environment, R.id.message_rl_pull})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-
-            case R.id.message_rl_security:
-                Bundle bundle = new Bundle();
-                bundle.putInt("TAG", 0);
-                changeUI(MessageUI.this, MessageContentUI.class, bundle);
-                break;
-            case R.id.message_rl_environment:
-                Bundle bundle1 = new Bundle();
-                bundle1.putInt("TAG", 1);
-                changeUI(MessageUI.this, MessageContentUI.class, bundle1);
-                break;
-            case R.id.message_rl_pull:
-                Bundle bundle2 = new Bundle();
-                bundle2.putInt("TAG", 2);
-                changeUI(MessageUI.this, MessageContentUI.class, bundle2);
-                break;
-        }
+        showLoading();
+        mDataList = DataHelper.getMessageTypes();
+        refreshLayout.setOnRefreshListener(() -> {
+            refreshLayout.setRefreshing(true);
+            mPresenter.getAllMessage(1, 10);
+        });
+        adapter = new MessageUIAdapter(this, mDataList);
+        LinearLayoutManager manger = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(manger);
+        recyclerView.setAdapter(adapter);
+        adapter.setItemListener(this);
+        mPresenter.getAllMessage(1, 10);
+        refreshLayout.setRefreshing(true);
     }
 
     @Override
     public void onLeftClick() {
         closeUI();
+    }
+
+    @Override
+    public void onItemClick(int type, int position) {
+        Bundle bundle = new Bundle();
+        switch (type) {
+            case 0:
+                bundle.putInt("TAG", 0);
+                break;
+            case 1:
+                bundle.putInt("TAG", 1);
+                break;
+            case 2:
+                bundle.putInt("TAG", 2);
+                break;
+        }
+        changeUI(this, MessageContentUI.class, bundle);
+    }
+
+    @Override
+    public void closeDialog() {
+        refreshLayout.setRefreshing(false);
+        closeLoading();
+    }
+
+    @Override
+    public void updateMessageCount(int type, int count, String firstContent) {
+        adapter.updateList(type, count, firstContent);
     }
 }

@@ -6,5 +6,5 @@ package cn.zhian.avater.netmodule;
  * @Description:
  */
 public class ServerVal {
-    public static String accessToken = "";
+    public static String accessToken = "adfas123";
 }
