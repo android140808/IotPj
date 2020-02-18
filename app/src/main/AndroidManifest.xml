@@ -22,7 +22,8 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="p">
-        <activity android:name=".ui.activity.ChangePassUI"></activity>
+        <activity android:name=".ui.activity.MessageDetailUI"></activity>
+        <activity android:name=".ui.activity.ChangePassUI" />
         <activity android:name=".ui.activity.DownManagerSettingUI" />
         <activity android:name=".ui.activity.TimeUI" />
         <activity android:name=".ui.activity.CustomSenseUI" />

@@ -21,7 +21,7 @@ public class MessageUIAdapter extends RecyclerView.Adapter<MessageUIAdapter.View
 
     private Context mContext;
     private List<MessageType> mDatas;
-    private ConnItemListener listener;
+    private CommItemListener listener;
 
     public MessageUIAdapter(Context mContext, List<MessageType> mDatas) {
         this.mContext = mContext;
@@ -68,7 +68,7 @@ public class MessageUIAdapter extends RecyclerView.Adapter<MessageUIAdapter.View
         holder.count.setMessageCount(bean.count);
     }
 
-    public void setItemListener(ConnItemListener listener) {
+    public void setItemListener(CommItemListener listener) {
         this.listener = listener;
     }
 

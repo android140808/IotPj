@@ -189,6 +189,7 @@
     <string name="room_book">书房</string>
     <string name="switch_room_line">房灯</string>
     <string name="set_time">设置执行时间</string>
+    <string name="message_detail">消息详情</string>
 
 
     <string name="exist">再按一次退出程序</string>

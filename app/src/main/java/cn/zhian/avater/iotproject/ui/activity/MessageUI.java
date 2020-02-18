@@ -11,7 +11,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import cn.zhian.avater.iotproject.R;
-import cn.zhian.avater.iotproject.adapter.ConnItemListener;
+import cn.zhian.avater.iotproject.adapter.CommItemListener;
 import cn.zhian.avater.iotproject.adapter.MessageUIAdapter;
 import cn.zhian.avater.iotproject.base.BaseUI;
 import cn.zhian.avater.iotproject.bean.MessageType;
@@ -20,7 +20,7 @@ import cn.zhian.avater.iotproject.ui.presenter.MessageUIPresenter;
 import cn.zhian.avater.iotproject.ui.view.MessageUiView;
 import cn.zhian.avater.iotproject.utils.DataHelper;
 
-public class MessageUI extends BaseUI<MessageUiView, MessageUIPresenter<MessageUiView>> implements MessageUiView, TittleManager.OnLeftClickListener, ConnItemListener {
+public class MessageUI extends BaseUI<MessageUiView, MessageUIPresenter<MessageUiView>> implements MessageUiView, TittleManager.OnLeftClickListener, CommItemListener {
 
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;

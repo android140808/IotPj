@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_bg"
+    android:orientation="vertical"
+    tools:context=".ui.activity.MessageDetailUI">
+
+    <include layout="@layout/comm_tittle" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dimen_size_15">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tittle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="大标题"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/dimen_size_20"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_size_15"
+                android:text="2019.09.12"
+                android:textColor="@color/main_tv_un_select"
+                android:textSize="@dimen/dimen_size_15" />
+
+            <TextView
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_size_30"
+                android:text="消息这个词应用较广泛，一般来说，新鲜的事就叫消息；当然，“消息”一词还可以指报道事情的概貌而不讲述详细的经过和细节，以简明的文字迅速及时地报道最新事实的短篇新闻宣传文书，也是最常见、最经常采用的新闻体裁。"
+                android:textColor="@color/main_tv_un_select"
+                android:textSize="@dimen/dimen_size_15" />
+
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_size_10"
+                android:background="@mipmap/pic_voc" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

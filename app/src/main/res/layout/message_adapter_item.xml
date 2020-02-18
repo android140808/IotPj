@@ -7,7 +7,7 @@
         android:id="@+id/message_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dimen_size_10"
+        android:layout_margin="@dimen/dimen_size_20"
         android:background="@drawable/login_bg">
 
         <ImageView
@@ -22,6 +22,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dimen_size_8"
+            android:layout_marginTop="@dimen/dimen_size_10"
+            android:layout_marginBottom="@dimen/dimen_size_10"
             android:layout_toRightOf="@id/message_state_iv"
             android:orientation="vertical">
 
@@ -39,6 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/message_tittle"
+                android:layout_marginTop="@dimen/dimen_size_10"
                 android:text="详情内容"
                 android:textSize="@dimen/dimen_size_15" />
         </LinearLayout>
@@ -48,6 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/dimen_size_10"
             android:text="日期：yyyy.MM.dd"
             android:textSize="@dimen/dimen_size_15" />
     </RelativeLayout>

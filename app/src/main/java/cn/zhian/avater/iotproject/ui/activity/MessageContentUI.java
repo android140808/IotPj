@@ -11,12 +11,20 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 import cn.zhian.avater.iotproject.R;
+import cn.zhian.avater.iotproject.adapter.MainUIAdapter;
+import cn.zhian.avater.iotproject.base.BaseFragment;
 import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.base.BaseUI;
 import cn.zhian.avater.iotproject.ui.TittleManager;
+import cn.zhian.avater.iotproject.ui.fragment.MessageEnvirFragment;
+import cn.zhian.avater.iotproject.ui.fragment.MessagePustFragment;
+import cn.zhian.avater.iotproject.ui.fragment.MessageSecurityFragment;
 
 public class MessageContentUI extends BaseUI implements TittleManager.OnLeftClickListener {
 
@@ -44,6 +52,8 @@ public class MessageContentUI extends BaseUI implements TittleManager.OnLeftClic
     @BindView(R.id.view_pager)
     ViewPager viewPager;
 
+    private MainUIAdapter adapter;
+    private List<BaseFragment> list;
     private int mCurrentTag = 0;
 
     @Override
@@ -80,7 +90,29 @@ public class MessageContentUI extends BaseUI implements TittleManager.OnLeftClic
             mCurrentTag = extras.getInt("TAG", 0);
         }
         selectType(mCurrentTag);
+        list = new ArrayList<>();
+        list.add(new MessageSecurityFragment());
+        list.add(new MessageEnvirFragment());
+        list.add(new MessagePustFragment());
+        adapter = new MainUIAdapter(getSupportFragmentManager(), list);
+        viewPager.setAdapter(adapter);
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                selectType(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+        viewPager.setCurrentItem(mCurrentTag);
     }
 
 
@@ -89,12 +121,15 @@ public class MessageContentUI extends BaseUI implements TittleManager.OnLeftClic
         switch (view.getId()) {
             case R.id.ll_security:
                 selectType(0);
+                viewPager.setCurrentItem(0);
                 break;
             case R.id.ll_environment:
                 selectType(1);
+                viewPager.setCurrentItem(1);
                 break;
             case R.id.ll_pull:
                 selectType(2);
+                viewPager.setCurrentItem(2);
                 break;
         }
     }

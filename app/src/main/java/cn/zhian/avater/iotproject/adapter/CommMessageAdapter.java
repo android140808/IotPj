@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,7 +20,7 @@ public class CommMessageAdapter extends RecyclerView.Adapter<CommMessageAdapter.
 
     private Context mContext;
     private List<CommMessageBean> mDatas;
-    private ConnItemListener listener;
+    private CommItemListener listener;
 
     public CommMessageAdapter(Context mContext, List<CommMessageBean> mDatas) {
         this.mContext = mContext;
@@ -42,10 +43,15 @@ public class CommMessageAdapter extends RecyclerView.Adapter<CommMessageAdapter.
         holder.message_tittle_tv.setText(bean.tittle);
         holder.message_detail_tv.setText(bean.detail);
         holder.message_date_tv.setText(bean.date);
+        holder.message_content.setOnClickListener(view -> {
+            if (listener != null) {
+                listener.onItemClick(bean.type, position);
+            }
+        });
 
     }
 
-    public void setItemListener(ConnItemListener listener) {
+    public void setItemListener(CommItemListener listener) {
         this.listener = listener;
     }
 
@@ -61,6 +67,7 @@ public class CommMessageAdapter extends RecyclerView.Adapter<CommMessageAdapter.
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
+        private RelativeLayout message_content;
         private ImageView message_state_iv;
         private TextView message_tittle_tv;
         private TextView message_detail_tv;
@@ -68,6 +75,7 @@ public class CommMessageAdapter extends RecyclerView.Adapter<CommMessageAdapter.
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            message_content = itemView.findViewById(R.id.message_content);
             message_state_iv = itemView.findViewById(R.id.message_state_iv);
             message_tittle_tv = itemView.findViewById(R.id.message_tittle_tv);
             message_detail_tv = itemView.findViewById(R.id.message_detail_tv);
