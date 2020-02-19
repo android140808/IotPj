@@ -34,11 +34,13 @@ public class CommMessageResponse extends BaseResponse {
         /**
          * total : 3
          * currentPage : 0
+         * isNotReadTotal:2
          * pageSize : 10
          */
 
         private int total;
         private int currentPage;
+        private int isNotReadTotal;
         private int pageSize;
 
         public int getTotal() {
@@ -63,6 +65,14 @@ public class CommMessageResponse extends BaseResponse {
 
         public void setPageSize(int pageSize) {
             this.pageSize = pageSize;
+        }
+
+        public int getIsNotReadTotal() {
+            return isNotReadTotal;
+        }
+
+        public void setIsNotReadTotal(int isNotReadTotal) {
+            this.isNotReadTotal = isNotReadTotal;
         }
     }
 

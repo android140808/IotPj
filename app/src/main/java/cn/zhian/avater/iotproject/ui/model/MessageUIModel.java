@@ -16,7 +16,7 @@ public class MessageUIModel implements BaseModel {
         ServerRequest.INSTANCE.getMessageSecurity(currentPage, pageSize, new NetResultCallBack<CommMessageResponse>() {
             @Override
             public void onSuccess(int responseCode, CommMessageResponse response) {
-                callBack.getList(response.getData());
+                callBack.getList(response);
             }
 
             @Override
@@ -44,7 +44,7 @@ public class MessageUIModel implements BaseModel {
         ServerRequest.INSTANCE.getMessagePush(currentPage, pageSize, new NetResultCallBack<CommMessageResponse>() {
             @Override
             public void onSuccess(int responseCode, CommMessageResponse baseResponse) {
-                callBack.getList(baseResponse.getData());
+                callBack.getList(baseResponse);
             }
 
             @Override
@@ -72,7 +72,7 @@ public class MessageUIModel implements BaseModel {
         ServerRequest.INSTANCE.getMessageEnvironment(currentPage, pageSize, new NetResultCallBack<CommMessageResponse>() {
             @Override
             public void onSuccess(int responseCode, CommMessageResponse baseResponse) {
-                callBack.getList(baseResponse.getData());
+                callBack.getList(baseResponse);
             }
 
             @Override
@@ -97,6 +97,6 @@ public class MessageUIModel implements BaseModel {
     }
 
     public interface CallBack {
-        void getList(List<CommMessageResponse.Data> data);
+        void getList(CommMessageResponse data);
     }
 }

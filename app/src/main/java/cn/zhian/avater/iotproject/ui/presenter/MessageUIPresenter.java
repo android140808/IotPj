@@ -53,19 +53,18 @@ public class MessageUIPresenter<V extends BaseView> implements BasePresenter<V> 
         this.view = (MessageUiView) view;
     }
 
-    private synchronized void getCountAndFirstContent(int type, List<CommMessageResponse.Data> data) {
+    private synchronized void getCountAndFirstContent(int type, CommMessageResponse data) {
         if (data == null) {
             return;
         }
-        int count = 0;
+        int count = data.getMetadata().getIsNotReadTotal();
         String msg = "新的消息";
-        for (CommMessageResponse.Data bean : data) {
+        for (CommMessageResponse.Data bean : data.getData()) {
             String isRead = bean.getIsRead();
             if (isRead.equals("1")) {//1 未读，0已读
-                if (count == 0) {
-                    msg = bean.getContent();
-                }
-                count++;
+//                msg = bean.getTitle();//只拿第一条未读消息的内容
+                msg = bean.getContent();//只拿第一条未读消息的内容
+                break;
             }
         }
         if (view != null)
@@ -80,7 +79,7 @@ public class MessageUIPresenter<V extends BaseView> implements BasePresenter<V> 
             }
             view.closeDialog();
             getCountAndFirstContent(0, list);
-            listSecurity = list;
+            listSecurity = list.getData();
         });
         model.getMessagePush(currentPage, pageSize, list -> {
             if (list == null) {
@@ -88,7 +87,7 @@ public class MessageUIPresenter<V extends BaseView> implements BasePresenter<V> 
             }
             getCountAndFirstContent(2, list);
             view.closeDialog();
-            listPush = list;
+            listPush = list.getData();
         });
         model.getMessageEnvironment(currentPage, pageSize, list -> {
             if (list == null) {
@@ -96,7 +95,7 @@ public class MessageUIPresenter<V extends BaseView> implements BasePresenter<V> 
             }
             view.closeDialog();
             getCountAndFirstContent(1, list);
-            listEnvironment = list;
+            listEnvironment = list.getData();
         });
     }
 
@@ -105,7 +104,7 @@ public class MessageUIPresenter<V extends BaseView> implements BasePresenter<V> 
         currentPageSecurity = currentPage;
         model.getMessageSecurity(currentPage, pageSize, list -> {
             if (list != null) {
-                listSecurity.addAll(list);
+                listSecurity.addAll(list.getData());
             }
             view.closeDialog();
         });
@@ -117,7 +116,7 @@ public class MessageUIPresenter<V extends BaseView> implements BasePresenter<V> 
         currentPagePush = currentPage;
         model.getMessagePush(currentPage, pageSize, list -> {
             if (list != null) {
-                listPush.addAll(list);
+                listPush.addAll(list.getData());
             }
             view.closeDialog();
         });
@@ -129,7 +128,7 @@ public class MessageUIPresenter<V extends BaseView> implements BasePresenter<V> 
         currentPageEnvironment = currentPage;
         model.getMessageEnvironment(currentPage, pageSize, list -> {
             if (list != null) {
-                listEnvironment.addAll(list);
+                listEnvironment.addAll(list.getData());
             }
             view.closeDialog();
 
