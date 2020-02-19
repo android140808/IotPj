@@ -7,6 +7,7 @@ import androidx.multidex.MultiDexApplication;
 
 import com.tencent.bugly.crashreport.CrashReport;
 
+import cn.jpush.android.api.JPushInterface;
 import cn.zhian.avater.databasemodule.DataBaseContext;
 import cn.zhian.avater.databasemodule.MDB;
 import cn.zhian.avater.iotproject.utils.LogUtil;
@@ -33,6 +34,8 @@ public class Applications extends MultiDexApplication {
 
     private void init() {
         mContext = this;
+        JPushInterface.init(this);
+        JPushInterface.setDebugMode(true);
         NetStatesUtil.getNetWordState(this);
         DataBaseContext.init(this);
         ServerContext.INSTANCE.init(this);
