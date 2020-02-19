@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_bg"
+    android:orientation="vertical"
+    tools:context=".ui.activity.EditHostNameUI">
+
+    <include layout="@layout/comm_tittle" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_size_20"
+        android:text="主机名称"
+        android:textColor="@color/main_tv_un_select"
+        android:textSize="@dimen/dimen_size_15" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_size_20"
+        android:layout_marginRight="@dimen/dimen_size_20">
+
+        <EditText
+            android:id="@+id/edit_host_name"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_size_50"
+            android:layout_centerInParent="true"
+            android:background="@null"
+            android:hint="请输入主机名称"
+            android:singleLine="true" />
+
+    </RelativeLayout>
+
+</LinearLayout>

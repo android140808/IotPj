@@ -22,7 +22,8 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="p">
-        <activity android:name=".ui.activity.MessageDetailUI"></activity>
+        <activity android:name=".ui.activity.EditHostNameUI"></activity>
+        <activity android:name=".ui.activity.MessageDetailUI" />
         <activity android:name=".ui.activity.ChangePassUI" />
         <activity android:name=".ui.activity.DownManagerSettingUI" />
         <activity android:name=".ui.activity.TimeUI" />
@@ -78,16 +79,25 @@
         <activity
             android:name=".ui.activity.FlashUI"
             android:screenOrientation="portrait">
+
+            <!--
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+
+                 <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
+            -->
+        </activity>
+        <activity
+            android:name=".ui.activity.MainUI"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.activity.MainUI"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
         <activity
             android:name=".wxapi.WXEntryActivity"
             android:exported="true"

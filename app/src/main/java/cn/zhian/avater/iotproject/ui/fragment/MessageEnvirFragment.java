@@ -75,7 +75,7 @@ public class MessageEnvirFragment extends BaseFragment {
         adapter.setItemListener((type, position) -> {
             CommMessageBean bean = mDataList.get(position);
             Bundle bundle = new Bundle();
-            
+
             bundle.putString("tittle", bean.tittle);
             bundle.putString("date", bean.date);
             bundle.putString("content", bean.detail);
