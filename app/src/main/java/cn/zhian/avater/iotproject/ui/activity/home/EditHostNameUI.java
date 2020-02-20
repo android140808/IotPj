@@ -1,10 +1,8 @@
-package cn.zhian.avater.iotproject.ui.activity;
+package cn.zhian.avater.iotproject.ui.activity.home;
 
-import android.os.Bundle;
 import android.widget.EditText;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.base.BaseUI;

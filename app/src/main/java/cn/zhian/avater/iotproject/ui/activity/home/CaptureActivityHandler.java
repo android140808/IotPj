@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package cn.zhian.avater.iotproject.zxing.android;
+package cn.zhian.avater.iotproject.ui.activity.home;
 
 import android.app.Activity;
 import android.content.ActivityNotFoundException;

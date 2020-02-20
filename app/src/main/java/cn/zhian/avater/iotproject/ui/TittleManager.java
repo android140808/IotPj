@@ -2,6 +2,7 @@ package cn.zhian.avater.iotproject.ui;
 
 import android.annotation.TargetApi;
 import android.os.Build;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -38,7 +39,7 @@ public class TittleManager implements View.OnClickListener {
         setRightTvListener(builder.rightTvListener);
         setTittleState(
                 builder.showLeft, builder.leftIcon,
-                builder.showMiddle, builder.middleRes,
+                builder.showMiddle, builder.middleRes, builder.middleResString,
                 builder.showRightTv, builder.rightRes, builder.rightTvColor,
                 builder.showRightIv, builder.rightIcon
         );
@@ -79,7 +80,7 @@ public class TittleManager implements View.OnClickListener {
 
 
     @TargetApi(Build.VERSION_CODES.M)
-    public void setTittleState(boolean left, int icon, boolean middle, int strRes, boolean rightTv, int strTv, int rightTvColor, boolean rightIv, int iconRight) {
+    public void setTittleState(boolean left, int icon, boolean middle, int strRes, String middleString, boolean rightTv, int strTv, int rightTvColor, boolean rightIv, int iconRight) {
         try {
             comm_tittle_iv_left.setVisibility(left ? View.VISIBLE : View.GONE);
             if (left) {
@@ -87,7 +88,10 @@ public class TittleManager implements View.OnClickListener {
             }
             comm_tittle_tv_middle_tittle.setVisibility(middle ? View.VISIBLE : View.GONE);
             if (strRes == 0 || strRes == -1) {
-                comm_tittle_tv_middle_tittle.setText("");
+                if (!TextUtils.isEmpty(middleString))
+                    comm_tittle_tv_middle_tittle.setText(middleString);
+                else
+                    comm_tittle_tv_middle_tittle.setText("");
             } else
                 comm_tittle_tv_middle_tittle.setText(Applications.getPowerContext().getResources().getString(strRes));
 
@@ -140,6 +144,7 @@ public class TittleManager implements View.OnClickListener {
         private int leftIcon;
         private boolean showMiddle;
         private int middleRes;
+        private String middleResString;
         private boolean showRightTv;
         private int rightRes;
         private boolean showRightIv;
@@ -177,6 +182,11 @@ public class TittleManager implements View.OnClickListener {
 
         public Builder setMiddleRes(int middleRes) {
             this.middleRes = middleRes;
+            return this;
+        }
+
+        public Builder setMiddleResString(String middleRes) {
+            this.middleResString = middleRes;
             return this;
         }
 

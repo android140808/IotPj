@@ -5,9 +5,7 @@
     <!-- Required -->
     <permission
         android:name="${applicationId}.permission.JPUSH_MESSAGE"
-        android:protectionLevel="signature" />
-
-    <!-- Required  一些系统要求的权限，如访问网络等-->
+        android:protectionLevel="signature" /> <!-- Required  一些系统要求的权限，如访问网络等 -->
     <uses-permission android:name="${applicationId}.permission.JPUSH_MESSAGE" />
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 网络状态 -->
@@ -18,22 +16,18 @@
     <uses-permission android:name="android.permission.CAMERA" /> <!-- 蓝牙外设 -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" /> <!-- 6.0蓝牙部分手机需要定位权限 -->
-
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-
-
-    <!-- Optional for location -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- Optional for location -->
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /> <!-- 用于开启 debug 版本的应用在6.0 系统上 层叠窗口权限 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" /><!-- Android Q后台定位权限-->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" /> <!-- Android Q后台定位权限 -->
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.GET_TASKS" />
@@ -47,59 +41,61 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="p">
-        <activity android:name=".ui.activity.EditHostNameUI"></activity>
-        <activity android:name=".ui.activity.MessageDetailUI" />
-        <activity android:name=".ui.activity.ChangePassUI" />
-        <activity android:name=".ui.activity.DownManagerSettingUI" />
-        <activity android:name=".ui.activity.TimeUI" />
-        <activity android:name=".ui.activity.CustomSenseUI" />
-        <activity android:name=".ui.activity.Sense4TypeUI" />
-        <activity android:name=".ui.activity.AddSenseUI" />
-        <activity android:name=".ui.activity.EnvirmentUI" />
-        <activity android:name=".ui.activity.VideoWatchUI" />
+        <activity android:name=".ui.activity.control.SwichTypeUI"></activity>
+        <activity android:name=".ui.activity.control.AddDetailRoomUI" />
+        <activity android:name=".ui.activity.home.EditHostNameUI" />
+        <activity android:name=".ui.activity.home.MessageDetailUI" />
+        <activity android:name=".ui.activity.setting.ChangePassUI" />
+        <activity android:name=".ui.activity.setting.DownManagerSettingUI" />
+        <activity android:name=".ui.activity.setting.TimeUI" />
+        <activity android:name=".ui.activity.setting.CustomSenseUI" />
+        <activity android:name=".ui.activity.setting.Sense4TypeUI" />
+        <activity android:name=".ui.activity.setting.AddSenseUI" />
+        <activity android:name=".ui.activity.home.EnvirmentUI" />
+        <activity android:name=".ui.activity.home.VideoWatchUI" />
         <activity
-            android:name=".ui.activity.AddHostUI"
+            android:name=".ui.activity.home.AddHostUI"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.CustomerRoomUI"
+            android:name=".ui.activity.control.CustomerRoomUI"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
         <activity
-            android:name=".ui.activity.AddNewRoomUI"
+            android:name=".ui.activity.control.AddNewRoomUI"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.AddDeviceUI"
+            android:name=".ui.activity.control.AddDeviceUI"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
         <activity
-            android:name=".ui.activity.DeviceManagerUI"
+            android:name=".ui.activity.home.DeviceManagerUI"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.MessageContentUI"
+            android:name=".ui.activity.home.MessageContentUI"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.MessageUI"
+            android:name=".ui.activity.home.MessageUI"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.ConnectTypeUI"
+            android:name=".ui.activity.setting.ConnectTypeUI"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.PasswordUI"
+            android:name=".ui.activity.setting.PasswordUI"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.ManagerUI"
+            android:name=".ui.activity.setting.ManagerUI"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.SensesUI"
+            android:name=".ui.activity.setting.SensesUI"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.PersonUI"
+            android:name=".ui.activity.setting.PersonUI"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.LoginUI"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".zxing.android.CaptureActivity"
+            android:name=".ui.activity.home.CaptureActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.FlashUI"
@@ -150,12 +146,14 @@
                 <action android:name="cn.jiguang.user.service.action" />
             </intent-filter>
         </service>
+
         <receiver
             android:name=".serverice.JPushReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
                 <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
+
                 <category android:name="${applicationId}" />
             </intent-filter>
         </receiver>

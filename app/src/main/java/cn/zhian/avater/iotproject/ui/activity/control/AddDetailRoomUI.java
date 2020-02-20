@@ -1,4 +1,4 @@
-package cn.zhian.avater.iotproject.ui.activity;
+package cn.zhian.avater.iotproject.ui.activity.control;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,8 +9,9 @@ import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.base.BaseUI;
 import cn.zhian.avater.iotproject.ui.TittleManager;
 
-public class ChangePassUI extends BaseUI implements TittleManager.OnLeftClickListener, TittleManager.OnRightTvClickListener {
+public class AddDetailRoomUI extends BaseUI implements TittleManager.OnLeftClickListener, TittleManager.OnRightTvClickListener {
 
+    private String tittleName = "";
 
     @Override
     public BasePresenter createPresenter() {
@@ -19,32 +20,31 @@ public class ChangePassUI extends BaseUI implements TittleManager.OnLeftClickLis
 
     @Override
     public int getViewLayout() {
-        return R.layout.change_pass_ui;
+        return R.layout.add_detail_room_ui;
     }
 
     @Override
     public void findViewById() {
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            tittleName = bundle.getString("tittle");
+        }
         tittleManager = new TittleManager.Builder()
                 .setView(findViewById(R.id.tittle_content))
                 .setShowLeft(true)
                 .setLeftIcon(R.mipmap.back)
                 .setLeftListener(this)
                 .setShowMiddle(true)
-                .setMiddleRes(R.string.pass_word_change)
+                .setMiddleResString(tittleName)
                 .setShowRightTv(true)
                 .setRightTvColor(R.color.home_icon_bg)
+                .setRightRes(R.string.add)
                 .setRightTvListener(this)
-                .setRightRes(R.string.save)
                 .build();
     }
 
     @Override
     public void initData() {
-
-    }
-
-    @Override
-    public void showLoading() {
 
     }
 
@@ -55,6 +55,6 @@ public class ChangePassUI extends BaseUI implements TittleManager.OnLeftClickLis
 
     @Override
     public void onRightTvClick() {
-        showToast("添加成功");
+        changeUI(this, AddDeviceUI.class);
     }
 }

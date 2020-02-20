@@ -35,7 +35,7 @@ import java.io.ByteArrayOutputStream;
 import java.util.Map;
 
 import cn.zhian.avater.iotproject.R;
-import cn.zhian.avater.iotproject.zxing.android.CaptureActivity;
+import cn.zhian.avater.iotproject.ui.activity.home.CaptureActivity;
 
 public final class DecodeHandler extends Handler {
 

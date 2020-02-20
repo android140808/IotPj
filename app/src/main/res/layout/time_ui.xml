@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/color_bg"
     android:orientation="vertical"
-    tools:context=".ui.activity.TimeUI">
+    tools:context=".ui.activity.setting.TimeUI">
 
     <include layout="@layout/comm_tittle" />
 

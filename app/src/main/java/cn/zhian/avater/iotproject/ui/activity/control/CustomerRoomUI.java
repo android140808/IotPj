@@ -1,8 +1,10 @@
-package cn.zhian.avater.iotproject.ui.activity;
+package cn.zhian.avater.iotproject.ui.activity.control;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -85,16 +87,6 @@ public class CustomerRoomUI extends BaseUI implements TittleManager.OnLeftClickL
         adapter.notifyDataSetChanged();
     };
 
-    @OnClick({R.id.comm_tittle_iv_left, R.id.comm_tittle_tv_right})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.comm_tittle_iv_left:
-                closeUI();
-                break;
-            case R.id.comm_tittle_tv_right:
-                break;
-        }
-    }
 
     @Override
     public void onLeftClick() {
@@ -103,6 +95,12 @@ public class CustomerRoomUI extends BaseUI implements TittleManager.OnLeftClickL
 
     @Override
     public void onRightTvClick() {
-        showToast("保存成功");
+        Bundle bundle = new Bundle();
+        String tittle = customerEtInput.getText().toString();
+        if (TextUtils.isEmpty(tittle)) {
+            tittle = "自定义";
+        }
+        bundle.putString("tittle", tittle);
+        changeUI(this, AddDetailRoomUI.class, bundle);
     }
 }

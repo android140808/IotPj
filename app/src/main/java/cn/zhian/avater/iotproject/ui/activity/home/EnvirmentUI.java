@@ -1,4 +1,4 @@
-package cn.zhian.avater.iotproject.ui.activity;
+package cn.zhian.avater.iotproject.ui.activity.home;
 
 import android.os.Bundle;
 

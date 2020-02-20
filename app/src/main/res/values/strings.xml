@@ -140,6 +140,7 @@
     <string name="curtain_c1">C1电动窗帘</string>
 
     <string name="add_new_room">添加新房间</string>
+    <string name="add_new_device">添加新设备</string>
     <string name="room_often">自定义</string>
     <string name="room_bedroom">主卧</string>
     <string name="room_bedroom1">卧室</string>

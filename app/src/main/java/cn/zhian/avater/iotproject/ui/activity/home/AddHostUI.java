@@ -1,4 +1,4 @@
-package cn.zhian.avater.iotproject.ui.activity;
+package cn.zhian.avater.iotproject.ui.activity.home;
 
 import android.annotation.SuppressLint;
 import android.os.Handler;
@@ -18,7 +18,6 @@ import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.base.BaseUI;
 import cn.zhian.avater.iotproject.ui.TittleManager;
 import cn.zhian.avater.iotproject.utils.DialogUtils;
-import cn.zhian.avater.iotproject.zxing.android.CaptureActivity;
 
 public class AddHostUI extends BaseUI implements TittleManager.OnLeftClickListener {
 

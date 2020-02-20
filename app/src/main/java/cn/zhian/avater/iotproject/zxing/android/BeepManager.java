@@ -31,6 +31,7 @@ import java.io.Closeable;
 import java.io.IOException;
 
 import cn.zhian.avater.iotproject.R;
+import cn.zhian.avater.iotproject.ui.activity.home.CaptureActivity;
 
 
 /**

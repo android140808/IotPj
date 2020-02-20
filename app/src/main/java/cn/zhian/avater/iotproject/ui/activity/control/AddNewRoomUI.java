@@ -1,8 +1,9 @@
-package cn.zhian.avater.iotproject.ui.activity;
+package cn.zhian.avater.iotproject.ui.activity.control;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Bundle;
 import android.widget.ImageView;
 
 //import androidx.recyclerview.widget.GridLayoutManager;
@@ -11,7 +12,6 @@ import android.widget.ImageView;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.OnClick;
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.adapter.AddRoomAdapter;
 import cn.zhian.avater.iotproject.base.BasePresenter;
@@ -63,7 +63,15 @@ public class AddNewRoomUI extends BaseUI implements TittleManager.OnLeftClickLis
     }
 
     private AddRoomAdapter.OnClick onClick = (type, position) -> {
-        changeUI(AddNewRoomUI.this, CustomerRoomUI.class);
+        if (position == 0) {
+            changeUI(AddNewRoomUI.this, CustomerRoomUI.class);
+        } else {
+            AddHomeBean bean = mData.get(position);
+            Bundle bundle = new Bundle();
+            bundle.putString("tittle", getString(bean.getName()));
+//            changeUI(AddNewRoomUI.this, AddDeviceUI.class, bundle);
+            changeUI(AddNewRoomUI.this, AddDetailRoomUI.class, bundle);
+        }
     };
 
     @Override

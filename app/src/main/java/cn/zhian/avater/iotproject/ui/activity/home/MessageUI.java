@@ -1,4 +1,4 @@
-package cn.zhian.avater.iotproject.ui.activity;
+package cn.zhian.avater.iotproject.ui.activity.home;
 
 
 import android.os.Bundle;
@@ -16,6 +16,7 @@ import cn.zhian.avater.iotproject.adapter.MessageUIAdapter;
 import cn.zhian.avater.iotproject.base.BaseUI;
 import cn.zhian.avater.iotproject.bean.MessageType;
 import cn.zhian.avater.iotproject.ui.TittleManager;
+import cn.zhian.avater.iotproject.ui.activity.home.MessageContentUI;
 import cn.zhian.avater.iotproject.ui.presenter.MessageUIPresenter;
 import cn.zhian.avater.iotproject.ui.view.MessageUiView;
 import cn.zhian.avater.iotproject.utils.DataHelper;

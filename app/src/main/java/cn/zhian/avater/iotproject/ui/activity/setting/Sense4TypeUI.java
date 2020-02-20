@@ -1,4 +1,4 @@
-package cn.zhian.avater.iotproject.ui.activity;
+package cn.zhian.avater.iotproject.ui.activity.setting;
 
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.base.BasePresenter;

@@ -32,7 +32,7 @@ import java.util.EnumSet;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 
-import cn.zhian.avater.iotproject.zxing.android.CaptureActivity;
+import cn.zhian.avater.iotproject.ui.activity.home.CaptureActivity;
 import cn.zhian.avater.iotproject.zxing.android.PreferencesActivity;
 
 /**

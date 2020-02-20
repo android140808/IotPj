@@ -1,4 +1,4 @@
-package cn.zhian.avater.iotproject.ui.activity;
+package cn.zhian.avater.iotproject.ui.activity.control;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -28,7 +28,7 @@ import cn.zhian.avater.iotproject.bean.RightBean;
 import cn.zhian.avater.iotproject.ui.TittleManager;
 import cn.zhian.avater.iotproject.utils.DataHelper;
 
-public class AddDeviceUI extends BaseUI implements TittleManager.OnLeftClickListener {
+public class AddDeviceUI extends BaseUI implements TittleManager.OnLeftClickListener, TittleManager.OnRightTvClickListener {
 
 
     @BindView(R.id.comm_tittle_iv_left)
@@ -68,8 +68,14 @@ public class AddDeviceUI extends BaseUI implements TittleManager.OnLeftClickList
     public void findViewById() {
         tittleManager = new TittleManager.Builder()
                 .setView(findViewById(R.id.tittle_content))
+                .setShowLeft(true)
+                .setLeftIcon(R.mipmap.back)
+                .setLeftListener(this)
                 .setShowMiddle(true)
-                .setMiddleRes(R.string.device_manager_tittle)
+                .setMiddleRes(R.string.add_new_device)
+                .setShowRightTv(true)
+                .setRightRes(R.string.add)
+                .setRightTvListener(this)
                 .build();
     }
 
@@ -141,6 +147,11 @@ public class AddDeviceUI extends BaseUI implements TittleManager.OnLeftClickList
 
     @Override
     public void showLoading() {
+
+    }
+
+    @Override
+    public void onRightTvClick() {
 
     }
 }

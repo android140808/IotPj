@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
@@ -43,6 +44,7 @@ public abstract class BaseUI<V extends BaseView, T extends BasePresenter<V>> ext
         }
         ButterKnife.bind(this);
         mContext = this;
+        Log.d(TAG, "当前UI:" + TAG);
         UIManagerUtils.getInstance().addActivity(this);
         mCurrentPhoneNumber = MDB.INSTANCE.getCurrentPhoneNumber();
         accessToken = MDB.INSTANCE.getToken();

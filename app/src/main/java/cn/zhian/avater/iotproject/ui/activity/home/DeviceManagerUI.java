@@ -1,11 +1,9 @@
-package cn.zhian.avater.iotproject.ui.activity;
+package cn.zhian.avater.iotproject.ui.activity.home;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 //import androidx.recyclerview.widget.RecyclerView;
 

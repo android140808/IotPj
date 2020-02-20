@@ -67,6 +67,7 @@ public class DialogUtils {
         TextView tv = view.findViewById(R.id.tittle);
         tv.setText(tittleIds);
         EditText editText = view.findViewById(R.id.input_content);
+        editText.setHint(tittleIds);
         view.findViewById(R.id.cancel).setOnClickListener(click -> {
             if (callBackString != null) {
                 callBackString.cancel();

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/color_bg"
     android:orientation="vertical"
-    tools:context=".ui.activity.EditHostNameUI">
+    tools:context=".ui.activity.home.EditHostNameUI">
 
     <include layout="@layout/comm_tittle" />
 
@@ -22,7 +22,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dimen_size_20"
-        android:layout_marginRight="@dimen/dimen_size_20">
+        android:layout_marginRight="@dimen/dimen_size_20"
+        android:background="@drawable/login_bg">
 
         <EditText
             android:id="@+id/edit_host_name"

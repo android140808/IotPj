@@ -15,7 +15,7 @@ import cn.zhian.avater.iotproject.adapter.CommMessageAdapter;
 import cn.zhian.avater.iotproject.base.BaseFragment;
 import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.bean.CommMessageBean;
-import cn.zhian.avater.iotproject.ui.activity.MessageDetailUI;
+import cn.zhian.avater.iotproject.ui.activity.home.MessageDetailUI;
 import cn.zhian.avater.netmodule.ServerRequest;
 import cn.zhian.avater.netmodule.interfaces.NetResultCallBack;
 import cn.zhian.avater.netmodule.mode.responseBean.CommMessageResponse;

@@ -3,8 +3,6 @@ package cn.zhian.avater.iotproject.ui.fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.widget.ImageView;
-
 //import androidx.recyclerview.widget.LinearLayoutManager;
 //import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,7 +16,7 @@ import cn.zhian.avater.iotproject.base.BaseFragment;
 import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.bean.ControlBean;
 import cn.zhian.avater.iotproject.ui.TittleManager;
-import cn.zhian.avater.iotproject.ui.activity.AddNewRoomUI;
+import cn.zhian.avater.iotproject.ui.activity.control.AddNewRoomUI;
 import cn.zhian.avater.iotproject.utils.DataHelper;
 
 /**

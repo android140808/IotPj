@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/color_bg"
     android:orientation="vertical"
-    tools:context=".ui.activity.Sense4TypeUI">
+    tools:context=".ui.activity.setting.Sense4TypeUI">
 
     <include layout="@layout/comm_tittle" />
 

@@ -1,11 +1,15 @@
-package cn.zhian.avater.iotproject.ui.activity;
+package cn.zhian.avater.iotproject.ui.activity.home;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
 
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.base.BaseUI;
 import cn.zhian.avater.iotproject.ui.TittleManager;
 
-public class PersonUI extends BaseUI implements TittleManager.OnLeftClickListener, TittleManager.OnRightIvClickListener {
+public class VideoWatchUI extends BaseUI implements TittleManager.OnLeftClickListener {
 
 
     @Override
@@ -15,7 +19,7 @@ public class PersonUI extends BaseUI implements TittleManager.OnLeftClickListene
 
     @Override
     public int getViewLayout() {
-        return R.layout.person_ui;
+        return R.layout.video_watch_ui;
     }
 
     @Override
@@ -24,18 +28,10 @@ public class PersonUI extends BaseUI implements TittleManager.OnLeftClickListene
                 .setView(findViewById(R.id.tittle_content))
                 .setShowLeft(true)
                 .setLeftIcon(R.mipmap.back)
-                .setLeftListener(this)
                 .setShowMiddle(true)
-                .setMiddleRes(R.string.setting_personal)
-                .setShowRightIv(true)
-                .setRightIcon(R.mipmap.tittle_gou)
-                .setRightIvListener(this)
+                .setMiddleRes(R.string.video_add)
+                .setLeftListener(this)
                 .build();
-    }
-
-    @Override
-    public void initData() {
-
     }
 
     @Override
@@ -44,12 +40,12 @@ public class PersonUI extends BaseUI implements TittleManager.OnLeftClickListene
     }
 
     @Override
-    public void onLeftClick() {
-        closeUI();
+    public void initData() {
+
     }
 
     @Override
-    public void onRightIvClick() {
-        showToast("ok!!");
+    public void onLeftClick() {
+        closeUI();
     }
 }

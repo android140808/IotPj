@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/color_bg"
     android:orientation="vertical"
-    tools:context=".ui.activity.PersonUI">
+    tools:context=".ui.activity.setting.PersonUI">
 
     <include layout="@layout/comm_tittle" />
     <!--<RelativeLayout

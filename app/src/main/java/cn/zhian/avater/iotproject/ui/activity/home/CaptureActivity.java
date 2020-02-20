@@ -1,4 +1,4 @@
-package cn.zhian.avater.iotproject.zxing.android;
+package cn.zhian.avater.iotproject.ui.activity.home;
 
 
 import android.app.Activity;
@@ -25,6 +25,10 @@ import java.util.Collection;
 import java.util.Map;
 
 import cn.zhian.avater.iotproject.R;
+import cn.zhian.avater.iotproject.zxing.android.BeepManager;
+import cn.zhian.avater.iotproject.zxing.android.FinishListener;
+import cn.zhian.avater.iotproject.zxing.android.InactivityTimer;
+import cn.zhian.avater.iotproject.zxing.android.IntentSource;
 import cn.zhian.avater.iotproject.zxing.camera.CameraManager;
 import cn.zhian.avater.iotproject.zxing.view.ViewfinderView;
 
