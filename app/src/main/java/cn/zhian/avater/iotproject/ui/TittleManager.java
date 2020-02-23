@@ -88,20 +88,19 @@ public class TittleManager implements View.OnClickListener {
             }
             comm_tittle_tv_middle_tittle.setVisibility(middle ? View.VISIBLE : View.GONE);
             if (strRes == 0 || strRes == -1) {
-                if (!TextUtils.isEmpty(middleString))
-                    comm_tittle_tv_middle_tittle.setText(middleString);
-                else
-                    comm_tittle_tv_middle_tittle.setText("");
+                comm_tittle_tv_middle_tittle.setText("");
             } else
                 comm_tittle_tv_middle_tittle.setText(Applications.getPowerContext().getResources().getString(strRes));
-
+            if (!TextUtils.isEmpty(middleString))
+                comm_tittle_tv_middle_tittle.setText(middleString);
             comm_tittle_tv_right.setVisibility(rightTv ? View.VISIBLE : View.GONE);
             if (strTv == 0 || strTv == -1) {
                 comm_tittle_tv_right.setText("");
             } else {
                 String s = Applications.getPowerContext().getResources().getString(strTv);
                 comm_tittle_tv_right.setText(s);
-                comm_tittle_tv_right.setTextColor(Applications.getPowerContext().getColor(rightTvColor));
+                if (rightTvColor > 0)
+                    comm_tittle_tv_right.setTextColor(Applications.getPowerContext().getColor(rightTvColor));
             }
             comm_tittle_iv_right_img.setVisibility(rightIv ? View.VISIBLE : View.GONE);
             if (rightIv) {

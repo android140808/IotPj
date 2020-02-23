@@ -11,6 +11,7 @@ import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.base.BaseUI;
 import cn.zhian.avater.iotproject.ui.TittleManager;
+import cn.zhian.avater.iotproject.ui.activity.setting.ConnectTypeUI;
 
 public class SwichTypeUI extends BaseUI implements TittleManager.OnLeftClickListener, TittleManager.OnRightTvClickListener {
 
@@ -46,7 +47,7 @@ public class SwichTypeUI extends BaseUI implements TittleManager.OnLeftClickList
 
     @Override
     public void onRightTvClick() {
-
+        changeUI(this, ConnectDeviceUI.class);
     }
 
     @OnClick(R.id.device_rl_add)

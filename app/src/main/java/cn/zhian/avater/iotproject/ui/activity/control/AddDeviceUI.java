@@ -26,6 +26,7 @@ import cn.zhian.avater.iotproject.base.BaseUI;
 import cn.zhian.avater.iotproject.bean.LeftBean;
 import cn.zhian.avater.iotproject.bean.RightBean;
 import cn.zhian.avater.iotproject.ui.TittleManager;
+import cn.zhian.avater.iotproject.ui.activity.setting.ConnectTypeUI;
 import cn.zhian.avater.iotproject.utils.DataHelper;
 
 public class AddDeviceUI extends BaseUI implements TittleManager.OnLeftClickListener, TittleManager.OnRightTvClickListener {
@@ -152,6 +153,6 @@ public class AddDeviceUI extends BaseUI implements TittleManager.OnLeftClickList
 
     @Override
     public void onRightTvClick() {
-
+        changeUI(this, ConnectDeviceUI.class);
     }
 }

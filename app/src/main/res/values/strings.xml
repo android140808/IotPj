@@ -103,6 +103,7 @@
     <string name="device_connect_failed">连接不成功</string>
     <string name="device_connect_success">连接成功</string>
     <string name="device_connect_ing">正在连接中...</string>
+    <string name="connect_ing">连接中</string>
     <string name="done">完成</string>
     <string name="device_add">添加主机</string>
     <string name="device_delete">删除主机将不能连接设备\n是否继续</string>
