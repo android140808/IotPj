@@ -22,6 +22,7 @@ import cn.zhian.avater.iotproject.bean.CityBeans;
 import cn.zhian.avater.iotproject.bean.ControlBean;
 import cn.zhian.avater.iotproject.bean.HomeRecylerViewBean;
 import cn.zhian.avater.iotproject.bean.LeftBean;
+import cn.zhian.avater.iotproject.bean.LightBean;
 import cn.zhian.avater.iotproject.bean.MessageType;
 import cn.zhian.avater.iotproject.bean.RightBean;
 
@@ -263,6 +264,16 @@ public class DataHelper {
         result.add(new MessageType(1, R.mipmap.message_environment, R.string.message_environment, "2", 0));
         result.add(new MessageType(2, R.mipmap.message_message, R.string.message_pull, "3", 0));
         return result;
+    }
+
+    public static List<LightBean> getLightBeans() {
+        List<LightBean> resutl = new ArrayList<>();
+        resutl.add(new LightBean(0, false, false, "卧室开关1", 10, 25, 45));
+        resutl.add(new LightBean(1, false, false, "卧室开关2", 10, 26, 45));
+        resutl.add(new LightBean(2, false, false, "卧室开关3", 10, 21, 45));
+        resutl.add(new LightBean(3, false, false, "卧室开关4", 10, 28, 45));
+        resutl.add(new LightBean(4, false, false, "卧室开关5", 10, 29, 45));
+        return resutl;
     }
 
 

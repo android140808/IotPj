@@ -42,11 +42,7 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="p">
         <activity android:name=".ui.activity.control.LightUI">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".ui.activity.control.ConnectDeviceUI" />
         <activity android:name=".ui.activity.control.SwichTypeUI" />
@@ -121,11 +117,14 @@
             android:name=".ui.activity.MainUI"
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
-            <!-- <intent-filter>
+
+            <!--
+             <intent-filter>
                  <action android:name="android.intent.action.MAIN" />
 
                  <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>-->
+             </intent-filter>
+            -->
         </activity>
         <activity
             android:name=".wxapi.WXEntryActivity"

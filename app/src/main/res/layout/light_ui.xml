@@ -72,7 +72,7 @@
                 android:layout_height="@dimen/dimen_size_50"
                 android:background="@drawable/lightui_shape_bg"
                 android:gravity="center"
-                android:padding="@dimen/dimen_size_10">
+                android:padding="@dimen/dimen_size_5">
 
                 <TextView
                     android:id="@+id/tv_switch_on"
