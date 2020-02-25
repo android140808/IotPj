@@ -92,7 +92,7 @@ public class ServerManager {
         return chain -> {
             Request.Builder builder = chain.request().newBuilder()
                     .addHeader("Content-Type", "application/json")
-                    .addHeader("token", ServerVal.accessToken)
+                    .addHeader("access_token", ServerVal.accessToken)
                     .addHeader("timestamp", System.currentTimeMillis() + "");
             Context context = ServerContext.INSTANCE.getContext();
             if (context != null) {
