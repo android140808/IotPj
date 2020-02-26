@@ -141,7 +141,13 @@ public class LoginUI extends BaseUI<LoginView, LoginPresenter<LoginView>> implem
 
     @Override
     public void loginFailed(String msg) {
+        if (alertDialog != null) {
+            alertDialog.dismiss();
+        }
         showToast(msg);
+        mPresenter.loginFail();
+        loginTvGet.setEnabled(true);
+        loginTvGet.setText("获取验证码");
     }
 
 

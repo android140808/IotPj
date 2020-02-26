@@ -1,7 +1,9 @@
 package cn.zhian.avater.iotproject.ui.presenter;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.text.TextUtils;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.tencent.mm.opensdk.modelmsg.SendAuth;
@@ -22,6 +24,7 @@ import cn.zhian.avater.iotproject.ui.interfaces.WeChatLoginCallBack;
 import cn.zhian.avater.iotproject.ui.model.LoginModel;
 import cn.zhian.avater.iotproject.ui.view.LoginView;
 import cn.zhian.avater.iotproject.utils.BuglyHelp;
+import cn.zhian.avater.iotproject.utils.DialogUtils;
 import cn.zhian.avater.iotproject.utils.GeneralMethods;
 import cn.zhian.avater.netmodule.mode.requestBean.LoginRequest;
 import cn.zhian.avater.netmodule.utils.ServerRequestManager;
@@ -97,7 +100,7 @@ public class LoginPresenter<V extends BaseView> implements BasePresenter<V>, WeC
                     if (code == 0) {
                         view.getSmsCode();
                     } else {
-                        view.loginFailed("");
+                        view.loginFailed("获取验证码失败，请重试！");
                     }
                 }
             });
@@ -202,6 +205,9 @@ public class LoginPresenter<V extends BaseView> implements BasePresenter<V>, WeC
 
     @Override
     public void loginFail() {
-
+        if (disposable != null) {
+            disposable.dispose();
+            disposable = null;
+        }
     }
 }

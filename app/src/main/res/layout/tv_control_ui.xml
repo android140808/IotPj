@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/tv_control_bg"
+    android:orientation="vertical"
+    tools:context=".ui.activity.control.TVControlUI">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_size_40"
+        android:layout_alignParentTop="true">
+
+        <!--左边返回键-->
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="@dimen/dimen_size_30"
+            android:layout_height="@dimen/dimen_size_30"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/dimen_size_20"
+            android:background="@mipmap/back_while"
+            android:visibility="visible" />
+
+        <!--中间标题-->
+        <TextView
+            android:id="@+id/tittle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="情景模式面板"
+            android:textColor="@color/color_while"
+            android:textSize="@dimen/dimen_size_20" />
+
+
+        <!--右边图标-->
+        <ImageView
+            android:id="@+id/edit"
+            android:layout_width="@dimen/dimen_size_25"
+            android:layout_height="@dimen/dimen_size_25"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/dimen_size_20"
+            android:layout_marginRight="@dimen/dimen_size_20"
+            android:background="@mipmap/setting_white"
+            android:visibility="visible" />
+
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/dimen_size_20"
+        android:layout_marginTop="@dimen/dimen_size_10"
+        android:layout_marginRight="@dimen/dimen_size_20"
+        android:background="@drawable/tv_control_shape">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_size_60"
+                android:layout_marginTop="@dimen/dimen_size_20"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/tv_sound_on_off"
+                    android:layout_width="@dimen/dimen_size_30"
+                    android:layout_height="@dimen/dimen_size_30"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="@dimen/dimen_size_40"
+                    android:background="@mipmap/sound_off" />
+
+                <ImageView
+                    android:id="@+id/tv_power_on_off"
+                    android:layout_width="@dimen/dimen_size_40"
+                    android:layout_height="@dimen/dimen_size_40"
+                    android:layout_centerInParent="true"
+                    android:background="@mipmap/tv_on_off" />
+
+                <ImageView
+                    android:id="@+id/tv_menu"
+                    android:layout_width="@dimen/dimen_size_30"
+                    android:layout_height="@dimen/dimen_size_30"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="@dimen/dimen_size_40"
+                    android:background="@mipmap/tv_menu" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_size_150"
+                android:layout_marginTop="@dimen/dimen_size_20">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/dimen_size_60"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/dimen_size_40"
+                    android:background="@drawable/tv_sound_bg"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/tv_sound_add"
+                        android:layout_width="@dimen/dimen_size_30"
+                        android:layout_height="@dimen/dimen_size_30"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="@dimen/dimen_size_10"
+                        android:background="@mipmap/tv_add" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:singleLine="true"
+                        android:text="音量"
+                        android:textColor="@color/color_black"
+                        android:textSize="@dimen/dimen_size_15" />
+
+                    <ImageView
+                        android:id="@+id/tv_sound_down"
+                        android:layout_width="@dimen/dimen_size_30"
+                        android:layout_height="@dimen/dimen_size_30"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginBottom="@dimen/dimen_size_10"
+                        android:background="@mipmap/tv_cut" />
+                </RelativeLayout>
+
+
+                <ImageView
+                    android:id="@+id/tv_home"
+                    android:layout_width="@dimen/dimen_size_30"
+                    android:layout_height="@dimen/dimen_size_30"
+                    android:layout_centerInParent="true"
+                    android:background="@mipmap/tv_home" />
+
+                <RelativeLayout
+                    android:layout_width="@dimen/dimen_size_60"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/dimen_size_40"
+                    android:background="@drawable/tv_sound_bg"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/tv_channel_up"
+                        android:layout_width="@dimen/dimen_size_30"
+                        android:layout_height="@dimen/dimen_size_30"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="@dimen/dimen_size_10"
+                        android:background="@mipmap/tv_up" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:singleLine="true"
+                        android:text="频道"
+                        android:textColor="@color/color_black"
+                        android:textSize="@dimen/dimen_size_15" />
+
+                    <ImageView
+                        android:id="@+id/tv_channel_down"
+                        android:layout_width="@dimen/dimen_size_30"
+                        android:layout_height="@dimen/dimen_size_30"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginBottom="@dimen/dimen_size_10"
+                        android:background="@mipmap/tv_down" />
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/tv_back"
+                    android:layout_width="@dimen/dimen_size_60"
+                    android:layout_height="@dimen/dimen_size_60"
+                    android:background="@mipmap/tv_back" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_size_170"
+                android:layout_marginTop="@dimen/dimen_size_20">
+
+
+                <RelativeLayout
+                    android:layout_width="@dimen/dimen_size_170"
+                    android:layout_height="@dimen/dimen_size_170"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/tv_direct_bg">
+
+                    <Button
+                        android:id="@+id/tv_ok"
+                        android:layout_width="@dimen/dimen_size_60"
+                        android:layout_height="@dimen/dimen_size_60"
+                        android:layout_centerInParent="true"
+                        android:layout_margin="@dimen/dimen_size_10"
+                        android:background="@drawable/tv_ok_bg"
+                        android:text="确定"
+                        android:textColor="@color/color_black"
+                        android:textSize="@dimen/dimen_size_15" />
+
+                    <ImageView
+                        android:id="@+id/tv_direct_up"
+                        android:layout_width="@dimen/dimen_size_40"
+                        android:layout_height="@dimen/dimen_size_40"
+                        android:layout_above="@id/tv_ok"
+                        android:layout_centerInParent="true"
+                        android:background="@mipmap/tv_direct_up" />
+
+                    <ImageView
+                        android:id="@+id/tv_direct_left"
+                        android:layout_width="@dimen/dimen_size_40"
+                        android:layout_height="@dimen/dimen_size_40"
+                        android:layout_centerInParent="true"
+                        android:layout_toLeftOf="@id/tv_ok"
+                        android:background="@mipmap/tv_direct_left" />
+
+                    <ImageView
+                        android:id="@+id/tv_direct_down"
+                        android:layout_width="@dimen/dimen_size_40"
+                        android:layout_height="@dimen/dimen_size_40"
+                        android:layout_below="@id/tv_ok"
+                        android:layout_centerInParent="true"
+                        android:background="@mipmap/tv_direct_down" />
+
+                    <ImageView
+                        android:id="@+id/tv_direct_right"
+                        android:layout_width="@dimen/dimen_size_40"
+                        android:layout_height="@dimen/dimen_size_40"
+                        android:layout_centerInParent="true"
+                        android:layout_toRightOf="@id/tv_ok"
+                        android:background="@mipmap/tv_direct_right" />
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_size_20"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/tv_find_channel"
+                    android:layout_width="@dimen/dimen_size_40"
+                    android:layout_height="@dimen/dimen_size_40"
+                    android:background="@mipmap/tv_singal" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/window_bg"
+    tools:context=".ui.activity.control.WindowUI">
+
+    <RelativeLayout
+        android:id="@+id/rl_tittle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_size_40"
+        android:layout_alignParentTop="true"
+        tools:ignore="MissingConstraints">
+
+        <!--左边返回键-->
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="@dimen/dimen_size_30"
+            android:layout_height="@dimen/dimen_size_30"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/dimen_size_20"
+            android:background="@mipmap/back_while"
+            android:visibility="visible" />
+
+        <!--中间标题-->
+        <TextView
+            android:id="@+id/tittle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="窗帘"
+            android:textColor="@color/color_while"
+            android:textSize="@dimen/dimen_size_20" />
+
+
+        <!--右边图标-->
+        <ImageView
+            android:id="@+id/edit"
+            android:layout_width="@dimen/dimen_size_25"
+            android:layout_height="@dimen/dimen_size_25"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/dimen_size_20"
+            android:layout_marginRight="@dimen/dimen_size_20"
+            android:background="@mipmap/setting_white"
+            android:visibility="visible" />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:id="@+id/ll_open"
+            android:layout_width="@dimen/dimen_size_100"
+            android:layout_height="@dimen/dimen_size_100"
+            android:background="@drawable/login_bg"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/dimen_size_30"
+                android:layout_height="@dimen/dimen_size_30"
+                android:background="@mipmap/window_open" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_size_10"
+                android:text="开"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/dimen_size_15" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_stop"
+            android:layout_width="@dimen/dimen_size_100"
+            android:layout_height="@dimen/dimen_size_100"
+            android:layout_marginTop="@dimen/dimen_size_20"
+            android:background="@drawable/login_bg"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/dimen_size_30"
+                android:layout_height="@dimen/dimen_size_30"
+                android:background="@mipmap/window_stop" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_size_10"
+                android:text="停"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/dimen_size_15" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_close"
+            android:layout_width="@dimen/dimen_size_100"
+            android:layout_height="@dimen/dimen_size_100"
+            android:layout_marginTop="@dimen/dimen_size_20"
+            android:background="@drawable/login_bg"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/dimen_size_30"
+                android:layout_height="@dimen/dimen_size_30"
+                android:background="@mipmap/window_close" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_size_10"
+                android:text="关"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/dimen_size_15" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
