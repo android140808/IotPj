@@ -2,7 +2,9 @@ package cn.zhian.avater.iotproject.ui.presenter;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
@@ -20,12 +22,15 @@ import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.base.BasePresenter;
 import cn.zhian.avater.iotproject.base.BaseView;
 import cn.zhian.avater.iotproject.eventbus.WeChatLoginBus;
+import cn.zhian.avater.iotproject.serverice.LoginService;
 import cn.zhian.avater.iotproject.ui.interfaces.WeChatLoginCallBack;
 import cn.zhian.avater.iotproject.ui.model.LoginModel;
 import cn.zhian.avater.iotproject.ui.view.LoginView;
 import cn.zhian.avater.iotproject.utils.BuglyHelp;
 import cn.zhian.avater.iotproject.utils.DialogUtils;
 import cn.zhian.avater.iotproject.utils.GeneralMethods;
+import cn.zhian.avater.iotproject.utils.SystemUtil;
+import cn.zhian.avater.netmodule.mode.requestBean.LoginHeaders;
 import cn.zhian.avater.netmodule.mode.requestBean.LoginRequest;
 import cn.zhian.avater.netmodule.utils.ServerRequestManager;
 import io.reactivex.Observable;
@@ -43,11 +48,21 @@ public class LoginPresenter<V extends BaseView> implements BasePresenter<V>, WeC
     private LoginModel loginModel;
     private String seq;
     private Disposable disposable;
+    private String phoneBrand;
+    private String systemType;
+    private String systemVersion;
+    private String country;
+    private String appVersion;
 
 
     public LoginPresenter() {
         loginModel = new LoginModel();
         EventBus.getDefault().register(this);
+        phoneBrand = SystemUtil.getDeviceBrand() + "-" + SystemUtil.getSystemModel();
+        systemType = "Android";
+        systemVersion = SystemUtil.getSystemVersion();
+        appVersion = SystemUtil.getAppVersion();
+        country = "86";
     }
 
     @Subscribe
@@ -173,15 +188,21 @@ public class LoginPresenter<V extends BaseView> implements BasePresenter<V>, WeC
         LoginRequest b = new LoginRequest(phoneNumber, code);
         seq = b.seq;
         view.showProgress();
+        LoginHeaders headers = new LoginHeaders(phoneBrand, systemType, systemVersion, appVersion);
         loginModel.loginWithSmsCode(phoneNumber, code, callback -> {
             if (view != null) {
                 if (callback == 0) {
                     view.loginSuccess();
-                } else {
-                    view.loginFailed("");
-                }
+                    if (context != null) {
+                        Intent ser = new Intent(context, LoginService.class);
+                        context.startService(ser);
+                    }
+                } else if (-1 == callback)
+                    view.loginFailed("验证码或手机号码不匹配！");
+                else
+                    view.loginFailed("登陆失败");
             }
-        });
+        }, headers);
     }
 
     public void loginWithWeChat(Context context) {

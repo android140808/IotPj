@@ -1,30 +1,24 @@
-package cn.zhian.avater.databasemodule.tables;
+package cn.zhian.avater.netmodule.mode.requestBean;
 
-import org.litepal.annotation.Column;
-import org.litepal.crud.LitePalSupport;
-
-import java.security.Key;
+import cn.zhian.avater.netmodule.mode.base.BaseRequest;
 
 /**
- * @Author: wangweida
- * @CreateDate: 2019-12-21 9:30
- * @Description: 用户数据表
+ * Date：2020/3/2
+ * Author:Avater
+ * Description:
  */
-public class AccountDB extends LitePalSupport {
-    private long id;
-    //唯一约束
+public class AccountRequest extends BaseRequest {
     private String avatar;
     private long createdTime;
     private String email;
     private boolean enabled;
     private String gatewayIp;
-    private long accountId;//对应id
+    private long id;
     private boolean isLocked;
     private String lastLoginIp;
     private long lastLoginTime;
     private long loginCount;
     private String loginDevices;
-    @Column(unique = true)
     private String mobile;
     private String nickname;
     private long updatedTime;
@@ -32,20 +26,20 @@ public class AccountDB extends LitePalSupport {
     private String weChat;
     private String weChatUnionId;
 
-    public AccountDB() {
+    public AccountRequest() {
     }
 
-    public AccountDB(String avatar, long createdTime, String email, boolean enabled, String gatewayIp,
-                     long accountId, boolean isLocked, String lastLoginIp, long lastLoginTime, int loginCount,
-                     String loginDevices, String mobile, String nickname, long updatedTime, String username,
-                     String weChat, String weChatUnionId) {
+    public AccountRequest(String avatar, long createdTime, String email, boolean enabled,
+                          String gatewayIp, long id, boolean isLocked, String lastLoginIp,
+                          long lastLoginTime, long loginCount, String loginDevices, String mobile,
+                          String nickname, long updatedTime, String username, String weChat, String weChatUnionId) {
 
         this.avatar = avatar;
         this.createdTime = createdTime;
         this.email = email;
         this.enabled = enabled;
         this.gatewayIp = gatewayIp;
-        this.accountId = accountId;
+        this.id = id;
         this.isLocked = isLocked;
         this.lastLoginIp = lastLoginIp;
         this.lastLoginTime = lastLoginTime;
@@ -57,14 +51,6 @@ public class AccountDB extends LitePalSupport {
         this.username = username;
         this.weChat = weChat;
         this.weChatUnionId = weChatUnionId;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getAvatar() {
@@ -107,12 +93,12 @@ public class AccountDB extends LitePalSupport {
         this.gatewayIp = gatewayIp;
     }
 
-    public long getAccountId() {
-        return accountId;
+    public long getId() {
+        return id;
     }
 
-    public void setAccountId(long accountId) {
-        this.accountId = accountId;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public boolean isLocked() {
@@ -143,7 +129,7 @@ public class AccountDB extends LitePalSupport {
         return loginCount;
     }
 
-    public void setLoginCount(int loginCount) {
+    public void setLoginCount(long loginCount) {
         this.loginCount = loginCount;
     }
 
@@ -201,5 +187,28 @@ public class AccountDB extends LitePalSupport {
 
     public void setWeChatUnionId(String weChatUnionId) {
         this.weChatUnionId = weChatUnionId;
+    }
+
+    @Override
+    public String toString() {
+        return "AccountRequest{" +
+                "avatar='" + avatar + '\'' +
+                ", createdTime=" + createdTime +
+                ", email='" + email + '\'' +
+                ", enabled=" + enabled +
+                ", gatewayIp='" + gatewayIp + '\'' +
+                ", id=" + id +
+                ", isLocked=" + isLocked +
+                ", lastLoginIp='" + lastLoginIp + '\'' +
+                ", lastLoginTime=" + lastLoginTime +
+                ", loginCount=" + loginCount +
+                ", loginDevices='" + loginDevices + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", updatedTime=" + updatedTime +
+                ", username='" + username + '\'' +
+                ", weChat='" + weChat + '\'' +
+                ", weChatUnionId='" + weChatUnionId + '\'' +
+                '}';
     }
 }

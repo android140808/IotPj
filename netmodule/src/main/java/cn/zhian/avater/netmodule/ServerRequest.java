@@ -2,8 +2,11 @@ package cn.zhian.avater.netmodule;
 
 import cn.zhian.avater.netmodule.interfaces.NetResultCallBack;
 import cn.zhian.avater.netmodule.mode.base.BaseResponse;
+import cn.zhian.avater.netmodule.mode.requestBean.AccountRequest;
 import cn.zhian.avater.netmodule.mode.requestBean.AllHostRequest;
+import cn.zhian.avater.netmodule.mode.requestBean.LoginHeaders;
 import cn.zhian.avater.netmodule.mode.requestBean.LoginRequest;
+import cn.zhian.avater.netmodule.mode.responseBean.AccountResponse;
 import cn.zhian.avater.netmodule.mode.responseBean.CommMessageResponse;
 import cn.zhian.avater.netmodule.utils.ServerCode;
 import cn.zhian.avater.netmodule.utils.ServerRequestManager;
@@ -96,10 +99,10 @@ public enum ServerRequest {
      * @param loginRequest
      * @param callBack
      */
-    public void loginWithSmsCode(LoginRequest loginRequest, NetResultCallBack callBack) {
+    public void loginWithSmsCode(LoginRequest loginRequest, NetResultCallBack callBack, LoginHeaders headers) {
         rxJavaProCallBack(
                 loginRequest.seq,
-                urlServices.loginWithSmsCode(loginRequest),
+                urlServices.loginWithSmsCode(loginRequest, headers.country, headers.phoneBrand, headers.systemType, headers.systemVersion, headers.appVersion),
                 callBack
         );
     }
@@ -135,6 +138,15 @@ public enum ServerRequest {
      */
     public void getSmsCode(LoginRequest loginRequest, NetResultCallBack<BaseResponse> callBack) {
         rxJavaProCallBack(loginRequest.seq, urlServices.getSmsCode(loginRequest), false, callBack);
+    }
+
+    /**
+     * 获取用户信息
+     *
+     * @param callBack
+     */
+    public void getUserInfo(NetResultCallBack<AccountResponse> callBack) {
+        rxJavaProCallBack("请求用户信息", urlServices.getUserInfo(), callBack);
     }
 
     /**
@@ -207,10 +219,9 @@ public enum ServerRequest {
 
     }
 
+    public void edidPerson(AccountRequest request, NetResultCallBack<BaseResponse> callBack) {
+        rxJavaProCallBack("编辑个人信息", urlServices.editPerson(request), callBack);
+    }
 
-
-
-
-    /*--------------------------------------------------------业务逻辑-------------------------------------------------------------*/
 
 }

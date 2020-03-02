@@ -10,6 +10,7 @@ import cn.zhian.avater.netmodule.ServerRequest;
 import cn.zhian.avater.netmodule.ServerVal;
 import cn.zhian.avater.netmodule.interfaces.NetResultCallBack;
 import cn.zhian.avater.netmodule.mode.base.BaseResponse;
+import cn.zhian.avater.netmodule.mode.requestBean.LoginHeaders;
 import cn.zhian.avater.netmodule.mode.requestBean.LoginRequest;
 import cn.zhian.avater.netmodule.mode.responseBean.LoginResponse;
 import cn.zhian.avater.netmodule.utils.ServerCode;
@@ -21,7 +22,7 @@ import cn.zhian.avater.netmodule.utils.ServerCode;
  */
 public class LoginModel implements BaseModel {
 
-    public void loginWithSmsCode(String phoneNumber, String code, final CommCallBack callBack) {
+    public void loginWithSmsCode(String phoneNumber, String code, final CommCallBack callBack, LoginHeaders headers) {
         LoginRequest request = new LoginRequest(phoneNumber, code);
         ServerRequest.INSTANCE.loginWithSmsCode(request, new NetResultCallBack<LoginResponse>() {
             @Override
@@ -43,7 +44,7 @@ public class LoginModel implements BaseModel {
             public void onFail(int responseCode) {
                 callBack.state(-1);
             }
-        });
+        }, headers);
     }
 
     public void getSmsCode(String phoneNumber, final CommCallBack callBack) {

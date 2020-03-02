@@ -48,7 +48,7 @@ public class Applications extends MultiDexApplication {
     }
 
     private void initData() {
-        ServerVal.accessToken = MDB.INSTANCE.getAccount("").getToken();
+//        ServerVal.accessToken = MDB.INSTANCE.getAccount("").getToken();
     }
 
     @Override

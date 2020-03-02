@@ -9,6 +9,7 @@ public class BaseResponse {
     public String seq;
     public int code;
     public String message;
+    public boolean success;
 
     @Override
     public String toString() {

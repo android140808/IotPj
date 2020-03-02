@@ -76,14 +76,29 @@ public enum MDB {
         if (null == accountDB) {
             return;
         }
-        boolean save = accountDB.save();
-        Log.e("TAG", (save ? "保存成功" : "保存失败"));
-        if (!save) {
+        AccountDB account = getAccount(accountDB.getMobile());
+        if (account == null) {
+            boolean save = accountDB.save();
+            Log.e("TAG", (save ? "保存成功" : "保存失败"));
+        } else {
             Log.e("TAG", "更新数据");
             ContentValues values = new ContentValues();
-            values.put("niceName", accountDB.getNiceName());
-            values.put("iconPath", accountDB.getIconPath());
-            values.put("token", accountDB.getToken());
+            values.put("avatar", accountDB.getAvatar());
+            values.put("createdTime", accountDB.getCreatedTime());
+            values.put("email", accountDB.getEmail());
+            values.put("enabled", accountDB.isEnabled());
+            values.put("gatewayIp", accountDB.getGatewayIp());
+            values.put("accountId", accountDB.getAccountId());
+            values.put("isLocked", accountDB.isLocked());
+            values.put("lastLoginIp", accountDB.getLastLoginIp());
+            values.put("lastLoginTime", account.getLastLoginTime());
+            values.put("loginCount", account.getLoginCount());
+            values.put("loginDevices", accountDB.getLoginDevices());
+            values.put("nickname", accountDB.getNickname());
+            values.put("updatedTime", accountDB.getUpdatedTime());
+            values.put("username", accountDB.getUsername());
+            values.put("weChat", accountDB.getWeChat());
+            values.put("weChatUnionId", accountDB.getWeChatUnionId());
             updateAccount(values);
         }
     }
@@ -91,14 +106,14 @@ public enum MDB {
     /**
      * 获取指定账号信息
      *
-     * @param phoneNumber
+     * @param mobile
      * @return
      */
-    public AccountDB getAccount(String phoneNumber) {
-        if (TextUtils.isEmpty(phoneNumber)) {
+    public AccountDB getAccount(String mobile) {
+        if (TextUtils.isEmpty(mobile)) {
             return null;
         }
-        List<AccountDB> dbs = LitePal.where("phoneNumber = ? ", phoneNumber).find(AccountDB.class);
+        List<AccountDB> dbs = LitePal.where("mobile = ? ", mobile).find(AccountDB.class);
         if (null != dbs && dbs.size() > 0) {
             return dbs.get(0);
         }

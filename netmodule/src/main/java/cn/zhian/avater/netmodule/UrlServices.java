@@ -2,13 +2,18 @@ package cn.zhian.avater.netmodule;
 
 import cn.zhian.avater.netmodule.interfaces.Urls;
 import cn.zhian.avater.netmodule.mode.base.BaseResponse;
+import cn.zhian.avater.netmodule.mode.requestBean.AccountRequest;
 import cn.zhian.avater.netmodule.mode.requestBean.AllHostRequest;
+import cn.zhian.avater.netmodule.mode.requestBean.LoginHeaders;
 import cn.zhian.avater.netmodule.mode.requestBean.LoginRequest;
+import cn.zhian.avater.netmodule.mode.responseBean.AccountResponse;
 import cn.zhian.avater.netmodule.mode.responseBean.AllHostResponse;
 import cn.zhian.avater.netmodule.mode.responseBean.CommMessageResponse;
 import cn.zhian.avater.netmodule.mode.responseBean.LoginResponse;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
+import retrofit2.http.Headers;
 import retrofit2.http.PATCH;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -27,16 +32,21 @@ public interface UrlServices {
     Observable<LoginResponse> getSmsCode(@Body LoginRequest phoneNumber);
 
     @POST(Urls.LOGIN_SMS)
-    Observable<LoginResponse> loginWithSmsCode(@Body LoginRequest request);
+    Observable<LoginResponse> loginWithSmsCode(@Body LoginRequest request,
+                                               @Header("country") String country,
+                                               @Header("phoneBrand") String phoneBrand,
+                                               @Header("systemType") String systemType,
+                                               @Header("systemVersion") String systemVersion,
+                                               @Header("appVersion") String appVersion);
 
     @POST(Urls.LOGIN_PASSWORD)
     Observable<LoginResponse> loginWithPassword(@Body LoginRequest request);
 
-    @POST(Urls.LOGOUT)
+    @GET(Urls.LOGOUT)
     Observable<LoginResponse> logout();
 
     @GET(Urls.USERINFO)
-    Observable<LoginResponse> getUserInfo();
+    Observable<AccountResponse> getUserInfo();
 
     @POST(Urls.SMS_SEND)
     Observable<AllHostResponse> getAllHost(@Body AllHostRequest request);
@@ -58,5 +68,9 @@ public interface UrlServices {
 
     @PATCH(Urls.MESSAGE_ENVIRONMENT_STATE + "/{id}/{action}/update")
     Observable<BaseResponse> setMessageEnvironmentState(@Path("id") int id, @Path("action") String action);
+
+    @PATCH(Urls.USERINFO_EDIT)
+    Observable<BaseResponse> editPerson(@Body AccountRequest request);
+
 
 }

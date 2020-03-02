@@ -3,6 +3,7 @@ package cn.zhian.avater.iotproject.ui.activity;
 import android.content.DialogInterface;
 
 
+import android.content.Intent;
 import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.View;
@@ -17,6 +18,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import cn.zhian.avater.iotproject.R;
 import cn.zhian.avater.iotproject.base.BaseUI;
+import cn.zhian.avater.iotproject.serverice.LoginService;
 import cn.zhian.avater.iotproject.ui.presenter.LoginPresenter;
 import cn.zhian.avater.iotproject.ui.view.LoginView;
 import cn.zhian.avater.iotproject.utils.DialogUtils;
@@ -73,12 +75,12 @@ public class LoginUI extends BaseUI<LoginView, LoginPresenter<LoginView>> implem
                 mPresenter.getSmsCode(this, loginEtPhone.getText().toString(), loginTvGet);
                 break;
             case R.id.login_btn_login:
-//                if (!loginCbAgree.isChecked()) {
-//                    showAlert();
-//                    return;
-//                }
-//                mPresenter.loginWithSmsCode(this, loginEtPhone.getText().toString(), loginEtCode.getText().toString());
-                changeUI(this, MainUI.class);
+                if (!loginCbAgree.isChecked()) {
+                    showAlert();
+                    return;
+                }
+                mPresenter.loginWithSmsCode(this, loginEtPhone.getText().toString(), loginEtCode.getText().toString());
+//                changeUI(this, MainUI.class);
                 break;
             case R.id.login_cb_agree:
                 if (!loginCbAgree.isChecked()) {
@@ -119,7 +121,7 @@ public class LoginUI extends BaseUI<LoginView, LoginPresenter<LoginView>> implem
             alertDialog.dismiss();
         }
         showToast(R.string.login_sms_code_tips);
-        loginEtCode.setText("1234");
+        loginEtCode.setText("123456");
     }
 
     @Override
@@ -133,6 +135,8 @@ public class LoginUI extends BaseUI<LoginView, LoginPresenter<LoginView>> implem
             if (alertDialog != null) {
                 alertDialog.dismiss();
             }
+            Intent stop = new Intent(LoginUI.this, LoginService.class);
+            stopService(stop);
             showToast(R.string.login_success);
             changeUI(this, MainUI.class);
             closeUI();//注意rx内存泄漏问题

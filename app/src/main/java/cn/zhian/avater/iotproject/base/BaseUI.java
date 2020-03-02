@@ -47,6 +47,7 @@ public abstract class BaseUI<V extends BaseView, T extends BasePresenter<V>> ext
         Log.d(TAG, "当前UI:" + TAG);
         UIManagerUtils.getInstance().addActivity(this);
         mCurrentPhoneNumber = MDB.INSTANCE.getCurrentPhoneNumber();
+        Log.d(TAG, "当前用户:" + mCurrentPhoneNumber);
         accessToken = MDB.INSTANCE.getToken();
         if (!TextUtils.isEmpty(accessToken)) {
             ServerVal.accessToken = accessToken;

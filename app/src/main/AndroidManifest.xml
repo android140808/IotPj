@@ -196,6 +196,7 @@
                 <action android:name="cn.jiguang.user.service.action" />
             </intent-filter>
         </service>
+        <service android:name=".serverice.LoginService" />
     </application>
 
 </manifest>

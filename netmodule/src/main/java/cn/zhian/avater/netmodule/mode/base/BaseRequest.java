@@ -18,4 +18,14 @@ public class BaseRequest {
         versionNo = BuildConfig.VERSION_NAME;
         customerCode = "奥园";//后期指定
     }
+
+    @Override
+    public String toString() {
+        return "BaseRequest{" +
+                "seq='" + seq + '\'' +
+                ", versionNo='" + versionNo + '\'' +
+                ", clientType='" + clientType + '\'' +
+                ", customerCode='" + customerCode + '\'' +
+                '}';
+    }
 }

@@ -13,7 +13,8 @@ public interface Urls {
 
     String SMS_SEND = "/api/v1/login/sendSms";
     String LOGIN_PASSWORD = "api/v1/login";
-    String LOGIN_SMS = "api/v1/login/sms";
+    //    String LOGIN_SMS = "api/v1/login/sms";
+    String LOGIN_SMS = "api/v1/login/mobile";
     String LOGIN_WECHAT = "api/v1/login/weChat";
     String LOGOUT = "api/v1/logout";
 

@@ -10,9 +10,16 @@ import cn.zhian.avater.netmodule.mode.base.BaseRequest;
 public class LoginRequest extends BaseRequest {
     public String mobile;//手机号码
     public String smsValidCode;//短信验证码
+    public String validCode;//
+    public String username;//
+    public String password;//
+    public int remember = 0;//
 
     public LoginRequest(String mobile, String smsValidCode) {
         this.mobile = mobile;
         this.smsValidCode = smsValidCode;
+        validCode = smsValidCode;
+        username = "";
+        password = "";
     }
 }

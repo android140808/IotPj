@@ -16,6 +16,7 @@ import cn.zhian.avater.netmodule.utils.ServerUtil;
 import cn.zhian.avater.netmodule.utils.SystemInfoUtil;
 import okhttp3.Cache;
 import okhttp3.CacheControl;
+import okhttp3.Headers;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -85,25 +86,23 @@ public class ServerManager {
         }
     }
 
-    // accessToken和accessSeq的设置(因为所有的请求都要带上这个)
+    /**
+     * 添加公共请求Headers
+     *
+     * @return
+     */
     private Interceptor tokenAndSeqInterceptor() {
         ServerVal.accessToken = TextUtils.isEmpty(ServerVal.accessToken) ? "" : ServerVal.accessToken;
         LogUtil.i(TAG, "当前请求的token ： " + ServerVal.accessToken);
         return chain -> {
+            Headers headers = chain.request().headers();
+            int size = headers.size();
+            for (int i = 0; i < size; i++) {
+                Log.d(TAG, headers.name(i));
+            }
             Request.Builder builder = chain.request().newBuilder()
                     .addHeader("Content-Type", "application/json")
-                    .addHeader("access_token", ServerVal.accessToken)
-                    .addHeader("timestamp", System.currentTimeMillis() + "");
-            Context context = ServerContext.INSTANCE.getContext();
-            if (context != null) {
-                PhoneInfo phoneInfo = SystemInfoUtil.getPhoneInfo(context);
-                builder
-                        .addHeader("phoneBrand", getEncodeHeader(phoneInfo.getPhoneBrand()))//厂商手机型号
-                        .addHeader("systemType", "android")//手机操作系统
-                        .addHeader("systemVersion", getEncodeHeader(phoneInfo.getSystemVersion()))//系统版本
-                        .addHeader("appVersion", getEncodeHeader(phoneInfo.getAppVersion()))//app版本
-                        .addHeader("country", getEncodeHeader(phoneInfo.getCountry()));//国家代码
-            }
+                    .addHeader("access_token", ServerVal.accessToken);
             Request request = builder.build();
             return chain.proceed(request);
         };
