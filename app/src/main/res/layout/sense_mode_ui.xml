@@ -95,7 +95,7 @@
                 <ImageView
                     android:layout_width="@dimen/dimen_size_40"
                     android:layout_height="@dimen/dimen_size_40"
-                    android:background="@mipmap/item_go_home" />
+                    android:background="@mipmap/room_2_19_keting" />
 
                 <TextView
                     android:layout_width="wrap_content"

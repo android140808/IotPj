@@ -37,7 +37,7 @@ public class LoginService extends Service {
                 String email = bean.getEmail();
                 boolean enabled = bean.isEnabled();
                 String gatewayIp = bean.getGatewayIp();
-                long accountId = bean.getId();
+                long accountId = bean.getCustomerId();
                 boolean isLocked = bean.isIsLocked();
                 String lastLoginIp = bean.getLastLoginIp();
                 long lastLoginTime = bean.getLastLoginTime();

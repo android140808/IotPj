@@ -3,11 +3,13 @@
     <!--数据库名称-->
     <dbname value="zhian" />
     <!--数据库版本-->
-    <version value="1" />
+    <version value="3" />
     <!--表映射-->
     <list>
         <mapping class="cn.zhian.avater.databasemodule.tables.AccountDB" />
         <mapping class="cn.zhian.avater.databasemodule.tables.MessageDB" />
         <mapping class="cn.zhian.avater.databasemodule.tables.ProductDB" />
+        <mapping class="cn.zhian.avater.databasemodule.tables.RoomDB" />
+        <mapping class="cn.zhian.avater.databasemodule.tables.DevicesDB" />
     </list>
 </litepal>

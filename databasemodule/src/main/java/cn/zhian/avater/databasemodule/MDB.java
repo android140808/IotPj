@@ -1,7 +1,6 @@
 package cn.zhian.avater.databasemodule;
 
 
-import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -9,12 +8,12 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import org.litepal.LitePal;
-import org.w3c.dom.Text;
 
 import java.util.List;
 
 import cn.zhian.avater.databasemodule.tables.AccountDB;
 import cn.zhian.avater.databasemodule.tables.MessageDB;
+import cn.zhian.avater.databasemodule.tables.RoomDB;
 
 /**
  * @Author: wangweida
@@ -168,5 +167,56 @@ public enum MDB {
 
     public void deleteAllMessageDB() {
         LitePal.deleteAll(MessageDB.class);
+    }
+
+
+    private void find() {
+
+    }
+
+    public void updateAll(List<RoomDB> list) {
+        if (list != null) {
+            for (RoomDB db : list) {
+                try {
+                    queryRoomDB(db);
+                } catch (Exception e) {
+                    Log.e("TAG", "插入数据异常");
+                }
+            }
+        }
+    }
+
+    private synchronized boolean queryRoomDB(RoomDB data) {
+        boolean isExist = false;
+        List<RoomDB> roomDBList = LitePal.where("mobile = ? and customerId = ? and roomId = ?",
+                data.getMobile(), data.getCustomerId() + "", "" + data.getRoomId()).find(RoomDB.class);
+        if (null != roomDBList && roomDBList.size() > 0) {
+            isExist = true;
+            ContentValues values = new ContentValues();
+            values.put("deviceCount", data.getDeviceCount());
+            values.put("roomName", data.getRoomName());
+            values.put("chamIdentifier", data.getChamIdentifier());
+            values.put("sensor", data.getSensor());
+            values.put("switchOffOn", data.getSwitchOffOn());
+            values.put("electtical", data.getElecttical());
+            LitePal.updateAll(RoomDB.class, values, "mobile = ? and customerId = ? and roomId = ?",
+                    data.getMobile(), data.getCustomerId() + "", "" + data.getRoomId());
+            Log.e("TAG", "更新数据");
+        } else {
+            Log.e("TAG", "新增数据");
+            data.save();
+        }
+        return isExist;
+    }
+
+    public List<RoomDB> getAllRoom(String mobile, long accountId) {
+        List<RoomDB> roomDBList = LitePal.where("mobile = ? and customerId = ?", mobile, accountId + "").find(RoomDB.class);
+        if (null != roomDBList) {
+            Log.e("TAG", "本地数据的大小 = " + roomDBList.size());
+            for (RoomDB d : roomDBList) {
+                Log.e("TAG", "---" + d.toString() + "");
+            }
+        }
+        return roomDBList;
     }
 }

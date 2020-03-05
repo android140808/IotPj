@@ -32,5 +32,14 @@ public interface Urls {
     String MESSAGE_ENVIRONMENT = "api/v1/environmentMessages";
     String MESSAGE_ENVIRONMENT_STATE = "api/v1/environmentMessage";
 
+    String CONTROL_ADD_ROOM = "api/v1/organization/chamber";
+    String CONTROL_GET_ALL_ROOM = "api/v1/organization/customer_id";
+    String CONTROL_DEL_ROOM = "api/v1/organization/chamber";
+    String CONTROL_ADD_DEVICE = "api/v1/organization/device";
+    String CONTROL_DEL_DEVICE = "api/v1/organization/device_id";
+    String CONTROL_ROOM_DEVICES = "api/v1/organization/chamber_id";
+    String CONTROL_ALL_LIST_DEVICE = "api/v1/organization/device_list";
+    String CONTROL_SEARCH_DEVICE = "api/v1/organization/device_name";
+
 
 }

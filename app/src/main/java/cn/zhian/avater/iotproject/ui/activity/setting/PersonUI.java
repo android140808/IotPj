@@ -18,7 +18,6 @@ import cn.zhian.avater.netmodule.ServerRequest;
 import cn.zhian.avater.netmodule.interfaces.NetResultCallBack;
 import cn.zhian.avater.netmodule.mode.base.BaseResponse;
 import cn.zhian.avater.netmodule.mode.requestBean.AccountRequest;
-import cn.zhian.avater.netmodule.mode.responseBean.AccountResponse;
 
 public class PersonUI extends BaseUI implements TittleManager.OnLeftClickListener, TittleManager.OnRightIvClickListener {
 

@@ -34,7 +34,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_centerInParent="true"
-                    android:background="@mipmap/bed_room" />
+                    android:background="@mipmap/room_1_3_8_11" />
 
                 <TextView
                     android:layout_width="wrap_content"

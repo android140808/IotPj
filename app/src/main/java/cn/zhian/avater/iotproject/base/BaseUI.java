@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import butterknife.ButterKnife;
 import cn.zhian.avater.databasemodule.MDB;
+import cn.zhian.avater.databasemodule.tables.AccountDB;
 import cn.zhian.avater.iotproject.ui.TittleManager;
 import cn.zhian.avater.iotproject.utils.DialogUtils;
 import cn.zhian.avater.iotproject.utils.UIManagerUtils;
@@ -34,6 +35,7 @@ public abstract class BaseUI<V extends BaseView, T extends BasePresenter<V>> ext
     protected String mCurrentPhoneNumber;
     protected String accessToken;
     protected Dialog alertDialog;
+    protected AccountDB accountDB;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,9 @@ public abstract class BaseUI<V extends BaseView, T extends BasePresenter<V>> ext
         UIManagerUtils.getInstance().addActivity(this);
         mCurrentPhoneNumber = MDB.INSTANCE.getCurrentPhoneNumber();
         Log.d(TAG, "当前用户:" + mCurrentPhoneNumber);
+        if (!TextUtils.isEmpty(mCurrentPhoneNumber)) {
+            accountDB = MDB.INSTANCE.getAccount(mCurrentPhoneNumber);
+        }
         accessToken = MDB.INSTANCE.getToken();
         if (!TextUtils.isEmpty(accessToken)) {
             ServerVal.accessToken = accessToken;

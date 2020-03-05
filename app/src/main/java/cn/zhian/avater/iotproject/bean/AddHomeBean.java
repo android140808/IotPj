@@ -7,21 +7,26 @@ package cn.zhian.avater.iotproject.bean;
  */
 public class AddHomeBean {
     private int iconId;
-    private int name;
+    private String name;
     private boolean isSelect = false;
+    private int roomId;
 
     public AddHomeBean() {
     }
 
-    public AddHomeBean(int iconId, int name) {
+
+    public AddHomeBean(int iconId, String name, int roomId) {
         this.iconId = iconId;
         this.name = name;
+        this.roomId = roomId;
     }
 
-    public AddHomeBean(int iconId, int name, boolean isSelect) {
-        this.iconId = iconId;
-        this.name = name;
-        this.isSelect = isSelect;
+    public int getRoomId() {
+        return roomId;
+    }
+
+    public void setRoomId(int roomId) {
+        this.roomId = roomId;
     }
 
     public int getIconId() {
@@ -32,7 +37,7 @@ public class AddHomeBean {
         this.iconId = iconId;
     }
 
-    public int getName() {
+    public String getName() {
         return name;
     }
 
@@ -44,7 +49,7 @@ public class AddHomeBean {
         isSelect = select;
     }
 
-    public void setName(int name) {
+    public void setName(String name) {
         this.name = name;
     }
 

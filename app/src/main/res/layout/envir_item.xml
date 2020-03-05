@@ -9,7 +9,7 @@
         android:id="@+id/iv"
         android:layout_width="@dimen/dimen_size_30"
         android:layout_height="@dimen/dimen_size_30"
-        android:background="@mipmap/bed_room" />
+        android:background="@mipmap/room_1_3_8_11" />
 
     <TextView
         android:id="@+id/tv"

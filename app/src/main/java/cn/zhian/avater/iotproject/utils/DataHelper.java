@@ -2,8 +2,6 @@ package cn.zhian.avater.iotproject.utils;
 
 import android.content.Context;
 import android.graphics.BitmapFactory;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.text.TextUtils;
 
 import com.google.gson.Gson;
@@ -37,7 +35,7 @@ public class DataHelper {
     public static List<HomeRecylerViewBean> getHomeBeans(Context context) {
         List<HomeRecylerViewBean> data = new ArrayList<>();
         HomeRecylerViewBean b1 = new HomeRecylerViewBean(0, context.getResources().getString(R.string.main_scenes_leave_home), R.mipmap.item_leave_home);
-        HomeRecylerViewBean b2 = new HomeRecylerViewBean(1, context.getResources().getString(R.string.main_scenes_go_home), R.mipmap.item_go_home);
+        HomeRecylerViewBean b2 = new HomeRecylerViewBean(1, context.getResources().getString(R.string.main_scenes_go_home), R.mipmap.room_2_19_keting);
         HomeRecylerViewBean b3 = new HomeRecylerViewBean(2, context.getResources().getString(R.string.main_scenes_safe), R.mipmap.item_safe);
         HomeRecylerViewBean b4 = new HomeRecylerViewBean(3, context.getResources().getString(R.string.main_scenes_sleep), R.mipmap.item_sleep);
         data.add(b1);
@@ -99,9 +97,9 @@ public class DataHelper {
 
     public static List<ControlBean> getControlBeans(Context context) {
         List<ControlBean> list = new ArrayList<>();
-        ControlBean c1 = new ControlBean(3, context.getResources().getString(R.string.control_bed_room), R.mipmap.bed_room, context.getResources().getString(R.string.control_security_sense), 1, context.getResources().getString(R.string.control_linght_sense), 1, context.getResources().getString(R.string.control_encironment_sense), 1);
-        ControlBean c2 = new ControlBean(3, context.getResources().getString(R.string.control_living_room), R.mipmap.bed_room, context.getResources().getString(R.string.control_security_sense), 1, context.getResources().getString(R.string.control_linght_sense), 1, context.getResources().getString(R.string.control_encironment_sense), 1);
-        ControlBean c3 = new ControlBean(3, context.getResources().getString(R.string.control_balcony), R.mipmap.bed_room, context.getResources().getString(R.string.control_security_sense), 1, context.getResources().getString(R.string.control_linght_sense), 1, context.getResources().getString(R.string.control_encironment_sense), 1);
+        ControlBean c1 = new ControlBean(3, context.getResources().getString(R.string.control_bed_room), R.mipmap.room_1_3_8_11, context.getResources().getString(R.string.control_security_sense), 1, context.getResources().getString(R.string.control_linght_sense), 1, context.getResources().getString(R.string.control_encironment_sense), 1);
+        ControlBean c2 = new ControlBean(3, context.getResources().getString(R.string.control_living_room), R.mipmap.room_1_3_8_11, context.getResources().getString(R.string.control_security_sense), 1, context.getResources().getString(R.string.control_linght_sense), 1, context.getResources().getString(R.string.control_encironment_sense), 1);
+        ControlBean c3 = new ControlBean(3, context.getResources().getString(R.string.control_balcony), R.mipmap.room_1_3_8_11, context.getResources().getString(R.string.control_security_sense), 1, context.getResources().getString(R.string.control_linght_sense), 1, context.getResources().getString(R.string.control_encironment_sense), 1);
         list.add(c1);
         list.add(c2);
         list.add(c3);
@@ -110,49 +108,57 @@ public class DataHelper {
 
     public static List<AddHomeBean> getHomeBean(Context context) {
         List<AddHomeBean> list = new ArrayList<>();
-        list.add(new AddHomeBean(R.mipmap.add_home_often, R.string.room_often));
-        list.add(new AddHomeBean(R.mipmap.bed_room, R.string.room_bedroom));
-        list.add(new AddHomeBean(R.mipmap.item_go_home, R.string.room_living_room));
-        list.add(new AddHomeBean(R.mipmap.bed_room, R.string.room_second_room));
-        list.add(new AddHomeBean(R.mipmap.add_home_dining_room, R.string.room_dining));
-        list.add(new AddHomeBean(R.mipmap.add_home_balcony, R.string.room_balcony));
-        list.add(new AddHomeBean(R.mipmap.add_home_garden, R.string.room_garden));
-        list.add(new AddHomeBean(R.mipmap.add_home_toilet, R.string.room_toilet));
+        list.add(new AddHomeBean(R.mipmap.add_home_often, "自定义", 0));
+        list.add(new AddHomeBean(R.mipmap.room_1_3_8_11, "主卧", 1));
+        list.add(new AddHomeBean(R.mipmap.room_2_19_keting, "客厅", 2));
+        list.add(new AddHomeBean(R.mipmap.room_1_3_8_11, "次卧", 3));
+        list.add(new AddHomeBean(R.mipmap.room_4_canting, "餐厅", 4));
+        list.add(new AddHomeBean(R.mipmap.room_5_yangtai, "阳台", 5));
+        list.add(new AddHomeBean(R.mipmap.room_6_xuanguan, "玄关", 6));
+        list.add(new AddHomeBean(R.mipmap.room_7_9_13, "卫生间", 7));
+        list.add(new AddHomeBean(R.mipmap.room_1_3_8_11, "三卧", 8));
+        list.add(new AddHomeBean(R.mipmap.room_7_9_13, "主卫", 9));
+        list.add(new AddHomeBean(R.mipmap.room_10_book, "书房", 10));
+        list.add(new AddHomeBean(R.mipmap.room_1_3_8_11, "四卧", 11));
+        list.add(new AddHomeBean(R.mipmap.room_12_gongju, "工人房", 12));
+        list.add(new AddHomeBean(R.mipmap.room_7_9_13, "次卫", 13));
+        list.add(new AddHomeBean(R.mipmap.room_14_huike, "会客室", 14));
+        list.add(new AddHomeBean(R.mipmap.room_15_chucangshi, "储藏室", 15));
+        list.add(new AddHomeBean(R.mipmap.room_16_yimaojian, "衣帽间", 16));
+        list.add(new AddHomeBean(R.mipmap.room_17_ertongfang, "儿童房", 17));
+        list.add(new AddHomeBean(R.mipmap.room_18_lutai, "露台", 18));
+        list.add(new AddHomeBean(R.mipmap.room_2_19_keting, "起居室", 19));
         return list;
     }
 
     public static List<AddHomeBean> getIcons() {
         List<AddHomeBean> list = new ArrayList<>();
-        list.add(new AddHomeBean(R.mipmap.bed_room, R.string.room_bedroom));
-
-        list.add(new AddHomeBean(R.mipmap.bed_room, R.string.room_second_room));
-        list.add(new AddHomeBean(R.mipmap.add_home_dining_room, R.string.room_dining));
-        list.add(new AddHomeBean(R.mipmap.add_home_balcony, R.string.room_balcony));
-        list.add(new AddHomeBean(R.mipmap.add_home_garden, R.string.room_garden));
-        list.add(new AddHomeBean(R.mipmap.add_home_toilet, R.string.room_toilet));
+        list.add(new AddHomeBean(R.mipmap.room_1_3_8_11, "主卧", 1));
+        list.add(new AddHomeBean(R.mipmap.room_1_3_8_11, "次卧", 1));
+        list.add(new AddHomeBean(R.mipmap.room_4_canting, "餐厅", 1));
+        list.add(new AddHomeBean(R.mipmap.room_5_yangtai, "阳台", 1));
+        list.add(new AddHomeBean(R.mipmap.add_home_garden, "花园", 1));
+        list.add(new AddHomeBean(R.mipmap.room_7_9_13, "卫生间", 1));
         return list;
     }
 
     public static List<AddHomeBean> getSenseIcons() {
         List<AddHomeBean> list = new ArrayList<>();
-        list.add(new AddHomeBean(R.mipmap.add_home_garden, R.string.room_garden));
-        list.add(new AddHomeBean(R.mipmap.add_home_toilet, R.string.room_toilet));
-        list.add(new AddHomeBean(R.mipmap.bed_room, R.string.room_bedroom));
-        list.add(new AddHomeBean(R.mipmap.add_home_xuan_guan, R.string.room_living_room));
-
-        list.add(new AddHomeBean(R.mipmap.sense_child, R.string.room_second_room));
-        list.add(new AddHomeBean(R.mipmap.sense_wine, R.string.room_dining));
-        list.add(new AddHomeBean(R.mipmap.item_go_home, R.string.room_living_room));
-        list.add(new AddHomeBean(R.mipmap.add_home_dining_room, R.string.room_balcony));
+        list.add(new AddHomeBean(R.mipmap.room_1_3_8_11, "主卧", 1));
+        list.add(new AddHomeBean(R.mipmap.room_1_3_8_11, "次卧", 1));
+        list.add(new AddHomeBean(R.mipmap.room_4_canting, "餐厅", 1));
+        list.add(new AddHomeBean(R.mipmap.room_5_yangtai, "阳台", 1));
+        list.add(new AddHomeBean(R.mipmap.add_home_garden, "花园", 1));
+        list.add(new AddHomeBean(R.mipmap.room_7_9_13, "卫生间", 1));
         return list;
     }
 
     public static List<AddHomeBean> getSenseExampleIcons() {
         List<AddHomeBean> list = new ArrayList<>();
-        list.add(new AddHomeBean(R.mipmap.item_leave_home, R.string.main_scenes_leave_home));
-        list.add(new AddHomeBean(R.mipmap.item_go_home, R.string.main_scenes_go_home));
-        list.add(new AddHomeBean(R.mipmap.item_safe, R.string.main_scenes_safe));
-        list.add(new AddHomeBean(R.mipmap.item_sleep, R.string.main_scenes_sleep));
+        list.add(new AddHomeBean(R.mipmap.room_1_3_8_11, "安全模式", 1));
+        list.add(new AddHomeBean(R.mipmap.room_1_3_8_11, "离家模式", 1));
+        list.add(new AddHomeBean(R.mipmap.room_4_canting, "睡眠模式", 1));
+        list.add(new AddHomeBean(R.mipmap.room_5_yangtai, "回家模式", 1));
         return list;
     }
 

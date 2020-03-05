@@ -7,12 +7,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
 import butterknife.ButterKnife;
+import cn.zhian.avater.databasemodule.MDB;
+import cn.zhian.avater.databasemodule.tables.AccountDB;
 import cn.zhian.avater.iotproject.ui.TittleManager;
 
 /**
@@ -26,6 +30,8 @@ public abstract class BaseFragment<V extends BaseView, T extends BasePresenter<V
     protected View view;
     protected T mPresenter;
     public TittleManager tittleManager;
+    protected AccountDB accountDB;
+    protected String mCurrentPhoneNumber;
 
     @Nullable
     @Override
@@ -54,6 +60,11 @@ public abstract class BaseFragment<V extends BaseView, T extends BasePresenter<V
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        mCurrentPhoneNumber = MDB.INSTANCE.getCurrentPhoneNumber();
+        Log.d(TAG, "当前用户:" + mCurrentPhoneNumber);
+        if (!TextUtils.isEmpty(mCurrentPhoneNumber)) {
+            accountDB = MDB.INSTANCE.getAccount(mCurrentPhoneNumber);
+        }
         initData();
     }
 

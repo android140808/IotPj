@@ -26,6 +26,7 @@ public class AccountResponse extends BaseResponse {
         private boolean enabled;
         private String gatewayIp;
         private long id;
+        private long customerId;
         private boolean isLocked;
         private String lastLoginIp;
         private long lastLoginTime;
@@ -37,6 +38,22 @@ public class AccountResponse extends BaseResponse {
         private String username;
         private String weChat;
         private String weChatUnionId;
+
+        public long getCustomerId() {
+            return customerId;
+        }
+
+        public void setCustomerId(long customerId) {
+            this.customerId = customerId;
+        }
+
+        public boolean isLocked() {
+            return isLocked;
+        }
+
+        public void setLocked(boolean locked) {
+            isLocked = locked;
+        }
 
         public String getAvatar() {
             return avatar;
@@ -183,6 +200,7 @@ public class AccountResponse extends BaseResponse {
                     ", enabled=" + enabled +
                     ", gatewayIp='" + gatewayIp + '\'' +
                     ", id=" + id +
+                    ", customerId=" + customerId +
                     ", isLocked=" + isLocked +
                     ", lastLoginIp='" + lastLoginIp + '\'' +
                     ", lastLoginTime=" + lastLoginTime +

@@ -1,15 +1,31 @@
 package cn.zhian.avater.netmodule;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
 import cn.zhian.avater.netmodule.interfaces.NetResultCallBack;
 import cn.zhian.avater.netmodule.mode.base.BaseResponse;
 import cn.zhian.avater.netmodule.mode.requestBean.AccountRequest;
+import cn.zhian.avater.netmodule.mode.requestBean.AddDeviceRequest;
+import cn.zhian.avater.netmodule.mode.requestBean.AddRoomRequest;
 import cn.zhian.avater.netmodule.mode.requestBean.AllHostRequest;
+import cn.zhian.avater.netmodule.mode.requestBean.DelRoomOrDeviceRequest;
+import cn.zhian.avater.netmodule.mode.requestBean.GetAllRoomAndDevicesRequest;
+import cn.zhian.avater.netmodule.mode.requestBean.GetRoomDataRequest;
 import cn.zhian.avater.netmodule.mode.requestBean.LoginHeaders;
 import cn.zhian.avater.netmodule.mode.requestBean.LoginRequest;
+import cn.zhian.avater.netmodule.mode.requestBean.SearchDeviceRequest;
 import cn.zhian.avater.netmodule.mode.responseBean.AccountResponse;
+import cn.zhian.avater.netmodule.mode.responseBean.AllRoomAndDevicesResponse;
 import cn.zhian.avater.netmodule.mode.responseBean.CommMessageResponse;
+import cn.zhian.avater.netmodule.mode.responseBean.GetAllRoomAndDevicesResponse;
+import cn.zhian.avater.netmodule.mode.responseBean.SearchDeviceResponse;
 import cn.zhian.avater.netmodule.utils.ServerCode;
 import cn.zhian.avater.netmodule.utils.ServerRequestManager;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
@@ -221,6 +237,50 @@ public enum ServerRequest {
 
     public void edidPerson(AccountRequest request, NetResultCallBack<BaseResponse> callBack) {
         rxJavaProCallBack("编辑个人信息", urlServices.editPerson(request), callBack);
+    }
+
+    public void addRoom(AddRoomRequest request, File imageFile, NetResultCallBack<BaseResponse> callBack) {
+        List<MultipartBody.Part> list = new ArrayList<>();
+        if (imageFile != null) {
+            RequestBody imageBody = RequestBody.create(MediaType.parse("multipart/form-data"), imageFile);
+            MultipartBody.Part imagePart = MultipartBody.Part.createFormData("img", imageFile.getName(), imageBody);
+            list.add(imagePart);
+        }
+        MultipartBody.Part namePart = MultipartBody.Part.createFormData("name", request.getName());//参数
+        MultipartBody.Part customerIdPart = MultipartBody.Part.createFormData("customerId", request.getCustomerId() + "");//参数
+        MultipartBody.Part chamIdentifierPart = MultipartBody.Part.createFormData("chamIdentifier", request.getChamIdentifier() + "");//参数
+        list.add(namePart);
+        list.add(customerIdPart);
+        list.add(chamIdentifierPart);
+        rxJavaProCallBack("新增房间", urlServices.addRoom1(list), callBack);
+    }
+
+    public void getAllRoomAndDevices(GetAllRoomAndDevicesRequest request, NetResultCallBack<GetAllRoomAndDevicesResponse> callBack) {
+        rxJavaProCallBack("获取所有的房间以及设备", urlServices.getAllRoomsAndDevices(request), callBack);
+    }
+
+    public void delRoom(DelRoomOrDeviceRequest request, NetResultCallBack<BaseResponse> callBack) {
+        rxJavaProCallBack("删除房间", urlServices.delRoom(request), callBack);
+    }
+
+    public void addDevice(AddDeviceRequest request, NetResultCallBack<BaseResponse> callBack) {
+        rxJavaProCallBack("新增设备", urlServices.addDevice(request), callBack);
+    }
+
+    public void getRoomData(GetRoomDataRequest request, NetResultCallBack<BaseResponse> callBack) {
+        rxJavaProCallBack("获取房间数据", urlServices.getRoomData(request), callBack);
+    }
+
+    public void delDevice(DelRoomOrDeviceRequest request, NetResultCallBack<BaseResponse> callBack) {
+        rxJavaProCallBack("删除设备", urlServices.delDevice(request), callBack);
+    }
+
+    public void getAllRoomAndDevices(NetResultCallBack<AllRoomAndDevicesResponse> callBack) {
+        rxJavaProCallBack("获取房间数据和设备数据", urlServices.getAllProducts(), callBack);
+    }
+
+    public void searchDeivce(SearchDeviceRequest request, NetResultCallBack<SearchDeviceResponse> callBack) {
+        rxJavaProCallBack("查询设备", urlServices.searchDevice(request), callBack);
     }
 
 

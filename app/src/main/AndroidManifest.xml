@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="cn.zhian.avater.iotproject">
 
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <permission
         android:name="${applicationId}.permission.JPUSH_MESSAGE"
         android:protectionLevel="signature" /> <!-- 网络状态 -->
@@ -41,6 +42,15 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="p">
+        <activity
+            android:name=".ui.TextForInterfaceUI"
+            android:screenOrientation="portrait">
+            <!--            <intent-filter>-->
+            <!--                <action android:name="android.intent.action.MAIN" />-->
+
+            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+            <!--            </intent-filter>-->
+        </activity>
         <activity
             android:name=".ui.activity.control.WindowUI"
             android:screenOrientation="portrait" />
@@ -140,23 +150,21 @@
         <activity
             android:name=".ui.activity.FlashUI"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <!-- <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+                 <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>-->
         </activity>
         <activity
             android:name=".ui.activity.MainUI"
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
-            <!--
-             <intent-filter>
-                 <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-                 <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>
-            -->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".wxapi.WXEntryActivity"
@@ -197,6 +205,8 @@
             </intent-filter>
         </service>
         <service android:name=".serverice.LoginService" />
+
+        <service android:name="cn.zhian.avater.mqttmodule.MQTTService" />
     </application>
 
 </manifest>

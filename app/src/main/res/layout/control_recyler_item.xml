@@ -4,6 +4,7 @@
     android:layout_height="wrap_content">
 
     <LinearLayout
+        android:id="@+id/item_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dimen_size_10"
@@ -21,7 +22,7 @@
                 android:id="@+id/tittle_iv"
                 android:layout_width="@dimen/dimen_size_30"
                 android:layout_height="@dimen/dimen_size_30"
-                android:background="@mipmap/bed_room" />
+                android:src="@mipmap/room_1_3_8_11" />
 
             <TextView
                 android:id="@+id/tittle_tv"
@@ -42,7 +43,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/dimen_size_60"
             android:layout_marginTop="@dimen/dimen_size_20"
             android:layout_marginBottom="@dimen/dimen_size_10"
             android:orientation="horizontal">
@@ -58,13 +59,13 @@
                 <ImageView
                     android:layout_width="@dimen/dimen_size_30"
                     android:layout_height="@dimen/dimen_size_30"
-                    android:background="@mipmap/item_security" />
+                    android:src="@mipmap/item_light" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/dimen_size_10"
-                    android:text="@string/control_security_sense" />
+                    android:text="@string/control_linght_sense" />
             </LinearLayout>
 
             <LinearLayout
@@ -78,14 +79,15 @@
                 <ImageView
                     android:layout_width="@dimen/dimen_size_30"
                     android:layout_height="@dimen/dimen_size_30"
-                    android:background="@mipmap/item_light" />
+                    android:src="@mipmap/jiadian" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/dimen_size_10"
-                    android:text="@string/control_linght_sense" />
+                    android:text="家电" />
             </LinearLayout>
+
 
             <LinearLayout
                 android:id="@+id/content3"
@@ -98,13 +100,13 @@
                 <ImageView
                     android:layout_width="@dimen/dimen_size_30"
                     android:layout_height="@dimen/dimen_size_30"
-                    android:background="@mipmap/item_security" />
+                    android:src="@mipmap/item_security" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/dimen_size_10"
-                    android:text="@string/control_encironment_sense" />
+                    android:text="传感器" />
             </LinearLayout>
 
         </LinearLayout>

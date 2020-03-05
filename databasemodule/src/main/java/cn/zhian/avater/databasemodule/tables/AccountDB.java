@@ -3,8 +3,6 @@ package cn.zhian.avater.databasemodule.tables;
 import org.litepal.annotation.Column;
 import org.litepal.crud.LitePalSupport;
 
-import java.security.Key;
-
 /**
  * @Author: wangweida
  * @CreateDate: 2019-12-21 9:30

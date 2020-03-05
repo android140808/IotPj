@@ -12,9 +12,9 @@ public interface NetResultCallBack<T extends BaseResponse> {
      * 请求成功返回的结果
      *
      * @param responseCode 响应码
-     * @param baseResponse 响应体 泛型
+     * @param response     响应体 泛型
      */
-    void onSuccess(int responseCode, T baseResponse);
+    void onSuccess(int responseCode, T response);
 
     /**
      * 请求失败
